@@ -104,7 +104,7 @@ export const documentUploadSchema = z.object({
       `Dosya boyutu maksimum ${VALIDATION.MAX_FILE_SIZE / 1024 / 1024}MB olabilir`
     )
     .refine(
-      (file) => VALIDATION.ALLOWED_FILE_TYPES.includes(file.type),
+      (file) => VALIDATION.ALLOWED_FILE_TYPES.includes(file.type as any),
       'Sadece PDF, JPG, PNG ve Excel dosyaları yüklenebilir'
     ),
   

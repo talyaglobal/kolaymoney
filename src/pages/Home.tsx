@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Building2, ShoppingCart, Truck, Factory, Wheat, Package } from "lucide-react";
+import { ArrowRight, Building2, ShoppingCart, Factory, Wheat, Package } from "lucide-react";
 
 /**
  * Design Philosophy: Finansal Brutalizm

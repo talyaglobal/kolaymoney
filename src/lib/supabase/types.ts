@@ -298,6 +298,27 @@ export type Database = {
         | "b2b_fmcg"
         | "b2b_construction"
         | "b2b_logistics"
+        | "b2c_healthcare"
+        | "b2c_hospitality"
+        | "b2c_food_beverage"
+        | "b2c_fashion"
+        | "b2c_electronics"
+        | "b2c_home_garden"
+        | "b2c_sports"
+        | "b2b_manufacturing"
+        | "b2b_wholesale"
+        | "b2b_technology"
+        | "b2b_energy"
+        | "b2b_agriculture"
+        | "b2b_chemicals"
+        | "b2b_mining"
+        | "services_consulting"
+        | "services_marketing"
+        | "services_finance"
+        | "services_legal"
+        | "services_hr"
+        | "services_it"
+        | "other"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -456,6 +477,27 @@ export const Constants = {
         "b2b_fmcg",
         "b2b_construction",
         "b2b_logistics",
+        "b2c_healthcare",
+        "b2c_hospitality",
+        "b2c_food_beverage",
+        "b2c_fashion",
+        "b2c_electronics",
+        "b2c_home_garden",
+        "b2c_sports",
+        "b2b_manufacturing",
+        "b2b_wholesale",
+        "b2b_technology",
+        "b2b_energy",
+        "b2b_agriculture",
+        "b2b_chemicals",
+        "b2b_mining",
+        "services_consulting",
+        "services_marketing",
+        "services_finance",
+        "services_legal",
+        "services_hr",
+        "services_it",
+        "other",
       ],
     },
   },
