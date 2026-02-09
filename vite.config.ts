@@ -13,5 +13,14 @@ export default defineConfig({
   server: {
     port: 3000,
     open: true,
+    hmr: {
+      overlay: false, // Disable error overlay
+    },
+    headers: {
+      'Cache-Control': 'no-cache',
+    },
+  },
+  preview: {
+    port: 3000,
   },
 })

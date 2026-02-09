@@ -6,6 +6,7 @@ import { AdminApplications } from './pages/admin/Applications'
 import { ApplicationPage } from './pages/ApplicationPage'
 import { ApplicationDetail } from './components/admin/ApplicationDetail'
 import { AdminLayout } from './components/admin/AdminLayout'
+import Home from './pages/Home'
 
 // Protected Route Component
 function ProtectedRoute({ component: Component, ...rest }: any) {
@@ -30,7 +31,7 @@ function AppRoutes() {
   return (
     <Switch>
       {/* Public Routes */}
-      <Route path="/" component={() => <div>Home Page - Import your existing Home.tsx here</div>} />
+      <Route path="/" component={Home} />
       <Route path="/basvuru" component={ApplicationPage} />
       
       {/* Admin Routes */}
