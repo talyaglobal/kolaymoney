@@ -4,6 +4,7 @@ import { PasswordGate } from './components/auth/PasswordGate'
 import { AdminLogin } from './pages/admin/Login'
 import { AdminDashboard } from './pages/admin/Dashboard'
 import { AdminApplications } from './pages/admin/Applications'
+import { FinancialDataManager } from './pages/admin/FinancialDataManager'
 import { ApplicationPage } from './pages/ApplicationPage'
 import { ApplicationDetail } from './components/admin/ApplicationDetail'
 import { AdminLayout } from './components/admin/AdminLayout'
@@ -47,6 +48,7 @@ function AppRoutes() {
       <Route path="/admin/login" component={AdminLogin} />
       <Route path="/admin" component={() => <ProtectedRoute component={AdminDashboard} />} />
       <Route path="/admin/applications" component={() => <ProtectedRoute component={AdminApplications} />} />
+      <Route path="/admin/financial-data" component={() => <ProtectedRoute component={FinancialDataManager} />} />
       <Route path="/admin/applications/:id">
         {(params) => (
           <ProtectedRoute
