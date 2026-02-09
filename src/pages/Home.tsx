@@ -34,7 +34,7 @@ export default function Home() {
           </div>
           <div className="hidden md:flex gap-8 items-center">
             <a href="#how-it-works" className="font-semibold hover:text-primary transition-colors">Nasıl Çalışır?</a>
-            <a href="#sectors" className="font-semibold hover:text-primary transition-colors">Sektörler</a>
+            <a href="/sektorler" className="font-semibold hover:text-primary transition-colors">Sektörler</a>
             <a href="#references" className="font-semibold hover:text-primary transition-colors">Referanslar</a>
             <Button 
               onClick={scrollToContact}

@@ -8,6 +8,8 @@ import { ApplicationPage } from './pages/ApplicationPage'
 import { ApplicationDetail } from './components/admin/ApplicationDetail'
 import { AdminLayout } from './components/admin/AdminLayout'
 import Home from './pages/Home'
+import { SectorsListPage } from './pages/SectorsListPage'
+import { SectorPage } from './pages/sectors/SectorPage'
 
 // Protected Route Component
 function ProtectedRoute({ component: Component, ...rest }: any) {
@@ -34,6 +36,12 @@ function AppRoutes() {
       {/* Public Routes */}
       <Route path="/" component={Home} />
       <Route path="/basvuru" component={ApplicationPage} />
+      
+      {/* Sector Routes */}
+      <Route path="/sektorler" component={SectorsListPage} />
+      <Route path="/sektor/:slug">
+        {() => <SectorPage />}
+      </Route>
       
       {/* Admin Routes */}
       <Route path="/admin/login" component={AdminLogin} />
