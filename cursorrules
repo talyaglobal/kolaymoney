@@ -1,0 +1,182 @@
+# KolayMoney.com - Cursor IDE Development Guide
+
+## Project Overview
+KolayMoney.com is an alternative financing platform specializing in Asset-Backed Securities (VDMK) issuance in Turkey. The platform connects businesses with capital markets through OMG Capital Advisors strategic partnership.
+
+## Tech Stack
+- **Frontend Framework**: React 19 + Wouter (client-side routing)
+- **Build Tool**: Vite 7
+- **Styling**: Tailwind CSS 4 + shadcn/ui components
+- **Language**: TypeScript 5.6
+- **Package Manager**: pnpm
+
+## Design Philosophy: Finansal Brutalizm
+
+### Core Principles
+1. **Neo-Brutalist Aesthetics**: Raw, honest, unpolished visual language that communicates trust and transparency
+2. **Swiss Typography Precision**: Mathematical grid system with intentional whitespace
+3. **High Contrast Palette**: Pure black (#000000), pure white (#FFFFFF), electric blue (#0047FF)
+4. **Zero Rounded Corners**: All elements use sharp 90-degree angles (border-radius: 0)
+5. **Bold Typography Hierarchy**: Inter 900 for headlines, Inter 400 for body, Roboto Mono for data
+
+### Visual Language
+- **No gradients, no shadows** (except on hover for brutalist cards)
+- **Thick borders** (2px minimum) for all interactive elements
+- **Modular grid system** with strict alignment
+- **Minimal animations** (only translate transforms on hover)
+- **Data-first presentation** with monospace fonts for numbers
+
+## File Structure
+```
+client/
+  public/           # Static assets (favicons, sitemap.xml, robots.txt)
+  src/
+    pages/          # Page components (Home.tsx)
+    components/     # Reusable UI components (shadcn/ui)
+      ui/           # shadcn/ui primitives
+    contexts/       # React contexts (ThemeContext.tsx)
+    hooks/          # Custom React hooks
+    lib/            # Utility functions
+    App.tsx         # Routes & layout
+    main.tsx        # React entry point
+    index.css       # Global styles & design tokens
+```
+
+## Development Rules
+
+### CSS & Styling
+1. **Never use rounded corners** - All `border-radius` must be 0
+2. **Use design tokens** from `index.css` - Never hardcode colors
+3. **Semantic color pairing** - Always pair `bg-{color}` with `text-{color}-foreground`
+4. **Brutalist card pattern**:
+   ```tsx
+   <div className="brutalist-card">
+     {/* Content */}
+   </div>
+   ```
+   On hover: translates and adds electric blue shadow
+
+5. **Typography classes**:
+   - `.heading-1` - 64px, Inter 900, for hero titles
+   - `.heading-2` - 32px, Inter 700, for section headers
+   - `.heading-3` - 24px, Inter 600, for card titles
+   - `.body-text` - 18px, Inter 400, for paragraphs
+   - `.mono-text` - 16px, Roboto Mono 500, for data/labels
+
+### React Best Practices
+1. **No setState in render phase** - Always wrap in `useEffect`
+2. **Stable references for queries** - Use `useState` or `useMemo` for objects/arrays
+3. **Component composition** - Prefer shadcn/ui components over custom implementations
+4. **Accessibility first** - Maintain focus rings, keyboard navigation
+5. **Mobile-first responsive** - Design for 375px mobile, scale up
+
+### Component Guidelines
+1. **Use shadcn/ui primitives** from `@/components/ui/*`
+2. **Extend with variants** - Use `class-variance-authority` for component variants
+3. **Keep components pure** - Separate business logic from presentation
+4. **Avoid nested anchors** - `<Link>` already renders an `<a>` tag
+5. **Select items must have values** - Never use empty `value=""` in `<Select.Item>`
+
+### SEO Requirements
+1. **Meta tags** - All pages must have unique title, description, OG tags
+2. **Structured data** - Use JSON-LD for FinancialService schema
+3. **Semantic HTML** - Use proper heading hierarchy (h1 → h2 → h3)
+4. **Alt text** - All images must have descriptive alt attributes
+5. **Sitemap & robots.txt** - Keep updated in `/public`
+
+## Color Palette (OKLCH)
+```css
+--primary: oklch(0.45 0.25 264);           /* Electric Blue #0047FF */
+--background: oklch(1 0 0);                /* Pure White */
+--foreground: oklch(0 0 0);                /* Pure Black */
+--border: oklch(0 0 0);                    /* Black borders */
+--accent: oklch(0.45 0.25 264);            /* Electric Blue */
+```
+
+## Content Guidelines
+
+### Tone of Voice
+- **Professional but accessible** - Financial expertise without jargon
+- **Direct and transparent** - No marketing fluff
+- **Action-oriented** - Clear CTAs and next steps
+- **Trust-building** - Emphasize OMG Capital partnership and successful references
+
+### Key Messaging
+1. **Value Proposition**: "Hızlı ve alternatif finansman" (Fast and alternative financing)
+2. **Trust Signals**: OMG Capital Advisors partnership, 70+ transactions, TR A1 ratings
+3. **Process Clarity**: 3-step journey (Application → Evaluation → Issuance)
+4. **Sector Expertise**: B2C (retail, automotive, education) + B2B (FMCG, construction, logistics)
+
+## Business Context
+
+### VDMK (Asset-Backed Securities)
+- **Definition**: Converting receivables/assets into tradable securities
+- **Target Clients**: Businesses with 0-18 month payment terms
+- **Collateral Types**: Invoices, promissory notes, POS installments, contracts
+- **Partners**: PASHA Bank, OMG Capital Advisors
+
+### Success Stories (References)
+1. **Hepsiburada**: 500M+ TL, E-commerce BNPL, TR A1 rating
+2. **Seyidoğlu Otomotiv**: 350M TL, Commercial receivables, TurkRating A1
+3. **Maygold Otomotiv**: 600M TL, Automotive sector, 10th issuance
+4. **Tarfin**: 120M TL, Agricultural supply chain, 860 farmers
+
+## Common Pitfalls to Avoid
+
+### Design
+- ❌ Adding rounded corners or soft shadows
+- ❌ Using gradients or blur effects
+- ❌ Centered layouts (prefer asymmetric/grid)
+- ❌ Generic stock photos (use abstract data visualizations)
+
+### Code
+- ❌ Hardcoding colors instead of using design tokens
+- ❌ Creating new objects/arrays in render (causes infinite loops)
+- ❌ Nesting `<a>` tags inside `<Link>` components
+- ❌ Using `bg-{color}` without `text-{color}-foreground`
+
+### Content
+- ❌ Vague financial terminology without explanation
+- ❌ Missing trust signals (ratings, references, partnerships)
+- ❌ Unclear CTAs or next steps
+- ❌ Inconsistent Turkish language (use formal business Turkish)
+
+## Next Development Phases
+
+### Phase 1: Admin Dashboard (Planned)
+- CRM module with 360° customer view
+- Campaign manager (LinkedIn, Email, WhatsApp)
+- Manus AI presentation generator
+- Gamification system for go-to-market strategy
+
+### Phase 2: Backend Integration (Planned)
+- Supabase database setup
+- Form submission handling
+- Email notifications
+- User authentication
+
+### Phase 3: Advanced Features (Planned)
+- Blog/content management system
+- VDMK calculator tool
+- Sector-specific landing pages
+- Multi-language support (EN/TR)
+
+## Testing Checklist
+- [ ] All links work correctly
+- [ ] Forms validate properly
+- [ ] Mobile responsive (375px - 1920px)
+- [ ] SEO meta tags present
+- [ ] Favicons load correctly
+- [ ] No console errors
+- [ ] Accessibility (keyboard navigation, screen readers)
+- [ ] Performance (Lighthouse score > 90)
+
+## Contact & Support
+- **Email**: info@talya.vc
+- **Phone**: +90 532 794 30 77
+- **Website**: www.kolaymoney.com
+- **Strategic Partner**: OMG Capital Advisors
+
+---
+
+**Remember**: This is a financial services platform. Every design decision should communicate **trust, transparency, and professionalism**. The brutalist aesthetic is not just a style choice—it's a statement about honest, straightforward financial services.

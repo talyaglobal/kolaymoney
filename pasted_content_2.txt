@@ -1,0 +1,90 @@
+Teşekkürler — aradaki “SPK onaylı” ifadeyi sitenin mevcut içeriğine göre objektif olarak değerlendirecek şekilde yanıtlıyorum.
+
+🔍 OMG-CAP Web Sitesi İncelemesi
+
+• OMG Capital Advisors, İstanbul merkezli bir yapılandırılmış finans ve non-bank finansman danışmanlık firması olarak tanımlanıyor.  ￼
+• Site “ABS (Asset-Backed Securities)” ürününü kurumsal finansman aracı olarak anlatıyor.  ￼
+• Firma ekibinde ABS ihracı ve sermaye piyasası ürünleri deneyimi olduğu belirtiliyor.  ￼
+
+Ancak: site doğrudan “SPK onaylı ihraçlar” ifadesi kullanmıyor ve SPK lisansları/ruhsatlarına dair doğrudan bir bölüm ya da sertifika görüntülemiyor.
+
+🔎 SPK Onayı ile İhraçlara İlişkin Dolaylı Kanıt
+
+• PASHA Yatırım Bankası’nın haberinde, otomatik bir VDMK ihracı örneği veriliyor;
+	•	%42,75 basit getiri sunan VDMK;
+	•	Türk Rating tarafından ulusal notlandırma almış;
+	•	Yatırım fonları, emeklilik fonları, sigorta şirketleri gibi kurumsal yatırımcılar tarafından talep görmüş.  ￼
+Bu, SPK mevzuatına uygun bir ihracın piyasada gerçekleştiğini gösterir ama doğrudan “OMG-CAP sitesinde SPK onayı var” demiyor.
+
+Özetle:
+	•	OMG-CAP kurumsal düzeyde ABS/VDMK çözümleri sunuyor.  ￼
+	•	En azından bir VDMK ihracı piyasada yer aldı ve derecelendirildi.  ￼
+	•	Ancak sitenin self-declared kısmında doğrudan SPK lisans/ruhsat görseli/metni yer almıyor.
+
+⸻
+
+📌 Manus AI Prompt for Slide — with SPK Context
+
+Aşağıdaki prompt SPK odaklı tek sayfalık sayısal örnek + cashflow + IRR aralığı slide’ı üretir ve SPK uyumlu çerçevede sunar:
+
+You are Manus AI.
+Create ONE professional institutional slide in Turkish.
+
+Title:
+“Örnek VDMK Yapısı – Nakit Akışı & Getiri Aralığı (SPK Uyumlu Temsili)”
+
+Audience:
+Institutional investors, investment committees, CFOs
+
+Tone:
+Conservative, compliant, not legal advice
+
+Add a short compliance note:
+“Bu örnek SPK mevzuatına uygun çerçevede temsili olarak hazırlanmıştır. Yatırım tavsiyesi değildir.”
+
+========================
+SECTIONS
+========================
+
+1) PORTFÖY ÖZETİ (Tablo)
+- Dayanak varlık: Ticari alacak (fatura + senet)
+- Portföy büyüklüğü: 100.000.000 TL
+- Ortalama vade: 6 ay
+- Tahsilat oranı (tarihsel, temsili): %97–%99
+- Konsantrasyon: Tek borçlu < %5
+
+2) YAPI & FONLAMA
+- VDMK ihraç büyüklüğü: 92.000.000 TL
+- İskonto: %8 temsili
+- Talya GSYF risk tutma: %5
+- SPK uyumlu ihraç çerçevesi (Mevzuata uygunluk ifadesi)
+
+3) NAKİT AKIŞI (Basit)
+- Ay 0: Yatırımcı → VDMK fonu → Alacak satın alımı
+- Ay 1–6: Borçlulardan tahsilat → Servicer (Talya Smart) → Fon
+- Ay 6: Fon nakit dağıtımı (anapara + kupon)
+
+4) GETİRİ ARALIĞI (IRR)
+- Conservative (Düşük risk) senaryo: %10–%12 IRR (temsili)
+- Base senaryo: %12–%16 IRR (temsili)
+- High performans: %16–%20 IRR (temsili)
+*Aralıklar geçmiş veriye değil temsili simülasyona göredir.*
+
+Layout:
+- Left half: table + bullets
+- Right half: cashflow arrows + IRR bar chart
+
+Footer:
+“Temsili örnektir. Yatırım tavsiyesi değildir.”
+
+
+⸻
+
+📌 Neden SPK Uyumlu Vurgu Önemli?
+
+• Türkiye’de VDMK/ABS ihraçları Sermaye Piyasası Kurulu (SPK) mevzuatına tabidir.
+• Yatırımcı / komite kararlarında “SPK uyumlu çerçeve” ifadesi risk algısını olumlu etkiler.
+
+⸻
+
+İstersen, buna uygun sayısal modelli Excel/CSV simülatör de çıkartabilirim (özellikle IRR sensitivity, tahsilat varyasyon senaryoları, iskonto etkisi vb.).

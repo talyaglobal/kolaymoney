@@ -1,0 +1,186 @@
+Tamam — sadece başlığı düzeltiyorum ve net, hazır MANUS AI promptu veriyorum.
+Bunu aynen Manus AI’ye yapıştır.
+
+⸻
+
+🧠 MANUS AI PROMPT — KolayMoney.com / OMG-CAP VDMK (10 SLIDE)
+
+You are Manus AI.
+Create a 10-slide professional, institutional presentation in Turkish.
+
+MAIN TITLE (MUST USE EXACTLY):
+“Talya Smart’ın İştiraki: KolayMoney.com”
+
+Brand architecture (MUST USE EXACTLY AS BELOW):
+- Talya Smart:
+  “Türkiye’nin alacak bazlı veri & servis platformu”
+- Talya GSYF:
+  “Yapılandırılmış finansmanda anchor investor”
+- OMG-CAP VDMK:
+  “Kurumsal yatırımcıya şeffaf, veri destekli ürün”
+
+Audience:
+Institutional investors, CFOs, investment committees, family offices
+
+Tone:
+Institutional, clear, compliant, conservative
+No hype, no guaranteed returns, no legal advice
+
+Design:
+Minimal capital markets style
+White background, dark text
+Simple flow diagrams, tables, icons
+No marketing fluff
+
+================================
+SLIDE STRUCTURE (10 SLIDES)
+================================
+
+SLIDE 1 — COVER
+Title:
+“Talya Smart’ın İştiraki: KolayMoney.com”
+
+Subtitle:
+“OMG-CAP VDMK Yapıları ile Alacak Bazlı Finansman”
+
+Footer:
+Talya Smart | Talya GSYF | OMG-CAP
+
+----------------------------
+
+SLIDE 2 — EKOSİSTEM GENEL BAKIŞ
+Title:
+“Entegre Yapılandırılmış Finansman Ekosistemi”
+
+Content:
+- Talya Smart: alacak üretimi, veri, risk analizi ve servis
+- KolayMoney.com: müşteri edinimi ve finansman çözümleri
+- Talya GSYF: anchor investor ve risk dengeleme
+- OMG-CAP: VDMK yapısının tasarımı ve ihracı
+
+Key message:
+Her aktörün rolü net, şeffaf ve ayrıştırılmıştır.
+
+----------------------------
+
+SLIDE 3 — PROBLEM TANIMI
+Title:
+“Piyasadaki Temel İhtiyaç”
+
+Bullet points:
+- Şirketlerin bilançolarında uzun vadeli alacaklar
+- Banka kredi limitlerinin sınırlı olması
+- Yatırımcıların teminatlı ve şeffaf ürün arayışı
+- Veri ve tahsilat kalitesinin yatırım kararında kritik hale gelmesi
+
+----------------------------
+
+SLIDE 4 — ÇÖZÜM: OMG-CAP VDMK
+Title:
+“OMG-CAP VDMK Nedir?”
+
+Content:
+- Alacak portföylerine dayalı menkul kıymet yapısı
+- Nakit akışı, dayanak varlıklardan beslenir
+- Bilançodan bağımsız, fon bazlı yapı
+- Kurumsal yatırımcı odaklı tasarım
+
+One-liner:
+VDMK, alacağı yatırım ürününe dönüştürür.
+
+----------------------------
+
+SLIDE 5 — ALACAK KAYNAĞI: TALYA SMART
+Title:
+“Talya Smart’ın Rolü”
+
+Bullet points:
+- Vadeli satış yapan şirketlerden alacak üretimi
+- Veri doğrulama ve kredi skorlama
+- Tahsilat (servicing) ve raporlama
+- Sürekli performans izleme
+
+Tagline:
+“Türkiye’nin alacak bazlı veri & servis platformu”
+
+----------------------------
+
+SLIDE 6 — YATIRIMCI GÜVENCESİ: TALYA GSYF
+Title:
+“Talya GSYF’nin Rolü”
+
+Bullet points:
+- İlk yatırımcı (anchor investor) rolü
+- Risk tutma ve yapı dengesi
+- Uzun vadeli sermaye perspektifi
+- Kurumsal yönetişim ve disiplin
+
+Tagline:
+“Yapılandırılmış finansmanda anchor investor”
+
+----------------------------
+
+SLIDE 7 — NAKİT AKIŞI VE YAPI
+Title:
+“VDMK Nakit Akışı Mekanizması”
+
+Visual description:
+- Alacaklar → VDMK Fonu → Yatırımcılar
+- Tahsilatlar → Servicer → Fon → Kupon / Anapara
+
+Bullet notes:
+- Önceden tanımlı nakit akışı kuralları
+- Şeffaf raporlama
+- Veri bazlı izleme
+
+----------------------------
+
+SLIDE 8 — RİSK YÖNETİMİ
+Title:
+“Risk Yönetimi ve Koruma Mekanizmaları”
+
+Bullet points:
+- Alacak çeşitlendirmesi
+- Veri destekli kredi skoru
+- Rezerv / iskonto yapıları
+- Performans ve erken uyarı sistemleri
+
+----------------------------
+
+SLIDE 9 — YATIRIMCIYA DEĞER
+Title:
+“Kurumsal Yatırımcı Açısından Değer”
+
+Bullet points:
+- Teminatlı ve veri destekli yapı
+- Bilançodan bağımsız finansman
+- Öngörülebilir nakit akışı
+- Şeffaf raporlama ve yönetişim
+
+Tagline:
+“Kurumsal yatırımcıya şeffaf, veri destekli ürün”
+
+----------------------------
+
+SLIDE 10 — UYARI & SONUÇ
+Title:
+“Sonuç ve Yasal Uyarı”
+
+Content:
+- KolayMoney.com, Talya Smart iştiraki olarak OMG-CAP çözümlerinin ticari kanalını temsil eder
+- Bu sunum bilgilendirme amaçlıdır
+- Nihai yapılar ilgili mevzuat, SPK düzenlemeleri ve hukuki değerlendirme ile şekillenir
+
+Closing line:
+Veri, yapı ve sermaye aynı ekosistemde buluşur.
+
+
+⸻
+
+İstersen bir sonraki adımda:
+	•	🎯 Bu sunumun yatırımcı versiyonu (İngilizce)
+	•	📊 Sayısal örnekli (cashflow + IRR range) slide
+	•	🧾 SPK / IC approval öncesi “pre-read memo”
+	•	🌍 Global ABS yatırımcısına anlatım versiyonu
+
+hangisini istediğini söyle, direkt devam edelim.

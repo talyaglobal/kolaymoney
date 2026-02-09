@@ -1,0 +1,132 @@
+{
+  "project_info": {
+    "title": "Talya Smart'ın İştiraki: KolayMoney.com",
+    "created": 1770653219.9596326,
+    "last_updated": 1770653485.6213937,
+    "total_slides": 10
+  },
+  "slides": [
+    {
+      "id": "slide_1_cover",
+      "state": "edited",
+      "pageNum": 1
+    },
+    {
+      "id": "slide_2_ecosystem",
+      "state": "edited",
+      "pageNum": 2
+    },
+    {
+      "id": "slide_3_market_need",
+      "state": "edited",
+      "pageNum": 3
+    },
+    {
+      "id": "slide_4_vdmk_solution",
+      "state": "edited",
+      "pageNum": 4
+    },
+    {
+      "id": "slide_5_talya_smart",
+      "state": "edited",
+      "pageNum": 5
+    },
+    {
+      "id": "slide_6_talya_gsyf",
+      "state": "edited",
+      "pageNum": 6
+    },
+    {
+      "id": "slide_7_cash_flow",
+      "state": "edited",
+      "pageNum": 7
+    },
+    {
+      "id": "slide_8_risk_management",
+      "state": "edited",
+      "pageNum": 8
+    },
+    {
+      "id": "slide_9_investor_value",
+      "state": "edited",
+      "pageNum": 9
+    },
+    {
+      "id": "slide_10_references",
+      "state": "edited",
+      "pageNum": 10
+    }
+  ],
+  "outline": [
+    {
+      "id": "slide_1_cover",
+      "title": "Talya Smart'ın İştiraki: KolayMoney.com",
+      "summary": "Presentation cover with main title, subtitle, and footer information.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_2_ecosystem",
+      "title": "Entegre Yapılandırılmış Finansman Ekosistemi",
+      "summary": "Overview of the four-actor ecosystem (Talya Smart, KolayMoney.com, Talya GSYF, OMG-CAP) and their distinct roles.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_3_market_need",
+      "title": "Piyasadaki Temel İhtiyaç ve Fırsatlar",
+      "summary": "Analysis of the structural gap in Turkish receivables finance market and the opportunity for VDMK.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_4_vdmk_solution",
+      "title": "Çözüm: OMG-CAP VDMK Yapısı",
+      "summary": "Explanation of VDMK structure converting receivables into investment products independent of balance sheet.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_5_talya_smart",
+      "title": "Alacak Kaynağı ve Veri Platformu: Talya Smart",
+      "summary": "Detailing Talya Smart's role in data verification, credit scoring, and servicing for VDMK structures.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_6_talya_gsyf",
+      "title": "Yatırımcı Güvencesi: Talya GSYF",
+      "summary": "Explaining Talya GSYF's role as anchor investor providing risk retention and structural balance.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_7_cash_flow",
+      "title": "Nakit Akışı ve Yapı Mekanizması",
+      "summary": "Visualizing the cash flow mechanism from receivables to investor payments with transparency focus.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_8_risk_management",
+      "title": "Risk Yönetimi ve Koruma Mekanizmaları",
+      "summary": "Outlining multi-layered risk management including diversification, scoring, reserves, and SPK compliance.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_9_investor_value",
+      "title": "Kurumsal Yatırımcı Açısından Değer Önerisi",
+      "summary": "Value proposition for institutional investors: collateralized, transparent, predictable, and high yield.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_10_references",
+      "title": "Referans Projeler ve Sonuç",
+      "summary": "Showcasing successful VDMK issuances with PASHA Bank (Hepsiburada, Seyidoğlu, etc.) and closing statement.",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    }
+  ]
+}
