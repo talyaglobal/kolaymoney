@@ -31,12 +31,37 @@ export const applicationSchema = z.object({
     .regex(PHONE_FORMAT.REGEX, 'Telefon numarası +90 ile başlamalı ve 10 haneli olmalıdır'),
   
   sector: z.enum([
+    // B2C Sektörler
     'b2c_retail',
     'b2c_automotive',
     'b2c_education',
+    'b2c_healthcare',
+    'b2c_hospitality',
+    'b2c_food_beverage',
+    'b2c_fashion',
+    'b2c_electronics',
+    'b2c_home_garden',
+    'b2c_sports',
+    // B2B Sektörler
     'b2b_fmcg',
     'b2b_construction',
     'b2b_logistics',
+    'b2b_manufacturing',
+    'b2b_wholesale',
+    'b2b_technology',
+    'b2b_energy',
+    'b2b_agriculture',
+    'b2b_chemicals',
+    'b2b_mining',
+    // Hizmet Sektörleri
+    'services_consulting',
+    'services_marketing',
+    'services_finance',
+    'services_legal',
+    'services_hr',
+    'services_it',
+    // Diğer
+    'other',
   ], {
     errorMap: () => ({ message: 'Lütfen bir sektör seçiniz' }),
   }),

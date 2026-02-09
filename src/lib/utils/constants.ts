@@ -1,12 +1,40 @@
 // KolayMoney.com Constants
 
 export const SECTORS = {
+  // B2C Sektörler
   b2c_retail: 'Perakende',
   b2c_automotive: 'Otomotiv',
   b2c_education: 'Eğitim',
-  b2b_fmcg: 'FMCG',
-  b2b_construction: 'İnşaat',
-  b2b_logistics: 'Lojistik',
+  b2c_healthcare: 'Sağlık',
+  b2c_hospitality: 'Otelcilik & Turizm',
+  b2c_food_beverage: 'Gıda & İçecek',
+  b2c_fashion: 'Moda & Tekstil',
+  b2c_electronics: 'Elektronik',
+  b2c_home_garden: 'Ev & Bahçe',
+  b2c_sports: 'Spor & Fitness',
+  
+  // B2B Sektörler
+  b2b_fmcg: 'FMCG (Hızlı Tüketim Malları)',
+  b2b_construction: 'İnşaat & Yapı',
+  b2b_logistics: 'Lojistik & Taşımacılık',
+  b2b_manufacturing: 'İmalat & Üretim',
+  b2b_wholesale: 'Toptan Ticaret',
+  b2b_technology: 'Teknoloji & Yazılım',
+  b2b_energy: 'Enerji',
+  b2b_agriculture: 'Tarım & Hayvancılık',
+  b2b_chemicals: 'Kimya & İlaç',
+  b2b_mining: 'Madencilik',
+  
+  // Hizmet Sektörleri
+  services_consulting: 'Danışmanlık',
+  services_marketing: 'Pazarlama & Reklam',
+  services_finance: 'Finans & Sigorta',
+  services_legal: 'Hukuk',
+  services_hr: 'İnsan Kaynakları',
+  services_it: 'Bilişim Hizmetleri',
+  
+  // Diğer
+  other: 'Diğer',
 } as const
 
 export const RECEIVABLES_TYPES = {

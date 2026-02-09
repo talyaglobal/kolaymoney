@@ -236,16 +236,53 @@ export function VDMKApplicationForm({ onSuccess, onError }: VDMKApplicationFormP
                   id="sector"
                   className="w-full px-4 py-3 border-2 border-black bg-white mono-text focus:outline-none focus:border-[#0047FF] transition-colors"
                 >
-                  <option value="">Seçiniz</option>
-                  {Object.entries(SECTORS).map(([value, label]) => (
-                    <option key={value} value={value}>
-                      {label}
-                    </option>
-                  ))}
+                  <option value="">Sektör Seçiniz</option>
+                  
+                  <optgroup label="━━━ B2C Sektörler ━━━">
+                    <option value="b2c_retail">Perakende</option>
+                    <option value="b2c_automotive">Otomotiv</option>
+                    <option value="b2c_education">Eğitim</option>
+                    <option value="b2c_healthcare">Sağlık</option>
+                    <option value="b2c_hospitality">Otelcilik & Turizm</option>
+                    <option value="b2c_food_beverage">Gıda & İçecek</option>
+                    <option value="b2c_fashion">Moda & Tekstil</option>
+                    <option value="b2c_electronics">Elektronik</option>
+                    <option value="b2c_home_garden">Ev & Bahçe</option>
+                    <option value="b2c_sports">Spor & Fitness</option>
+                  </optgroup>
+                  
+                  <optgroup label="━━━ B2B Sektörler ━━━">
+                    <option value="b2b_fmcg">FMCG (Hızlı Tüketim Malları)</option>
+                    <option value="b2b_construction">İnşaat & Yapı</option>
+                    <option value="b2b_logistics">Lojistik & Taşımacılık</option>
+                    <option value="b2b_manufacturing">İmalat & Üretim</option>
+                    <option value="b2b_wholesale">Toptan Ticaret</option>
+                    <option value="b2b_technology">Teknoloji & Yazılım</option>
+                    <option value="b2b_energy">Enerji</option>
+                    <option value="b2b_agriculture">Tarım & Hayvancılık</option>
+                    <option value="b2b_chemicals">Kimya & İlaç</option>
+                    <option value="b2b_mining">Madencilik</option>
+                  </optgroup>
+                  
+                  <optgroup label="━━━ Hizmet Sektörleri ━━━">
+                    <option value="services_consulting">Danışmanlık</option>
+                    <option value="services_marketing">Pazarlama & Reklam</option>
+                    <option value="services_finance">Finans & Sigorta</option>
+                    <option value="services_legal">Hukuk</option>
+                    <option value="services_hr">İnsan Kaynakları</option>
+                    <option value="services_it">Bilişim Hizmetleri</option>
+                  </optgroup>
+                  
+                  <optgroup label="━━━━━━━━━━━━━━━━━━━">
+                    <option value="other">Diğer</option>
+                  </optgroup>
                 </select>
                 {errors.sector && (
                   <p className="text-red-600 text-sm mt-1 mono-text">{errors.sector.message}</p>
                 )}
+                <p className="text-gray-600 text-xs mt-1 mono-text">
+                  Şirketinizin faaliyet gösterdiği ana sektörü seçiniz
+                </p>
               </div>
 
               {/* Financing Amount */}
@@ -365,10 +402,10 @@ export function VDMKApplicationForm({ onSuccess, onError }: VDMKApplicationFormP
               </div>
             </div>
 
-            <div className="brutalist-card p-6 bg-yellow-50 border-2 border-black">
+            <div className="brutalist-card p-6 bg-blue-50 border-2 border-black">
               <p className="mono-text text-sm">
-                ⚠️ Başvurunuzu gönderdikten sonra, OMG Capital Advisors ekibimiz en kısa sürede sizinle iletişime geçecektir.
-                Başvurunuz 1-2 iş günü içinde değerlendirilecektir.
+                📞 Bilgilerinizi onayladıktan sonra, OMG Capital Advisors ekibimiz sizi arayarak finansman detaylarını görüşecektir.
+                Başvurunuz 1-2 iş günü içinde değerlendirilecek ve size geri dönüş yapılacaktır.
               </p>
             </div>
           </div>
@@ -401,7 +438,7 @@ export function VDMKApplicationForm({ onSuccess, onError }: VDMKApplicationFormP
               disabled={isSubmitting}
               className="px-8 py-4 border-2 border-black bg-[#0047FF] text-white hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all mono-text font-medium ml-auto disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isSubmitting ? 'Gönderiliyor...' : 'Başvuruyu Gönder'}
+              {isSubmitting ? 'Gönderiliyor...' : '📞 Sizi Arayalım'}
             </button>
           )}
         </div>

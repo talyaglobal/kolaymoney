@@ -19,34 +19,49 @@ export function ApplicationPage() {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center p-4">
         <div className="w-full max-w-2xl">
-          <div className="brutalist-card p-12 text-center bg-green-50 border-2 border-green-600">
-            <div className="w-20 h-20 bg-green-600 border-2 border-black mx-auto mb-6 flex items-center justify-center">
-              <span className="text-4xl text-white">✓</span>
+          <div className="brutalist-card p-12 text-center bg-blue-50 border-2 border-[#0047FF]">
+            <div className="w-20 h-20 bg-[#0047FF] border-2 border-black mx-auto mb-6 flex items-center justify-center">
+              <span className="text-4xl text-white">📞</span>
             </div>
             
-            <h1 className="heading-2 mb-4">Başvurunuz Alındı!</h1>
+            <h1 className="heading-2 mb-4">Bilgileriniz Alındı!</h1>
             
             <p className="mono-text text-lg mb-6">
-              Başvurunuz başarıyla kaydedildi. OMG Capital Advisors ekibimiz en kısa sürede sizinle iletişime geçecektir.
+              Teşekkürler! OMG Capital Advisors ekibimiz en kısa sürede sizi arayarak finansman detaylarını görüşecektir.
             </p>
 
             <div className="brutalist-card p-6 bg-white mb-6">
-              <p className="mono-text text-sm text-gray-600 mb-2">Başvuru Numaranız</p>
-              <p className="mono-text font-bold text-[#0047FF]">{applicationId?.slice(0, 8).toUpperCase()}</p>
+              <p className="mono-text text-sm text-gray-600 mb-2">Başvuru Referans Numaranız</p>
+              <p className="mono-text font-bold text-[#0047FF] text-xl">{applicationId?.slice(0, 8).toUpperCase()}</p>
             </div>
 
-            <div className="space-y-4">
+            <div className="brutalist-card p-6 bg-yellow-50 border-2 border-black mb-6">
+              <p className="mono-text text-sm font-medium mb-3">📋 Sonraki Adımlar:</p>
+              <div className="space-y-2 text-left">
+                <p className="mono-text text-sm">
+                  ✓ Ekibimiz 1-2 iş günü içinde sizi arayacak
+                </p>
+                <p className="mono-text text-sm">
+                  ✓ Finansman detayları görüşülecek
+                </p>
+                <p className="mono-text text-sm">
+                  ✓ Gerekli belgeler talep edilecek
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-3 mb-6">
               <p className="mono-text text-sm text-gray-600">
-                📧 Başvuru detaylarını e-posta adresinize gönderdik.
+                📧 Başvuru onay e-postasını kontrol edin
               </p>
               <p className="mono-text text-sm text-gray-600">
-                📞 Sorularınız için: +90 532 794 30 77
+                📞 Acil sorularınız için: <span className="font-bold text-[#0047FF]">+90 542 794 30 77</span>
               </p>
             </div>
 
             <a
               href="/"
-              className="inline-block mt-8 px-8 py-4 border-2 border-black bg-[#0047FF] text-white hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all mono-text font-medium"
+              className="inline-block mt-4 px-8 py-4 border-2 border-black bg-[#0047FF] text-white hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all mono-text font-medium"
             >
               Ana Sayfaya Dön
             </a>

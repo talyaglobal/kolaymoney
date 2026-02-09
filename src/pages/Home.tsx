@@ -71,7 +71,7 @@ export default function Home() {
                 onClick={scrollToContact}
                 className="bg-black text-white border-2 border-black hover:bg-primary hover:border-primary font-bold text-lg px-8 py-6"
               >
-                Hemen Başvur <ArrowRight className="ml-2" />
+                📞 Sizi Arayalım <ArrowRight className="ml-2" />
               </Button>
               <Button 
                 size="lg"
@@ -299,7 +299,7 @@ export default function Home() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="heading-2 mb-6 text-white">Finansmana Erişimin Kolay Yoluyla Tanışın</h2>
             <p className="body-text mb-8 text-white/90">
-              Hemen başvurun, ekibimiz 24 saat içinde size özel bir değerlendirme sunumu hazırlasın.
+              📞 Bilgilerinizi bırakın, ekibimiz 24 saat içinde sizi arayarak finansman detaylarını görüşsün.
             </p>
 
             <form className="grid md:grid-cols-2 gap-4 mb-8">
@@ -335,7 +335,7 @@ export default function Home() {
                 size="lg"
                 className="md:col-span-2 bg-black text-white border-2 border-white hover:bg-white hover:text-primary font-bold text-lg py-6"
               >
-                Başvuruyu Gönder <ArrowRight className="ml-2" />
+                📞 Sizi Arayalım <ArrowRight className="ml-2" />
               </Button>
             </form>
 
@@ -344,8 +344,8 @@ export default function Home() {
                 info@talya.vc
               </a>
               <span className="hidden md:inline">|</span>
-              <a href="tel:+905327943077" className="mono-text hover:text-white transition-colors">
-                +90 532 794 30 77
+              <a href="tel:+905427943077" className="mono-text hover:text-white transition-colors">
+                +90 542 794 30 77
               </a>
               <span className="hidden md:inline">|</span>
               <a href="https://www.kolaymoney.com" className="mono-text hover:text-white transition-colors">

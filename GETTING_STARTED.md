@@ -237,4 +237,4 @@ Before deploying to production:
 
 Contact:
 - Email: info@talya.vc
-- Phone: +90 532 794 30 77
+- Phone: +90 542 794 30 77
