@@ -294,8 +294,8 @@ SELECT * FROM applications;
 
 ## 📞 Support
 
-- **Email**: info@talya.vc
-- **Phone**: +90 542 794 30 77
+- **Email**: hq@talya.vc
+- **Phone**: +90 555 868 16 34
 - **Website**: www.kolaymoney.com
 
 ## 📄 License

@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { ArrowRight, Building2, ShoppingCart, Factory, Wheat, Package } from "lucide-react";
 
 /**
@@ -20,12 +21,14 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
+      {/* WhatsApp Floating Button */}
+      <WhatsAppButton />
       {/* Navigation */}
       <nav className="border-b-2 border-black bg-white sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 bg-primary flex items-center justify-center border-2 border-black">
-              <span className="text-white font-black text-xl">K</span>
+              <span className="text-white font-black text-2xl">₺</span>
             </div>
             <span className="font-black text-xl">KolayMoney.com</span>
           </div>
@@ -340,12 +343,12 @@ export default function Home() {
             </form>
 
             <div className="flex flex-col md:flex-row justify-center items-center gap-6 text-white/90">
-              <a href="mailto:info@talya.vc" className="mono-text hover:text-white transition-colors">
-                info@talya.vc
+              <a href="mailto:hq@talya.vc" className="mono-text hover:text-white transition-colors">
+                hq@talya.vc
               </a>
               <span className="hidden md:inline">|</span>
-              <a href="tel:+905427943077" className="mono-text hover:text-white transition-colors">
-                +90 542 794 30 77
+              <a href="tel:+905558681634" className="mono-text hover:text-white transition-colors">
+                +90 555 868 16 34
               </a>
               <span className="hidden md:inline">|</span>
               <a href="https://www.kolaymoney.com" className="mono-text hover:text-white transition-colors">

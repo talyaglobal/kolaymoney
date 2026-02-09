@@ -1,5 +1,6 @@
 import { Route, Switch, Redirect } from 'wouter'
 import { AuthProvider, useAuthContext } from './contexts/AuthContext'
+import { PasswordGate } from './components/auth/PasswordGate'
 import { AdminLogin } from './pages/admin/Login'
 import { AdminDashboard } from './pages/admin/Dashboard'
 import { AdminApplications } from './pages/admin/Applications'
@@ -58,8 +59,10 @@ function AppRoutes() {
 
 export function App() {
   return (
-    <AuthProvider>
-      <AppRoutes />
-    </AuthProvider>
+    <PasswordGate>
+      <AuthProvider>
+        <AppRoutes />
+      </AuthProvider>
+    </PasswordGate>
   )
 }

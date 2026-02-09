@@ -39,6 +39,24 @@ export function useApplication() {
         throw appError
       }
 
+      // Send email notification
+      try {
+        await supabase.functions.invoke('send-application-email', {
+          body: {
+            to: application.email,
+            company_name: application.company_name,
+            contact_person: application.contact_person,
+            application_id: application.id,
+            financing_amount: application.financing_amount,
+            sector: application.sector,
+            phone: application.phone,
+          },
+        })
+      } catch (emailError) {
+        // Don't fail the application if email fails
+        console.error('Email send failed:', emailError)
+      }
+
       return application
     } catch (err) {
       const error = err instanceof Error ? err : new Error('Başvuru gönderilemedi')

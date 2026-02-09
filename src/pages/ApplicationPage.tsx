@@ -55,7 +55,7 @@ export function ApplicationPage() {
                 📧 Başvuru onay e-postasını kontrol edin
               </p>
               <p className="mono-text text-sm text-gray-600">
-                📞 Acil sorularınız için: <span className="font-bold text-[#0047FF]">+90 542 794 30 77</span>
+                📞 Acil sorularınız için: <span className="font-bold text-[#0047FF]">+90 555 868 16 34</span>
               </p>
             </div>
 
@@ -77,7 +77,9 @@ export function ApplicationPage() {
         {/* Header */}
         <div className="text-center mb-12">
           <a href="/" className="inline-block mb-8">
-            <div className="w-12 h-12 bg-[#0047FF] border-2 border-black mx-auto" />
+            <div className="w-12 h-12 bg-[#0047FF] border-2 border-black mx-auto flex items-center justify-center">
+              <span className="text-white font-black text-2xl">₺</span>
+            </div>
           </a>
           <h1 className="heading-1 mb-4">VDMK Başvuru Formu</h1>
           <p className="body-text text-gray-600">
