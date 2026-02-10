@@ -76,6 +76,14 @@ function generateSitemapURLs() {
       priority: 0.9
     },
     
+    // Factoring comparison page
+    {
+      loc: `${BASE_URL}/neden-factoring-degil`,
+      lastmod: now,
+      changefreq: 'monthly',
+      priority: 0.85
+    },
+    
     // Individual sector pages
     ...SECTORS.map(sector => ({
       loc: `${BASE_URL}/sektor/${sector}`,

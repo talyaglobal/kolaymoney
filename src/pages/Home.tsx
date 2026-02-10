@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { FAQSection } from "@/components/seo/FAQSection";
+import { Navigation } from "@/components/layout/Navigation";
 import { ArrowRight, Building2, ShoppingCart, Factory, Wheat, Package } from "lucide-react";
 import { useAnalytics } from "@/contexts/AnalyticsContext";
 import { useSEO } from "@/hooks/useSEO";
@@ -48,28 +49,7 @@ export default function Home() {
       {/* WhatsApp Floating Button */}
       <WhatsAppButton />
       {/* Navigation */}
-      <nav className="border-b-2 border-black bg-white sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-primary flex items-center justify-center border-2 border-black">
-              <span className="text-white font-black text-2xl">₺</span>
-            </div>
-            <span className="font-black text-xl">KolayMoney.com</span>
-          </div>
-          <div className="hidden md:flex gap-8 items-center">
-            <a href="#how-it-works" className="font-semibold hover:text-primary transition-colors">Nasıl Çalışır?</a>
-            <a href="/sektorler" className="font-semibold hover:text-primary transition-colors">Sektörler</a>
-            <a href="/blog" className="font-semibold hover:text-primary transition-colors">Blog</a>
-            <a href="#references" className="font-semibold hover:text-primary transition-colors">Referanslar</a>
-            <Button 
-              onClick={scrollToContact}
-              className="bg-black text-white border-2 border-black hover:bg-primary hover:border-primary font-bold px-6"
-            >
-              İletişim
-            </Button>
-          </div>
-        </div>
-      </nav>
+      <Navigation variant="default" onContactClick={scrollToContact} />
 
       {/* Hero Section */}
       <section 

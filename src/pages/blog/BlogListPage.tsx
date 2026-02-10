@@ -20,7 +20,7 @@ export function BlogListPage() {
   })
 
   return (
-    <BlogLayout showBackButton={false}>
+    <BlogLayout>
       <div className="container mx-auto px-4 py-12">
         {/* Hero */}
         <div className="text-center mb-16">

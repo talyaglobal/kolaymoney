@@ -13,6 +13,7 @@ import { useAnalytics } from '@/contexts/AnalyticsContext'
 import { ApplicationChoiceScreen } from '@/components/usecase/ApplicationChoiceScreen'
 import { UseCaseContactForm } from '@/components/forms/UseCaseContactForm'
 import { ComplianceApplicationForm } from '@/components/compliance/ComplianceApplicationForm'
+import { Navigation } from '@/components/layout/Navigation'
 
 export function UseCaseApplicationPage() {
   const params = useParams()
@@ -65,23 +66,7 @@ export function UseCaseApplicationPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <nav className="border-b-2 border-black bg-white sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Link href="/">
-            <a className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <div className="w-10 h-10 bg-blue-600 flex items-center justify-center border-2 border-black">
-                <span className="text-white font-black text-2xl">₺</span>
-              </div>
-              <span className="font-black text-xl">KolayMoney.com</span>
-            </a>
-          </Link>
-          <Link href={`/sektor/${slug}`}>
-            <a className="px-6 py-2 bg-black text-white font-bold hover:bg-blue-600 transition-colors border-2 border-black">
-              ← Sektör Sayfası
-            </a>
-          </Link>
-        </div>
-      </nav>
+      <Navigation variant="default" />
 
       {/* Breadcrumb */}
       <div className="container mx-auto px-4 py-6">
