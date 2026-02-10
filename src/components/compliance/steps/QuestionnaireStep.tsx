@@ -5,7 +5,7 @@
 import { useState, useEffect } from 'react'
 import { SectorQuestion, ComplianceScoring } from '@/types/compliance'
 import { QuestionRenderer } from '../QuestionRenderer'
-import { getQuestionsBySector } from '@/data/compliance/sectorQuestions'
+import { getQuestionsBySector } from '@/lib/supabase/compliance'
 import { calculateComplianceScore } from '@/lib/compliance/scoringEngine'
 
 interface QuestionnaireStepProps {
@@ -18,13 +18,26 @@ export function QuestionnaireStep({ sector, responses, onChange }: Questionnaire
   const [questions, setQuestions] = useState<SectorQuestion[]>([])
   const [scoring, setScoring] = useState<ComplianceScoring | null>(null)
   const [errors, setErrors] = useState<Record<string, string>>({})
+  const [loadingQuestions, setLoadingQuestions] = useState(false)
 
   useEffect(() => {
     if (sector) {
-      const sectorQuestions = getQuestionsBySector(sector)
-      setQuestions(sectorQuestions)
+      loadQuestions()
     }
   }, [sector])
+
+  const loadQuestions = async () => {
+    setLoadingQuestions(true)
+    try {
+      const sectorQuestions = await getQuestionsBySector(sector)
+      setQuestions(sectorQuestions)
+    } catch (error) {
+      console.error('Error loading questions:', error)
+      alert('Sorular yüklenemedi. Lütfen sayfayı yenileyin.')
+    } finally {
+      setLoadingQuestions(false)
+    }
+  }
 
   useEffect(() => {
     if (questions.length > 0) {
@@ -55,11 +68,22 @@ export function QuestionnaireStep({ sector, responses, onChange }: Questionnaire
     )
   }
 
+  if (loadingQuestions) {
+    return (
+      <div className="brutalist-card p-8 bg-blue-50 text-center">
+        <div className="text-4xl mb-4 animate-pulse">⏳</div>
+        <h3 className="text-2xl font-bold mb-2">Sorular Yükleniyor...</h3>
+        <p className="text-gray-600">Veritabanından sorular getiriliyor...</p>
+      </div>
+    )
+  }
+
   if (questions.length === 0) {
     return (
-      <div className="brutalist-card p-8 bg-gray-50 text-center">
-        <div className="text-4xl mb-4">⏳</div>
-        <h3 className="text-2xl font-bold mb-2">Sorular Yükleniyor...</h3>
+      <div className="brutalist-card p-8 bg-yellow-50 text-center">
+        <div className="text-4xl mb-4">⚠️</div>
+        <h3 className="text-2xl font-bold mb-2">Soru Bulunamadı</h3>
+        <p className="text-gray-700">Bu sektör için henüz soru tanımlanmamış.</p>
       </div>
     )
   }

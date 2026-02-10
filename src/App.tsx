@@ -9,6 +9,11 @@ import { FinancialDataManager } from './pages/admin/FinancialDataManager'
 import { ComplianceApplications } from './pages/admin/ComplianceApplications'
 import { QuestionManager } from './pages/admin/QuestionManager'
 import { AnalyticsDashboard } from './pages/admin/AnalyticsDashboard'
+import { ActivityLog } from './pages/admin/ActivityLog'
+import { DocumentManager } from './pages/admin/DocumentManager'
+import { NotificationsManager } from './pages/admin/NotificationsManager'
+import { AdminUsersManager } from './pages/admin/AdminUsersManager'
+import { StatisticsDashboard } from './pages/admin/StatisticsDashboard'
 import { ApplicationPage } from './pages/ApplicationPage'
 import { ComplianceApplicationForm } from './components/compliance/ComplianceApplicationForm'
 import { ApplicationDetail } from './components/admin/ApplicationDetail'
@@ -66,6 +71,11 @@ function AppRoutes() {
       <Route path="/admin/question-manager" component={() => <ProtectedRoute component={QuestionManager} />} />
       <Route path="/admin/financial-data" component={() => <ProtectedRoute component={FinancialDataManager} />} />
       <Route path="/admin/analytics" component={() => <ProtectedRoute component={AnalyticsDashboard} />} />
+      <Route path="/admin/statistics" component={() => <ProtectedRoute component={StatisticsDashboard} />} />
+      <Route path="/admin/activity-log" component={() => <ProtectedRoute component={ActivityLog} />} />
+      <Route path="/admin/documents" component={() => <ProtectedRoute component={DocumentManager} />} />
+      <Route path="/admin/notifications" component={() => <ProtectedRoute component={NotificationsManager} />} />
+      <Route path="/admin/users" component={() => <ProtectedRoute component={AdminUsersManager} />} />
       <Route path="/admin/applications/:id">
         {(params) => (
           <ProtectedRoute

@@ -75,7 +75,7 @@ export function AdminDashboard() {
             {/* Quick Actions */}
             <div className="brutalist-card p-8 bg-blue-50">
               <h2 className="heading-3 mb-6">Hızlı Erişim</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <a
                   href="/admin/applications"
                   className="p-6 bg-white border-4 border-black hover:translate-x-1 hover:translate-y-1 transition-transform"
@@ -109,12 +109,52 @@ export function AdminDashboard() {
                   <div className="text-sm text-gray-600">Oranları ve verileri yönet</div>
                 </a>
                 <a
+                  href="/admin/statistics"
+                  className="p-6 bg-blue-50 border-4 border-blue-600 hover:translate-x-1 hover:translate-y-1 transition-transform"
+                >
+                  <div className="text-3xl mb-3">📊</div>
+                  <div className="font-bold text-lg mb-2">İstatistikler</div>
+                  <div className="text-sm text-gray-600">Detaylı başvuru istatistikleri</div>
+                </a>
+                <a
                   href="/admin/analytics"
                   className="p-6 bg-purple-50 border-4 border-purple-600 hover:translate-x-1 hover:translate-y-1 transition-transform"
                 >
-                  <div className="text-3xl mb-3">📊</div>
+                  <div className="text-3xl mb-3">📈</div>
                   <div className="font-bold text-lg mb-2">Analytics & SEO</div>
-                  <div className="text-sm text-gray-600">Google Analytics ve SEO metrikleri</div>
+                  <div className="text-sm text-gray-600">Google Analytics ve SEO</div>
+                </a>
+                <a
+                  href="/admin/activity-log"
+                  className="p-6 bg-yellow-50 border-4 border-yellow-600 hover:translate-x-1 hover:translate-y-1 transition-transform"
+                >
+                  <div className="text-3xl mb-3">📋</div>
+                  <div className="font-bold text-lg mb-2">Aktivite Günlüğü</div>
+                  <div className="text-sm text-gray-600">Sistem aktivitelerini izle</div>
+                </a>
+                <a
+                  href="/admin/documents"
+                  className="p-6 bg-white border-4 border-black hover:translate-x-1 hover:translate-y-1 transition-transform"
+                >
+                  <div className="text-3xl mb-3">📁</div>
+                  <div className="font-bold text-lg mb-2">Dökümanlar</div>
+                  <div className="text-sm text-gray-600">Başvuru dökümanları</div>
+                </a>
+                <a
+                  href="/admin/notifications"
+                  className="p-6 bg-white border-4 border-black hover:translate-x-1 hover:translate-y-1 transition-transform"
+                >
+                  <div className="text-3xl mb-3">📧</div>
+                  <div className="font-bold text-lg mb-2">Bildirimler</div>
+                  <div className="text-sm text-gray-600">E-posta bildirimleri</div>
+                </a>
+                <a
+                  href="/admin/users"
+                  className="p-6 bg-red-50 border-4 border-red-600 hover:translate-x-1 hover:translate-y-1 transition-transform"
+                >
+                  <div className="text-3xl mb-3">👥</div>
+                  <div className="font-bold text-lg mb-2">Admin Kullanıcılar</div>
+                  <div className="text-sm text-gray-600">Kullanıcı ve rol yönetimi</div>
                 </a>
                 <a
                   href="/sektorler"
@@ -126,7 +166,7 @@ export function AdminDashboard() {
                 </a>
                 <a
                   href="/basvuru-yeni"
-                  className="p-6 bg-blue-50 border-4 border-blue-600 hover:translate-x-1 hover:translate-y-1 transition-transform"
+                  className="p-6 bg-green-50 border-4 border-green-600 hover:translate-x-1 hover:translate-y-1 transition-transform"
                 >
                   <div className="text-3xl mb-3">📝</div>
                   <div className="font-bold text-lg mb-2">Yeni Başvuru</div>

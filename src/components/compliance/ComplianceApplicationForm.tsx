@@ -11,7 +11,7 @@ import { useSEO } from '@/hooks/useSEO'
 import { CompleteComplianceFormData, completeComplianceFormSchema } from '@/lib/validations/compliance'
 import { ComplianceScoring } from '@/types/compliance'
 import { calculateComplianceScore } from '@/lib/compliance/scoringEngine'
-import { getQuestionsBySector } from '@/data/compliance/sectorQuestions'
+import { getQuestionsBySector } from '@/lib/supabase/compliance'
 
 // Step components
 import { CompanyInfoStep } from './steps/CompanyInfoStep'
@@ -63,11 +63,19 @@ export function ComplianceApplicationForm() {
   // Calculate scoring when responses change
   useEffect(() => {
     if (selectedSector && Object.keys(questionResponses).length > 0) {
-      const questions = getQuestionsBySector(selectedSector)
-      const score = calculateComplianceScore(questions, questionResponses)
-      setScoring(score)
+      loadAndCalculateScore()
     }
   }, [selectedSector, questionResponses])
+
+  const loadAndCalculateScore = async () => {
+    try {
+      const questions = await getQuestionsBySector(selectedSector)
+      const score = calculateComplianceScore(questions, questionResponses)
+      setScoring(score)
+    } catch (error) {
+      console.error('Error calculating score:', error)
+    }
+  }
 
   // Save to localStorage
   useEffect(() => {
@@ -113,12 +121,17 @@ export function ComplianceApplicationForm() {
         break
       case 5:
         // Validate questionnaire
-        const questions = getQuestionsBySector(selectedSector)
-        const requiredQuestions = questions.filter(q => q.isRequired)
-        const answeredRequired = requiredQuestions.every(q => questionResponses[q.id] !== undefined)
-        isValid = answeredRequired
-        if (!isValid) {
-          alert('Lütfen tüm zorunlu soruları cevaplayınız')
+        try {
+          const questions = await getQuestionsBySector(selectedSector)
+          const requiredQuestions = questions.filter(q => q.isRequired)
+          const answeredRequired = requiredQuestions.every(q => questionResponses[q.id] !== undefined)
+          isValid = answeredRequired
+          if (!isValid) {
+            alert('Lütfen tüm zorunlu soruları cevaplayınız')
+          }
+        } catch (error) {
+          console.error('Error validating questions:', error)
+          isValid = false
         }
         break
       case 6:
@@ -145,8 +158,8 @@ export function ComplianceApplicationForm() {
     setIsSubmitting(true)
 
     try {
-      // Calculate final score
-      const questions = getQuestionsBySector(data.sector)
+      // Calculate final score from API
+      const questions = await getQuestionsBySector(data.sector)
       const finalScoring = calculateComplianceScore(questions, questionResponses)
 
       const payload = {
@@ -154,14 +167,32 @@ export function ComplianceApplicationForm() {
         questionResponses,
         complianceScore: finalScoring.totalScore,
         isPassed: finalScoring.isPassed,
-        scoringDetails: finalScoring
+        scoringDetails: finalScoring,
+        source: 'web_form',
+        utmSource: new URLSearchParams(window.location.search).get('utm_source') || undefined,
+        utmMedium: new URLSearchParams(window.location.search).get('utm_medium') || undefined,
+        utmCampaign: new URLSearchParams(window.location.search).get('utm_campaign') || undefined
       }
 
-      // TODO: Submit to Supabase Edge Function
-      console.log('Submitting application:', payload)
+      // Submit to Supabase Edge Function
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+      const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+      
+      const response = await fetch(`${supabaseUrl}/functions/v1/submit-compliance-application`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${supabaseAnonKey}`
+        },
+        body: JSON.stringify(payload)
+      })
 
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000))
+      if (!response.ok) {
+        const errorData = await response.json()
+        throw new Error(errorData.error || 'Başvuru gönderilemedi')
+      }
+
+      const result = await response.json()
 
       // Track successful submission
       analytics.trackApplicationSubmit(
@@ -173,8 +204,8 @@ export function ComplianceApplicationForm() {
       // Clear draft
       localStorage.removeItem('compliance_form_draft')
 
-      // Navigate to success page
-      alert('Başvurunuz başarıyla alındı! E-posta adresinize onay gönderildi.')
+      // Navigate to success page with application ID
+      alert(`Başvurunuz başarıyla alındı! (Başvuru No: ${result.applicationId.slice(0, 8).toUpperCase()})\n\nE-posta adresinize onay gönderildi.`)
       navigate('/')
 
     } catch (error) {
