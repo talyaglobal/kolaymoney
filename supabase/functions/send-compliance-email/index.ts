@@ -130,7 +130,7 @@ serve(async (req) => {
         'Authorization': `Bearer ${RESEND_API_KEY}`
       },
       body: JSON.stringify({
-        from: 'KolayMoney <noreply@kolaymoney.com>',
+        from: 'KolayMoney <onboarding@resend.dev>',
         to: [recipientEmail],
         subject: subject,
         html: htmlContent
@@ -146,7 +146,7 @@ serve(async (req) => {
           'Authorization': `Bearer ${RESEND_API_KEY}`
         },
         body: JSON.stringify({
-          from: 'KolayMoney <noreply@kolaymoney.com>',
+          from: 'KolayMoney <onboarding@resend.dev>',
           to: [ADMIN_EMAIL],
           subject: `Yeni VDMK Başvurusu - ${companyName} (${Math.round(score)} puan)`,
           html: `
@@ -163,11 +163,18 @@ serve(async (req) => {
     }
 
     if (!applicantResponse.ok) {
-      throw new Error('Failed to send email')
+      const errorData = await applicantResponse.json()
+      console.error('Resend API error:', errorData)
+      throw new Error(`Failed to send email: ${JSON.stringify(errorData)}`)
     }
 
+    const applicantData = await applicantResponse.json()
+
     return new Response(
-      JSON.stringify({ success: true }),
+      JSON.stringify({ 
+        success: true,
+        applicantEmailId: applicantData.id
+      }),
       {
         status: 200,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' }
@@ -177,7 +184,10 @@ serve(async (req) => {
   } catch (error) {
     console.error('Error:', error)
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ 
+        error: error.message,
+        details: error.toString()
+      }),
       {
         status: 500,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' }

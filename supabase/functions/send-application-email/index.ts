@@ -29,7 +29,7 @@ serve(async (req) => {
 
     // Send email to applicant
     const applicantEmail = await resend.emails.send({
-      from: 'KolayMoney <noreply@kolaymoney.com>',
+      from: 'KolayMoney <onboarding@resend.dev>',
       to: [to],
       subject: '✅ VDMK Başvurunuz Alındı - KolayMoney.com',
       html: `
@@ -107,7 +107,7 @@ serve(async (req) => {
 
     // Send notification email to admin
     const adminEmail = await resend.emails.send({
-      from: 'KolayMoney <noreply@kolaymoney.com>',
+      from: 'KolayMoney <onboarding@resend.dev>',
       to: ['hq@talya.vc'],
       subject: `🔔 Yeni VDMK Başvurusu - ${company_name}`,
       html: `
