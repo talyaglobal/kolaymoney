@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { FAQSection } from "@/components/seo/FAQSection";
@@ -19,6 +19,7 @@ import { generateOrganizationSchema, generateBreadcrumbSchema, injectStructuredD
 
 export default function Home() {
   const analytics = useAnalytics();
+  const [showVideoModal, setShowVideoModal] = useState(false);
 
   // SEO optimization
   useSEO({
@@ -44,12 +45,64 @@ export default function Home() {
     document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const handleVideoClick = () => {
+    setShowVideoModal(true);
+    analytics.trackCTAClick('Video İzle', 'Navbar');
+  };
+
+  const closeVideoModal = () => {
+    setShowVideoModal(false);
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
       {/* WhatsApp Floating Button */}
       <WhatsAppButton />
       {/* Navigation */}
-      <Navigation variant="default" onContactClick={scrollToContact} />
+      <Navigation variant="default" onContactClick={scrollToContact} onVideoClick={handleVideoClick} />
+
+      {/* Video Modal */}
+      {showVideoModal && (
+        <div 
+          className="fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-4"
+          onClick={closeVideoModal}
+        >
+          <div 
+            className="relative w-full max-w-5xl bg-black border-4 border-blue-600"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={closeVideoModal}
+              className="absolute -top-12 right-0 text-white hover:text-blue-600 transition-colors text-4xl font-black"
+            >
+              ×
+            </button>
+            
+            {/* Video Player */}
+            <div className="relative" style={{ paddingBottom: '56.25%' }}>
+              <video
+                className="absolute inset-0 w-full h-full"
+                controls
+                autoPlay
+                playsInline
+              >
+                <source src="/videos/kolaymoney-intro.mp4" type="video/mp4" />
+                <source src="/videos/kolaymoney-intro.webm" type="video/webm" />
+                Tarayıcınız video oynatmayı desteklemiyor.
+              </video>
+            </div>
+
+            {/* Video Info */}
+            <div className="bg-white p-6 border-t-4 border-blue-600">
+              <h3 className="text-2xl font-black mb-2">KolayMoney VDMK Finansman Çözümü</h3>
+              <p className="text-gray-600">
+                Ticari alacaklarınızı nasıl bilanço dışı finansmana dönüştüreceğinizi öğrenin.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Hero Section */}
       <section 

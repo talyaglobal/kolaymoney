@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button'
 interface NavigationProps {
   variant?: 'default' | 'minimal'
   onContactClick?: () => void
+  onVideoClick?: () => void
 }
 
 interface NavItem {
@@ -32,10 +33,11 @@ const navItems: NavItem[] = [
     highlight: true
   },
   { href: '/blog', label: 'Blog' },
+  { href: '#video', label: 'Video İzle', scrollTo: true },
   { href: '#contact', label: 'İletişim', scrollTo: true }
 ]
 
-export function Navigation({ variant = 'default', onContactClick }: NavigationProps) {
+export function Navigation({ variant = 'default', onContactClick, onVideoClick }: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const handleNavClick = (item: NavItem) => {
@@ -48,6 +50,10 @@ export function Navigation({ variant = 'default', onContactClick }: NavigationPr
     
     if (item.href === '#contact' && onContactClick) {
       onContactClick()
+    }
+    
+    if (item.href === '#video' && onVideoClick) {
+      onVideoClick()
     }
     
     setMobileMenuOpen(false)
