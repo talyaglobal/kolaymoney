@@ -104,43 +104,49 @@ export default function Home() {
       )}
 
       {/* Hero Section */}
-      <section 
-        className="relative min-h-[600px] flex items-center border-b-2 border-black"
-        style={{
-          backgroundImage: `url('/img/hero-background.webp')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}
-      >
-        <div className="absolute inset-0 bg-white/10"></div>
+      <section className="relative min-h-[600px] flex items-center border-b-2 border-black bg-white">
         <div className="container relative z-10 py-20">
-          <div className="max-w-3xl">
-            <div className="inline-block bg-primary text-white px-4 py-2 mb-6 border-2 border-black">
-              <span className="mono-text font-bold">VDMK İHRAÇLARI</span>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            {/* Left Side - Content on White Background */}
+            <div className="max-w-3xl">
+              <div className="inline-block bg-blue-600 text-white px-4 py-2 mb-6 border-2 border-black">
+                <span className="mono-text font-bold">VDMK İHRAÇLARI</span>
+              </div>
+              <h1 className="heading-1 mb-6 text-black">
+                İşletmeniz için Hızlı ve Alternatif Finansman: VDMK İhraçları
+              </h1>
+              <p className="body-text text-gray-800 mb-8 max-w-2xl">
+                <strong>Varlığa Dayalı Menkul Kıymet (VDMK)</strong> ile dönen varlıklarınızı, <a href="/blog/vdmk-nedir-kapsamli-rehber" className="text-blue-600 underline hover:no-underline">alacaklarınızı</a> veya kira gelirlerinizi sermaye piyasalarında nakde çevirin. 
+                <strong> OMG Capital Advisors</strong> stratejik ortaklığı ile güvenli ve hızlı <a href="/sektorler" className="text-blue-600 underline hover:no-underline">işletme finansmanı</a> erişin.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  size="lg"
+                  onClick={scrollToContact}
+                  className="bg-black text-white border-2 border-black hover:bg-blue-600 hover:border-blue-600 font-bold text-lg px-8 py-6"
+                >
+                  📞 Sizi Arayalım <ArrowRight className="ml-2" />
+                </Button>
+                <Button 
+                  size="lg"
+                  variant="outline"
+                  onClick={scrollToHowItWorks}
+                  className="bg-white text-black border-2 border-black hover:bg-black hover:text-white font-bold text-lg px-8 py-6"
+                >
+                  Daha Fazla Bilgi
+                </Button>
+              </div>
             </div>
-            <h1 className="heading-1 mb-6">
-              İşletmeniz için Hızlı ve Alternatif Finansman: VDMK İhraçları
-            </h1>
-            <p className="body-text text-gray-800 mb-8 max-w-2xl">
-              <strong>Varlığa Dayalı Menkul Kıymet (VDMK)</strong> ile dönen varlıklarınızı, <a href="/blog/vdmk-nedir-kapsamli-rehber" className="text-primary underline hover:no-underline">alacaklarınızı</a> veya kira gelirlerinizi sermaye piyasalarında nakde çevirin. 
-              <strong> OMG Capital Advisors</strong> stratejik ortaklığı ile güvenli ve hızlı <a href="/sektorler" className="text-primary underline hover:no-underline">işletme finansmanı</a> erişin.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                size="lg"
-                onClick={scrollToContact}
-                className="bg-black text-white border-2 border-black hover:bg-primary hover:border-primary font-bold text-lg px-8 py-6"
-              >
-                📞 Sizi Arayalım <ArrowRight className="ml-2" />
-              </Button>
-              <Button 
-                size="lg"
-                variant="outline"
-                onClick={scrollToHowItWorks}
-                className="bg-white text-black border-2 border-black hover:bg-black hover:text-white font-bold text-lg px-8 py-6"
-              >
-                Daha Fazla Bilgi
-              </Button>
+
+            {/* Right Side - Hero Image */}
+            <div className="hidden md:block">
+              <div className="border-4 border-black overflow-hidden">
+                <img 
+                  src="/img/hero-background.webp" 
+                  alt="VDMK Finansman Çözümleri"
+                  className="w-full h-[500px] object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
