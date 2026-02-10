@@ -72,7 +72,7 @@ export const beyazEsyaData: SectorData = {
         term: 90,
         vdmkRate: FINANCIAL_DATA.rates.vdmk.discountRate.value,
         vdmkCommission: FINANCIAL_DATA.rates.vdmk.commission.value,
-        bankRate: FINANCIAL_DATA.rates.interestRates.commercialLoan.value,
+        bankRate: FINANCIAL_DATA.rates.factoring.discountRate.value,
         supplierDiscount: 5,
         supplierDiscountDays: 30,
         supplierInvoiceAmount: 15_000_000
@@ -91,7 +91,7 @@ export const beyazEsyaData: SectorData = {
           {
             label: 'Alternatif Faktoring',
             value: formatCurrency(calc.bankCost),
-            detail: `%${FINANCIAL_DATA.rates.interestRates.commercialLoan.value} yıllık faktoring (${FINANCIAL_DATA.rates.interestRates.commercialLoan.date})`,
+            detail: `%${FINANCIAL_DATA.rates.factoring.discountRate.value} yıllık faktoring (${FINANCIAL_DATA.rates.factoring.discountRate.date})`,
             highlight: false
           },
           {

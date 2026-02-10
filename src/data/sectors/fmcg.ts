@@ -71,7 +71,7 @@ export const fmcgData: SectorData = {
         term: 60,
         vdmkRate: FINANCIAL_DATA.rates.vdmk.discountRate.value,
         vdmkCommission: FINANCIAL_DATA.rates.vdmk.commission.value,
-        bankRate: FINANCIAL_DATA.rates.interestRates.commercialLoan.value,
+        bankRate: FINANCIAL_DATA.rates.factoring.discountRate.value,
         supplierDiscount: 1.5,
         supplierDiscountDays: 15,
         supplierInvoiceAmount: 120_000_000
@@ -90,7 +90,7 @@ export const fmcgData: SectorData = {
           {
             label: 'Alternatif Faktoring',
             value: formatCurrency(calc.bankCost),
-            detail: `%${FINANCIAL_DATA.rates.interestRates.commercialLoan.value} yıllık faktoring`,
+            detail: `%${FINANCIAL_DATA.rates.factoring.discountRate.value} yıllık faktoring`,
             highlight: false
           },
           {

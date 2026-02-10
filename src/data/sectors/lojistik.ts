@@ -71,7 +71,7 @@ export const lojistikData: SectorData = {
         term: 60,
         vdmkRate: FINANCIAL_DATA.rates.vdmk.discountRate.value,
         vdmkCommission: FINANCIAL_DATA.rates.vdmk.commission.value,
-        bankRate: FINANCIAL_DATA.rates.interestRates.commercialLoan.value,
+        bankRate: FINANCIAL_DATA.rates.factoring.discountRate.value,
         supplierDiscount: 2,
         supplierDiscountDays: 0,
         supplierInvoiceAmount: 12_000_000
@@ -90,7 +90,7 @@ export const lojistikData: SectorData = {
           {
             label: 'Alternatif Faktoring',
             value: formatCurrency(calc.bankCost),
-            detail: `%${FINANCIAL_DATA.rates.interestRates.commercialLoan.value} yıllık faktoring`,
+            detail: `%${FINANCIAL_DATA.rates.factoring.discountRate.value} yıllık faktoring`,
             highlight: false
           },
           {
@@ -155,7 +155,7 @@ export const lojistikData: SectorData = {
         term: 90,
         vdmkRate: FINANCIAL_DATA.rates.vdmk.discountRate.value,
         vdmkCommission: FINANCIAL_DATA.rates.vdmk.commission.value,
-        bankRate: FINANCIAL_DATA.rates.interestRates.commercialLoan.value,
+        bankRate: FINANCIAL_DATA.rates.factoring.discountRate.value,
         supplierDiscount: 3,
         supplierDiscountDays: 0,
         supplierInvoiceAmount: 35_000_000
@@ -201,7 +201,7 @@ export const lojistikData: SectorData = {
           {
             label: 'Alternatif Faktoring',
             value: formatCurrency(calc.bankCost),
-            detail: `%${FINANCIAL_DATA.rates.interestRates.commercialLoan.value} faiz`,
+            detail: `%${FINANCIAL_DATA.rates.factoring.discountRate.value} faiz`,
             highlight: false
           },
           {
