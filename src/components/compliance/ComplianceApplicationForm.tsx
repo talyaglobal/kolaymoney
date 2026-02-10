@@ -336,7 +336,7 @@ export function ComplianceApplicationForm({ prefilledSector, useCaseContext, onB
               <button
                 type="button"
                 onClick={handlePrevious}
-                className="brutalist-btn bg-gray-200 text-black flex-1"
+                className="bg-gray-200 text-black flex-1 px-8 py-4 font-bold text-lg border-2 border-black hover:bg-gray-300 transition-all"
               >
                 ← Geri
               </button>
@@ -346,7 +346,7 @@ export function ComplianceApplicationForm({ prefilledSector, useCaseContext, onB
               <button
                 type="button"
                 onClick={handleNext}
-                className="brutalist-btn bg-blue-600 text-white flex-1"
+                className="bg-blue-600 text-white flex-1 px-8 py-4 font-bold text-lg border-2 border-black hover:bg-blue-700 transition-all"
               >
                 İleri →
               </button>
@@ -354,7 +354,7 @@ export function ComplianceApplicationForm({ prefilledSector, useCaseContext, onB
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="brutalist-btn bg-green-600 text-white flex-1 disabled:opacity-50"
+                className="bg-green-600 text-white flex-1 px-8 py-4 font-bold text-lg border-2 border-black hover:bg-green-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? 'Gönderiliyor...' : '✓ Başvuruyu Gönder'}
               </button>
