@@ -27,6 +27,9 @@ import { BlogListPage } from './pages/blog/BlogListPage'
 import { BlogPostPage } from './pages/blog/BlogPostPage'
 import { WhyNotFactoringPage } from './pages/WhyNotFactoringPage'
 import { FactoringTransitionGuidePage } from './pages/FactoringTransitionGuidePage'
+import { PreApplicationService } from './pages/services/PreApplicationService'
+import { FundReferralService } from './pages/services/FundReferralService'
+import { OriginatorScoringService } from './pages/services/OriginatorScoringService'
 
 // Protected Route Component
 function ProtectedRoute({ component: Component, ...rest }: any) {
@@ -78,6 +81,11 @@ function AppRoutes() {
       {/* Factoring Comparison */}
       <Route path="/neden-factoring-degil" component={WhyNotFactoringPage} />
       <Route path="/factoring-gecis-rehberi" component={FactoringTransitionGuidePage} />
+      
+      {/* Service Routes */}
+      <Route path="/hizmetler/on-basvuru-degerlendirme" component={PreApplicationService} />
+      <Route path="/hizmetler/fonlara-referral" component={FundReferralService} />
+      <Route path="/hizmetler/originator-scoring" component={OriginatorScoringService} />
       
       {/* Admin Routes */}
       <Route path="/admin/login" component={AdminLogin} />

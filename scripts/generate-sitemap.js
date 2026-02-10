@@ -90,6 +90,26 @@ function generateSitemapURLs() {
       priority: 0.85
     },
     
+    // Service pages
+    {
+      loc: `${BASE_URL}/hizmetler/on-basvuru-degerlendirme`,
+      lastmod: now,
+      changefreq: 'monthly',
+      priority: 0.85
+    },
+    {
+      loc: `${BASE_URL}/hizmetler/fonlara-referral`,
+      lastmod: now,
+      changefreq: 'monthly',
+      priority: 0.85
+    },
+    {
+      loc: `${BASE_URL}/hizmetler/originator-scoring`,
+      lastmod: now,
+      changefreq: 'monthly',
+      priority: 0.85
+    },
+    
     // Individual sector pages
     ...SECTORS.map(sector => ({
       loc: `${BASE_URL}/sektor/${sector}`,

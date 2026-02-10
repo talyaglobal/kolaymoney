@@ -20,12 +20,38 @@ interface NavItem {
   scrollTo?: boolean
   badge?: string
   highlight?: boolean
+  dropdown?: {
+    label: string
+    href: string
+    description: string
+  }[]
 }
 
 const navItems: NavItem[] = [
   { href: '/', label: 'Ana Sayfa' },
   { href: '#how-it-works', label: 'Nasıl Çalışır?', scrollTo: true },
   { href: '/sektorler', label: 'Sektörler' },
+  { 
+    href: '#', 
+    label: 'Hizmetler',
+    dropdown: [
+      {
+        label: 'Ön Başvuru & Değerlendirme',
+        href: '/hizmetler/on-basvuru-degerlendirme',
+        description: 'Danışmanlar için kaynak sağlayıcı değerlendirme'
+      },
+      {
+        label: 'Fonlara Referral',
+        href: '/hizmetler/fonlara-referral',
+        description: 'VDMK fonları için nitelikli deal flow'
+      },
+      {
+        label: 'Originator Scoring',
+        href: '/hizmetler/originator-scoring',
+        description: 'Objektif kaynak sağlayıcı kredi skoru'
+      }
+    ]
+  },
   { 
     href: '/neden-factoring-degil', 
     label: 'Neden Factoring Değil?',
@@ -39,6 +65,7 @@ const navItems: NavItem[] = [
 
 export function Navigation({ variant = 'default', onContactClick, onVideoClick }: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [servicesOpen, setServicesOpen] = useState(false)
 
   const handleNavClick = (item: NavItem) => {
     if (item.scrollTo && item.href.startsWith('#')) {
@@ -77,7 +104,37 @@ export function Navigation({ variant = 'default', onContactClick, onVideoClick }
           <div className="hidden md:flex gap-6 items-center">
             {navItems.map((item, index) => (
               <div key={index} className="relative">
-                {item.scrollTo ? (
+                {item.dropdown ? (
+                  // Dropdown menu for Hizmetler
+                  <div
+                    className="relative"
+                    onMouseEnter={() => setServicesOpen(true)}
+                    onMouseLeave={() => setServicesOpen(false)}
+                  >
+                    <button
+                      className="font-semibold hover:text-blue-600 transition-colors flex items-center gap-1"
+                    >
+                      {item.label}
+                      <span className="text-xs">▼</span>
+                    </button>
+                    
+                    {servicesOpen && (
+                      <div className="absolute top-full left-0 mt-2 w-80 bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] z-50">
+                        {item.dropdown.map((dropItem, dropIndex) => (
+                          <Link key={dropIndex} href={dropItem.href}>
+                            <a 
+                              className="block px-6 py-4 hover:bg-blue-600 hover:text-white transition-colors border-b-2 border-black last:border-b-0"
+                              onClick={() => setServicesOpen(false)}
+                            >
+                              <div className="font-black text-base mb-1">{dropItem.label}</div>
+                              <div className="text-sm opacity-80">{dropItem.description}</div>
+                            </a>
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : item.scrollTo ? (
                   <button
                     onClick={() => handleNavClick(item)}
                     className={`font-semibold hover:text-blue-600 transition-colors ${
@@ -146,7 +203,36 @@ export function Navigation({ variant = 'default', onContactClick, onVideoClick }
             <div className="flex flex-col gap-3">
               {navItems.map((item, index) => (
                 <div key={index}>
-                  {item.scrollTo ? (
+                  {item.dropdown ? (
+                    // Mobile dropdown for Hizmetler
+                    <div>
+                      <button
+                        onClick={() => setServicesOpen(!servicesOpen)}
+                        className="w-full text-left font-semibold py-2 px-4 border-2 border-black hover:bg-gray-100 transition-colors flex items-center justify-between"
+                      >
+                        <span>{item.label}</span>
+                        <span className="text-xs">{servicesOpen ? '▲' : '▼'}</span>
+                      </button>
+                      {servicesOpen && (
+                        <div className="ml-4 mt-2 space-y-2">
+                          {item.dropdown.map((dropItem, dropIndex) => (
+                            <Link key={dropIndex} href={dropItem.href}>
+                              <a 
+                                onClick={() => {
+                                  setMobileMenuOpen(false)
+                                  setServicesOpen(false)
+                                }}
+                                className="block py-2 px-4 border-2 border-black hover:bg-blue-600 hover:text-white transition-colors"
+                              >
+                                <div className="font-bold text-sm">{dropItem.label}</div>
+                                <div className="text-xs opacity-70">{dropItem.description}</div>
+                              </a>
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : item.scrollTo ? (
                     <button
                       onClick={() => handleNavClick(item)}
                       className={`w-full text-left font-semibold py-2 px-4 border-2 border-black hover:bg-gray-100 transition-colors relative ${
