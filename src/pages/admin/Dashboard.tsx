@@ -109,6 +109,14 @@ export function AdminDashboard() {
                   <div className="text-sm text-gray-600">Oranları ve verileri yönet</div>
                 </a>
                 <a
+                  href="/admin/analytics"
+                  className="p-6 bg-purple-50 border-4 border-purple-600 hover:translate-x-1 hover:translate-y-1 transition-transform"
+                >
+                  <div className="text-3xl mb-3">📊</div>
+                  <div className="font-bold text-lg mb-2">Analytics & SEO</div>
+                  <div className="text-sm text-gray-600">Google Analytics ve SEO metrikleri</div>
+                </a>
+                <a
                   href="/sektorler"
                   className="p-6 bg-white border-4 border-black hover:translate-x-1 hover:translate-y-1 transition-transform"
                 >

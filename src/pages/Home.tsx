@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
+import { FAQSection } from "@/components/seo/FAQSection";
 import { ArrowRight, Building2, ShoppingCart, Factory, Wheat, Package } from "lucide-react";
 import { useAnalytics } from "@/contexts/AnalyticsContext";
 import { useSEO } from "@/hooks/useSEO";
@@ -58,6 +59,7 @@ export default function Home() {
           <div className="hidden md:flex gap-8 items-center">
             <a href="#how-it-works" className="font-semibold hover:text-primary transition-colors">Nasıl Çalışır?</a>
             <a href="/sektorler" className="font-semibold hover:text-primary transition-colors">Sektörler</a>
+            <a href="/blog" className="font-semibold hover:text-primary transition-colors">Blog</a>
             <a href="#references" className="font-semibold hover:text-primary transition-colors">Referanslar</a>
             <Button 
               onClick={scrollToContact}
@@ -85,11 +87,11 @@ export default function Home() {
               <span className="mono-text font-bold">VDMK İHRAÇLARI</span>
             </div>
             <h1 className="heading-1 mb-6">
-              İşletmeniz için Hızlı ve Alternatif Finansman
+              İşletmeniz için Hızlı ve Alternatif Finansman: VDMK İhraçları
             </h1>
             <p className="body-text text-gray-800 mb-8 max-w-2xl">
-              Dönen varlıklarınızı, alacaklarınızı veya kira gelirlerinizi sermaye piyasalarında nakde çevirin. 
-              <strong> OMG Capital Advisors</strong> stratejik ortaklığı ile güvenli ve hızlı finansmana erişin.
+              <strong>Varlığa Dayalı Menkul Kıymet (VDMK)</strong> ile dönen varlıklarınızı, <a href="/blog/vdmk-nedir-kapsamli-rehber" className="text-primary underline hover:no-underline">alacaklarınızı</a> veya kira gelirlerinizi sermaye piyasalarında nakde çevirin. 
+              <strong> OMG Capital Advisors</strong> stratejik ortaklığı ile güvenli ve hızlı <a href="/sektorler" className="text-primary underline hover:no-underline">işletme finansmanı</a> erişin.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
@@ -381,6 +383,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection />
 
       {/* Footer */}
       <footer className="py-8 bg-black text-white">

@@ -8,6 +8,7 @@ import { AdminApplications } from './pages/admin/Applications'
 import { FinancialDataManager } from './pages/admin/FinancialDataManager'
 import { ComplianceApplications } from './pages/admin/ComplianceApplications'
 import { QuestionManager } from './pages/admin/QuestionManager'
+import { AnalyticsDashboard } from './pages/admin/AnalyticsDashboard'
 import { ApplicationPage } from './pages/ApplicationPage'
 import { ComplianceApplicationForm } from './components/compliance/ComplianceApplicationForm'
 import { ApplicationDetail } from './components/admin/ApplicationDetail'
@@ -15,6 +16,8 @@ import { AdminLayout } from './components/admin/AdminLayout'
 import Home from './pages/Home'
 import { SectorsListPage } from './pages/SectorsListPage'
 import { SectorPage } from './pages/sectors/SectorPage'
+import { BlogListPage } from './pages/blog/BlogListPage'
+import { BlogPostPage } from './pages/blog/BlogPostPage'
 
 // Protected Route Component
 function ProtectedRoute({ component: Component, ...rest }: any) {
@@ -49,6 +52,12 @@ function AppRoutes() {
         {() => <SectorPage />}
       </Route>
       
+      {/* Blog Routes */}
+      <Route path="/blog" component={BlogListPage} />
+      <Route path="/blog/:slug">
+        {() => <BlogPostPage />}
+      </Route>
+      
       {/* Admin Routes */}
       <Route path="/admin/login" component={AdminLogin} />
       <Route path="/admin" component={() => <ProtectedRoute component={AdminDashboard} />} />
@@ -56,6 +65,7 @@ function AppRoutes() {
       <Route path="/admin/compliance-applications" component={() => <ProtectedRoute component={ComplianceApplications} />} />
       <Route path="/admin/question-manager" component={() => <ProtectedRoute component={QuestionManager} />} />
       <Route path="/admin/financial-data" component={() => <ProtectedRoute component={FinancialDataManager} />} />
+      <Route path="/admin/analytics" component={() => <ProtectedRoute component={AnalyticsDashboard} />} />
       <Route path="/admin/applications/:id">
         {(params) => (
           <ProtectedRoute
