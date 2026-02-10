@@ -112,7 +112,7 @@ export default function Home() {
           backgroundPosition: 'center'
         }}
       >
-        <div className="absolute inset-0 bg-white/90"></div>
+        <div className="absolute inset-0 bg-white/10"></div>
         <div className="container relative z-10 py-20">
           <div className="max-w-3xl">
             <div className="inline-block bg-primary text-white px-4 py-2 mb-6 border-2 border-black">
