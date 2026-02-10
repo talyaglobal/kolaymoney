@@ -82,11 +82,11 @@ export function Navigation({ variant = 'default', onContactClick, onVideoClick }
                     onClick={() => handleNavClick(item)}
                     className={`font-semibold hover:text-blue-600 transition-colors ${
                       item.highlight ? 'text-blue-600' : ''
-                    }`}
+                    } ${item.badge ? 'pr-20' : ''}`}
                   >
                     {item.label}
                     {item.badge && (
-                      <span className="absolute -top-2 -right-2 bg-blue-600 text-white text-[10px] px-1.5 py-0.5 font-mono font-black border border-black">
+                      <span className="absolute top-0 -right-1 bg-blue-600 text-white text-[10px] px-1.5 py-0.5 font-mono font-black border border-black whitespace-nowrap">
                         {item.badge}
                       </span>
                     )}
@@ -95,10 +95,10 @@ export function Navigation({ variant = 'default', onContactClick, onVideoClick }
                   <Link href={item.href}>
                     <a className={`font-semibold hover:text-blue-600 transition-colors relative inline-block ${
                       item.highlight ? 'text-blue-600' : ''
-                    }`}>
+                    } ${item.badge ? 'pr-20' : ''}`}>
                       {item.label}
                       {item.badge && (
-                        <span className="absolute -top-2 -right-2 bg-blue-600 text-white text-[10px] px-1.5 py-0.5 font-mono font-black border border-black whitespace-nowrap">
+                        <span className="absolute top-0 -right-1 bg-blue-600 text-white text-[10px] px-1.5 py-0.5 font-mono font-black border border-black whitespace-nowrap">
                           {item.badge}
                         </span>
                       )}
