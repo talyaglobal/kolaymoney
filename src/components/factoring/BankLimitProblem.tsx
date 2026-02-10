@@ -173,7 +173,7 @@ export function BankLimitProblem() {
             {/* CTA */}
             <div className="text-center mt-8">
               <a
-                href="/#references"
+                href="/basvuru-yeni"
                 className="inline-block bg-blue-600 text-white px-12 py-5 font-black text-xl border-4 border-white hover:bg-blue-700 transition-colors uppercase"
               >
                 Banka Limiti Doldu mu? Hemen Başvur →
