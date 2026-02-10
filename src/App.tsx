@@ -22,6 +22,7 @@ import Home from './pages/Home'
 import { SectorsListPage } from './pages/SectorsListPage'
 import { SectorPage } from './pages/sectors/SectorPage'
 import { SectorApplicationPage } from './pages/sectors/SectorApplicationPage'
+import { UseCaseApplicationPage } from './pages/sectors/UseCaseApplicationPage'
 import { BlogListPage } from './pages/blog/BlogListPage'
 import { BlogPostPage } from './pages/blog/BlogPostPage'
 
@@ -56,6 +57,9 @@ function AppRoutes() {
       
       {/* Sector Routes */}
       <Route path="/sektorler" component={SectorsListPage} />
+      <Route path="/sektor/:slug/senaryo/:useCaseId/basvuru">
+        {() => <UseCaseApplicationPage />}
+      </Route>
       <Route path="/sektor/:slug/basvuru">
         {() => <SectorApplicationPage />}
       </Route>

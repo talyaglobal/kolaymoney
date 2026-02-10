@@ -3,15 +3,16 @@
  * Tek bir finansman senaryosunu gösterir
  */
 
-import { SectorUseCase } from '@/types/sector'
+import { SectorUseCase, SectorSlug } from '@/types/sector'
 import { useState } from 'react'
 
 interface UseCaseCardProps {
   useCase: SectorUseCase
   index: number
+  sectorSlug: SectorSlug
 }
 
-export function UseCaseCard({ useCase, index }: UseCaseCardProps) {
+export function UseCaseCard({ useCase, index, sectorSlug }: UseCaseCardProps) {
   const [isExpanded, setIsExpanded] = useState(false)
 
   return (
@@ -106,7 +107,7 @@ export function UseCaseCard({ useCase, index }: UseCaseCardProps) {
       {/* CTA */}
       <div className="p-6 bg-gray-100 border-t-4 border-black">
         <a 
-          href="/#references"
+          href={`/sektor/${sectorSlug}/senaryo/${useCase.id}/basvuru`}
           className="block w-full px-6 py-4 bg-blue-600 text-white text-center font-bold text-lg hover:bg-blue-700 transition-colors border-2 border-black"
         >
           📞 Bu Senaryo İçin Sizi Arayalım

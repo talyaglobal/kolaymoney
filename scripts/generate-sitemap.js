@@ -27,6 +27,20 @@ const SECTORS = [
   'tarim'
 ]
 
+// Use case IDs for each sector (3 per sector = 30 total)
+const USE_CASE_IDS = {
+  'beyaz-esya': ['beyaz-esya-1', 'beyaz-esya-2', 'beyaz-esya-3'],
+  'elektronik': ['elektronik-1', 'elektronik-2', 'elektronik-3'],
+  'mobilya': ['mobilya-1', 'mobilya-2', 'mobilya-3'],
+  'otomotiv-b2c': ['otomotiv-b2c-1', 'otomotiv-b2c-2', 'otomotiv-b2c-3'],
+  'fmcg': ['fmcg-1', 'fmcg-2', 'fmcg-3'],
+  'insaat': ['insaat-1', 'insaat-2', 'insaat-3'],
+  'otomotiv-b2b': ['otomotiv-b2b-1', 'otomotiv-b2b-2', 'otomotiv-b2b-3'],
+  'makine-ekipman': ['makine-ekipman-1', 'makine-ekipman-2', 'makine-ekipman-3'],
+  'lojistik': ['lojistik-1', 'lojistik-2', 'lojistik-3'],
+  'tarim': ['tarim-1', 'tarim-2', 'tarim-3']
+}
+
 // Generate sitemap URLs
 function generateSitemapURLs() {
   const now = new Date().toISOString().split('T')[0]
@@ -76,7 +90,17 @@ function generateSitemapURLs() {
       lastmod: now,
       changefreq: 'monthly',
       priority: 0.85
-    }))
+    })),
+    
+    // Use case application pages (30 pages: 10 sectors x 3 use cases)
+    ...SECTORS.flatMap(sector => 
+      USE_CASE_IDS[sector].map(useCaseId => ({
+        loc: `${BASE_URL}/sektor/${sector}/senaryo/${useCaseId}/basvuru`,
+        lastmod: now,
+        changefreq: 'monthly',
+        priority: 0.75
+      }))
+    )
   ]
   
   return urls

@@ -33,9 +33,15 @@ const STEPS = [
 
 interface ComplianceApplicationFormProps {
   prefilledSector?: SectorSlug
+  useCaseContext?: {
+    id: string
+    title: string
+    amount: number
+  }
+  onBack?: () => void
 }
 
-export function ComplianceApplicationForm({ prefilledSector }: ComplianceApplicationFormProps) {
+export function ComplianceApplicationForm({ prefilledSector, useCaseContext, onBack }: ComplianceApplicationFormProps) {
   const [, navigate] = useLocation()
   const analytics = useAnalytics()
   const [currentStep, setCurrentStep] = useState(1)
@@ -187,6 +193,7 @@ export function ComplianceApplicationForm({ prefilledSector }: ComplianceApplica
         isPassed: finalScoring.isPassed,
         scoringDetails: finalScoring,
         source: 'web_form',
+        useCaseContext: useCaseContext || undefined, // Add use case context if provided
         utmSource: new URLSearchParams(window.location.search).get('utm_source') || undefined,
         utmMedium: new URLSearchParams(window.location.search).get('utm_medium') || undefined,
         utmCampaign: new URLSearchParams(window.location.search).get('utm_campaign') || undefined
@@ -267,6 +274,25 @@ export function ComplianceApplicationForm({ prefilledSector }: ComplianceApplica
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-4xl mx-auto px-4">
+        {/* Back Button (if onBack provided) */}
+        {onBack && (
+          <button
+            onClick={onBack}
+            className="mb-6 inline-flex items-center text-sm mono-text text-gray-600 hover:text-black transition-colors"
+          >
+            ← Geri Dön
+          </button>
+        )}
+
+        {/* Use Case Context Info (if provided) */}
+        {useCaseContext && (
+          <div className="brutalist-card p-4 bg-blue-50 border-2 border-black mb-6">
+            <p className="mono-text text-sm">
+              <span className="font-bold">📊 Senaryo:</span> {useCaseContext.title}
+            </p>
+          </div>
+        )}
+
         {/* Progress Bar */}
         <div className="brutalist-card p-6 bg-white mb-8">
           <div className="flex items-center justify-between mb-4">

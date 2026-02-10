@@ -3,14 +3,15 @@
  * Tüm senaryoları grid layout'ta gösterir
  */
 
-import { SectorUseCase } from '@/types/sector'
+import { SectorUseCase, SectorSlug } from '@/types/sector'
 import { UseCaseCard } from './UseCaseCard'
 
 interface UseCaseGridProps {
   useCases: SectorUseCase[]
+  sectorSlug: SectorSlug
 }
 
-export function UseCaseGrid({ useCases }: UseCaseGridProps) {
+export function UseCaseGrid({ useCases, sectorSlug }: UseCaseGridProps) {
   return (
     <section id="use-cases" className="py-16 bg-white">
       <div className="container mx-auto px-4">
@@ -23,7 +24,12 @@ export function UseCaseGrid({ useCases }: UseCaseGridProps) {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {useCases.map((useCase, index) => (
-            <UseCaseCard key={useCase.id} useCase={useCase} index={index} />
+            <UseCaseCard 
+              key={useCase.id} 
+              useCase={useCase} 
+              index={index}
+              sectorSlug={sectorSlug}
+            />
           ))}
         </div>
       </div>

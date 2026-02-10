@@ -101,7 +101,7 @@ export function SectorPage() {
       </section>
 
       {/* Use Cases */}
-      <UseCaseGrid useCases={sectorData.useCases} />
+      <UseCaseGrid useCases={sectorData.useCases} sectorSlug={slug} />
 
       {/* Calculator */}
       <FinancingCalculator sectorName={sectorData.name} />
