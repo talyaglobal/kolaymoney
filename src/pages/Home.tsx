@@ -108,14 +108,14 @@ export default function Home() {
         <div className="container relative z-10 py-20">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             {/* Left Side - Content on White Background */}
-            <div className="max-w-3xl">
+            <div>
               <div className="inline-block bg-blue-600 text-white px-4 py-2 mb-6 border-2 border-black">
                 <span className="mono-text font-bold">VDMK İHRAÇLARI</span>
               </div>
-              <h1 className="heading-1 mb-6 text-black">
+              <h1 className="text-4xl md:text-5xl font-black mb-6 text-black leading-tight">
                 İşletmeniz için Hızlı ve Alternatif Finansman: VDMK İhraçları
               </h1>
-              <p className="body-text text-gray-800 mb-8 max-w-2xl">
+              <p className="text-lg text-gray-800 mb-8 leading-relaxed">
                 <strong>Varlığa Dayalı Menkul Kıymet (VDMK)</strong> ile dönen varlıklarınızı, <a href="/blog/vdmk-nedir-kapsamli-rehber" className="text-blue-600 underline hover:no-underline">alacaklarınızı</a> veya kira gelirlerinizi sermaye piyasalarında nakde çevirin. 
                 <strong> OMG Capital Advisors</strong> stratejik ortaklığı ile güvenli ve hızlı <a href="/sektorler" className="text-blue-600 underline hover:no-underline">işletme finansmanı</a> erişin.
               </p>
