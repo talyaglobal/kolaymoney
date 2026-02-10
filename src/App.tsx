@@ -26,6 +26,7 @@ import { UseCaseApplicationPage } from './pages/sectors/UseCaseApplicationPage'
 import { BlogListPage } from './pages/blog/BlogListPage'
 import { BlogPostPage } from './pages/blog/BlogPostPage'
 import { WhyNotFactoringPage } from './pages/WhyNotFactoringPage'
+import { FactoringTransitionGuidePage } from './pages/FactoringTransitionGuidePage'
 
 // Protected Route Component
 function ProtectedRoute({ component: Component, ...rest }: any) {
@@ -76,6 +77,7 @@ function AppRoutes() {
       
       {/* Factoring Comparison */}
       <Route path="/neden-factoring-degil" component={WhyNotFactoringPage} />
+      <Route path="/factoring-gecis-rehberi" component={FactoringTransitionGuidePage} />
       
       {/* Admin Routes */}
       <Route path="/admin/login" component={AdminLogin} />

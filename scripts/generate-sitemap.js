@@ -76,9 +76,15 @@ function generateSitemapURLs() {
       priority: 0.9
     },
     
-    // Factoring comparison page
+    // Factoring comparison pages
     {
       loc: `${BASE_URL}/neden-factoring-degil`,
+      lastmod: now,
+      changefreq: 'monthly',
+      priority: 0.85
+    },
+    {
+      loc: `${BASE_URL}/factoring-gecis-rehberi`,
       lastmod: now,
       changefreq: 'monthly',
       priority: 0.85
