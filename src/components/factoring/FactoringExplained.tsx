@@ -3,6 +3,8 @@
  * White background explaining factoring limitations
  */
 
+import { FINANCIAL_DATA } from '@/lib/config/financialData'
+
 export function FactoringExplained() {
   const limitations = [
     {
@@ -18,7 +20,7 @@ export function FactoringExplained() {
     {
       icon: '💸',
       title: 'Yüksek Maliyet',
-      description: 'Faiz + komisyon + masraf yapısı finansman maliyetini artırır'
+      description: `%${FINANCIAL_DATA.rates.factoring.discountRate.value} faiz + %${FINANCIAL_DATA.rates.factoring.commission.value} komisyon + masraflar ile toplam maliyet çok yüksek`
     },
     {
       icon: '🎯',
