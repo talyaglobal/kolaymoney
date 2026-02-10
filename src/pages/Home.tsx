@@ -1,6 +1,11 @@
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { ArrowRight, Building2, ShoppingCart, Factory, Wheat, Package } from "lucide-react";
+import { useAnalytics } from "@/contexts/AnalyticsContext";
+import { useSEO } from "@/hooks/useSEO";
+import { DEFAULT_META } from "@/lib/seo/metaTags";
+import { generateOrganizationSchema, generateBreadcrumbSchema, injectStructuredData } from "@/lib/seo/structuredData";
 
 /**
  * Design Philosophy: Finansal Brutalizm
@@ -11,11 +16,29 @@ import { ArrowRight, Building2, ShoppingCart, Factory, Wheat, Package } from "lu
  */
 
 export default function Home() {
+  const analytics = useAnalytics();
+
+  // SEO optimization
+  useSEO({
+    ...DEFAULT_META,
+    canonical: '/'
+  });
+
+  // Add structured data
+  useEffect(() => {
+    injectStructuredData(generateOrganizationSchema(), 'organization-schema');
+    injectStructuredData(generateBreadcrumbSchema([
+      { name: 'Ana Sayfa', url: '/' }
+    ]), 'breadcrumb-schema');
+  }, []);
+
   const scrollToContact = () => {
+    analytics.trackCTAClick('Sizi Arayalım', 'Hero');
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const scrollToHowItWorks = () => {
+    analytics.trackMenuClick('Nasıl Çalışır');
     document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' });
   };
 

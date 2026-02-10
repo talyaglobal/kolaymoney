@@ -69,7 +69,7 @@ export function calculateComplianceScore(
   const totalScore = totalMax > 0 ? (totalEarned / totalMax) * 100 : 0
   const isPassed = totalScore >= 60
 
-  // Kategori yüzdelikleri
+  // Kategori yüzdelikleri (for recommendations)
   const categoryPercentages = {
     financial: categoryScores.financial.max > 0 
       ? (categoryScores.financial.earned / categoryScores.financial.max) * 100 
@@ -91,7 +91,12 @@ export function calculateComplianceScore(
   return {
     totalScore,
     isPassed,
-    categoryScores: categoryPercentages,
+    categoryScores: categoryScores as {
+      financial: { earned: number; max: number }
+      operational: { earned: number; max: number }
+      legal: { earned: number; max: number }
+      experience: { earned: number; max: number }
+    },
     failedCriteria,
     recommendations,
     scoringDetails

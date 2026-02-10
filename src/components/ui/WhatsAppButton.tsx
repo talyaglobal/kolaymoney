@@ -1,10 +1,13 @@
 import { MessageCircle } from 'lucide-react'
+import { useAnalytics } from '@/contexts/AnalyticsContext'
 
 export function WhatsAppButton() {
+  const analytics = useAnalytics()
   const phoneNumber = '905558681634' // +90 555 868 16 34
   const message = 'Merhaba, VDMK finansman hakkında bilgi almak istiyorum.'
   
   const handleClick = () => {
+    analytics.trackWhatsAppClick(window.location.pathname)
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
     window.open(url, '_blank')
   }

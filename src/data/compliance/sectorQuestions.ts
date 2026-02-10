@@ -694,8 +694,1005 @@ export const SECTOR_QUESTIONS: SectorQuestion[] = [
     ]
   },
 
-  // Diğer 6 sektör için kısa versiyon (token tasarrufu için)
-  // Her sektör için temel 10 soru pattern'i aynı
+  // ============================================
+  // 5. MOBİLYA
+  // ============================================
+  {
+    id: 'mobilya-1',
+    sectorSlug: 'mobilya',
+    questionText: 'Mobilya sektöründe kaç yıldır faaliyet gösteriyorsunuz?',
+    questionType: 'single_choice',
+    weight: 7,
+    category: 'experience',
+    isRequired: true,
+    orderIndex: 1,
+    isActive: true,
+    options: [
+      { id: '1', label: '0-2 yıl', score: 30 },
+      { id: '2', label: '2-5 yıl', score: 70 },
+      { id: '3', label: '5-10 yıl', score: 90 },
+      { id: '4', label: '10+ yıl', score: 100 }
+    ]
+  },
+  {
+    id: 'mobilya-2',
+    sectorSlug: 'mobilya',
+    questionText: 'Yıllık cirosunuz?',
+    questionType: 'single_choice',
+    weight: 10,
+    category: 'financial',
+    isRequired: true,
+    orderIndex: 2,
+    isActive: true,
+    options: [
+      { id: '1', label: '0-3M TL', score: 20 },
+      { id: '2', label: '3-8M TL', score: 60 },
+      { id: '3', label: '8-20M TL', score: 85 },
+      { id: '4', label: '20M+ TL', score: 100 }
+    ]
+  },
+  {
+    id: 'mobilya-3',
+    sectorSlug: 'mobilya',
+    questionText: 'Aylık ortalama alacak tutarınız?',
+    questionType: 'single_choice',
+    weight: 9,
+    category: 'financial',
+    isRequired: true,
+    orderIndex: 3,
+    isActive: true,
+    options: [
+      { id: '1', label: '0-500K TL', score: 40 },
+      { id: '2', label: '500K-1M TL', score: 70 },
+      { id: '3', label: '1M-3M TL', score: 90 },
+      { id: '4', label: '3M+ TL', score: 100 }
+    ]
+  },
+  {
+    id: 'mobilya-4',
+    sectorSlug: 'mobilya',
+    questionText: 'Taksitli satış oranınız?',
+    questionType: 'single_choice',
+    weight: 8,
+    category: 'operational',
+    isRequired: true,
+    orderIndex: 4,
+    isActive: true,
+    options: [
+      { id: '1', label: '%0-20', score: 30 },
+      { id: '2', label: '%20-40', score: 60 },
+      { id: '3', label: '%40-60', score: 80 },
+      { id: '4', label: '%60+', score: 100 }
+    ]
+  },
+  {
+    id: 'mobilya-5',
+    sectorSlug: 'mobilya',
+    questionText: 'Ortalama vade süreniz (gün)?',
+    questionType: 'single_choice',
+    weight: 7,
+    category: 'operational',
+    isRequired: true,
+    orderIndex: 5,
+    isActive: true,
+    options: [
+      { id: '1', label: '0-30 gün', score: 60 },
+      { id: '2', label: '30-60 gün', score: 80 },
+      { id: '3', label: '60-90 gün', score: 90 },
+      { id: '4', label: '90+ gün', score: 100 }
+    ]
+  },
+  {
+    id: 'mobilya-6',
+    sectorSlug: 'mobilya',
+    questionText: 'Kaç satış noktanız var?',
+    questionType: 'single_choice',
+    weight: 6,
+    category: 'operational',
+    isRequired: true,
+    orderIndex: 6,
+    isActive: true,
+    options: [
+      { id: '1', label: '1-2 mağaza', score: 50 },
+      { id: '2', label: '3-5 mağaza', score: 75 },
+      { id: '3', label: '6-10 mağaza', score: 90 },
+      { id: '4', label: '10+ mağaza', score: 100 }
+    ]
+  },
+  {
+    id: 'mobilya-7',
+    sectorSlug: 'mobilya',
+    questionText: 'Üretim mi yapıyorsunuz yoksa sadece satış mı?',
+    questionType: 'single_choice',
+    weight: 6,
+    category: 'operational',
+    isRequired: true,
+    orderIndex: 7,
+    isActive: true,
+    options: [
+      { id: '1', label: 'Sadece satış', score: 60 },
+      { id: '2', label: 'Satış + Montaj', score: 75 },
+      { id: '3', label: 'Üretim + Satış', score: 90 },
+      { id: '4', label: 'Tam entegre üretim', score: 100 }
+    ]
+  },
+  {
+    id: 'mobilya-8',
+    sectorSlug: 'mobilya',
+    questionText: 'Vergi borcu var mı?',
+    questionType: 'yes_no',
+    weight: 5,
+    category: 'legal',
+    isRequired: true,
+    orderIndex: 8,
+    isActive: true,
+    options: [
+      { id: 'yes', label: 'Evet', score: 0, isQualifying: true },
+      { id: 'no', label: 'Hayır', score: 100 }
+    ]
+  },
+  {
+    id: 'mobilya-9',
+    sectorSlug: 'mobilya',
+    questionText: 'TSE belgeleriniz var mı?',
+    questionType: 'yes_no',
+    weight: 5,
+    category: 'legal',
+    isRequired: true,
+    orderIndex: 9,
+    isActive: true,
+    options: [
+      { id: 'yes', label: 'Evet', score: 100 },
+      { id: 'no', label: 'Hayır', score: 70 }
+    ]
+  },
+  {
+    id: 'mobilya-10',
+    sectorSlug: 'mobilya',
+    questionText: 'Müşteri portföyünüzde kurumsal firmalar var mı?',
+    questionType: 'yes_no',
+    weight: 4,
+    category: 'operational',
+    isRequired: true,
+    orderIndex: 10,
+    isActive: true,
+    options: [
+      { id: 'yes', label: 'Evet', score: 100 },
+      { id: 'no', label: 'Hayır', score: 60 }
+    ]
+  },
+
+  // ============================================
+  // 6. OTOMOTİV B2C (Galeri, Servis)
+  // ============================================
+  {
+    id: 'otomotiv-b2c-1',
+    sectorSlug: 'otomotiv-b2c',
+    questionText: 'Otomotiv sektöründe kaç yıldır faaliyet gösteriyorsunuz?',
+    questionType: 'single_choice',
+    weight: 8,
+    category: 'experience',
+    isRequired: true,
+    orderIndex: 1,
+    isActive: true,
+    options: [
+      { id: '1', label: '0-2 yıl', score: 30 },
+      { id: '2', label: '2-5 yıl', score: 70 },
+      { id: '3', label: '5-10 yıl', score: 90 },
+      { id: '4', label: '10+ yıl', score: 100 }
+    ]
+  },
+  {
+    id: 'otomotiv-b2c-2',
+    sectorSlug: 'otomotiv-b2c',
+    questionText: 'Yıllık cirosunuz?',
+    questionType: 'single_choice',
+    weight: 10,
+    category: 'financial',
+    isRequired: true,
+    orderIndex: 2,
+    isActive: true,
+    options: [
+      { id: '1', label: '0-10M TL', score: 30 },
+      { id: '2', label: '10-25M TL', score: 70 },
+      { id: '3', label: '25-50M TL', score: 90 },
+      { id: '4', label: '50M+ TL', score: 100 }
+    ]
+  },
+  {
+    id: 'otomotiv-b2c-3',
+    sectorSlug: 'otomotiv-b2c',
+    questionText: 'Aylık ortalama alacak tutarınız?',
+    questionType: 'single_choice',
+    weight: 9,
+    category: 'financial',
+    isRequired: true,
+    orderIndex: 3,
+    isActive: true,
+    options: [
+      { id: '1', label: '0-1M TL', score: 40 },
+      { id: '2', label: '1M-3M TL', score: 70 },
+      { id: '3', label: '3M-5M TL', score: 90 },
+      { id: '4', label: '5M+ TL', score: 100 }
+    ]
+  },
+  {
+    id: 'otomotiv-b2c-4',
+    sectorSlug: 'otomotiv-b2c',
+    questionText: 'Taksitli satış oranınız?',
+    questionType: 'single_choice',
+    weight: 8,
+    category: 'operational',
+    isRequired: true,
+    orderIndex: 4,
+    isActive: true,
+    options: [
+      { id: '1', label: '%0-30', score: 40 },
+      { id: '2', label: '%30-50', score: 70 },
+      { id: '3', label: '%50-70', score: 90 },
+      { id: '4', label: '%70+', score: 100 }
+    ]
+  },
+  {
+    id: 'otomotiv-b2c-5',
+    sectorSlug: 'otomotiv-b2c',
+    questionText: 'Yetkili servisiniz var mı?',
+    questionType: 'yes_no',
+    weight: 7,
+    category: 'operational',
+    isRequired: true,
+    orderIndex: 5,
+    isActive: true,
+    options: [
+      { id: 'yes', label: 'Evet', score: 100 },
+      { id: 'no', label: 'Hayır', score: 60 }
+    ]
+  },
+  {
+    id: 'otomotiv-b2c-6',
+    sectorSlug: 'otomotiv-b2c',
+    questionText: 'Kaç showroom/galeriniz var?',
+    questionType: 'single_choice',
+    weight: 6,
+    category: 'operational',
+    isRequired: true,
+    orderIndex: 6,
+    isActive: true,
+    options: [
+      { id: '1', label: '1 nokta', score: 60 },
+      { id: '2', label: '2-3 nokta', score: 80 },
+      { id: '3', label: '4-5 nokta', score: 90 },
+      { id: '4', label: '5+ nokta', score: 100 }
+    ]
+  },
+  {
+    id: 'otomotiv-b2c-7',
+    sectorSlug: 'otomotiv-b2c',
+    questionText: 'Hangi marka/markaları temsil ediyorsunuz?',
+    questionType: 'single_choice',
+    weight: 7,
+    category: 'operational',
+    isRequired: true,
+    orderIndex: 7,
+    isActive: true,
+    options: [
+      { id: '1', label: 'Sadece 2. el', score: 50 },
+      { id: '2', label: '1 marka yetkili bayi', score: 80 },
+      { id: '3', label: '2+ marka yetkili bayi', score: 100 },
+      { id: '4', label: 'Premium marka', score: 100 }
+    ]
+  },
+  {
+    id: 'otomotiv-b2c-8',
+    sectorSlug: 'otomotiv-b2c',
+    questionText: 'Vergi/SGK borcu var mı?',
+    questionType: 'yes_no',
+    weight: 5,
+    category: 'legal',
+    isRequired: true,
+    orderIndex: 8,
+    isActive: true,
+    options: [
+      { id: 'yes', label: 'Evet', score: 0, isQualifying: true },
+      { id: 'no', label: 'Hayır', score: 100 }
+    ]
+  },
+  {
+    id: 'otomotiv-b2c-9',
+    sectorSlug: 'otomotiv-b2c',
+    questionText: 'Ticaret Odası kaydınız aktif mi?',
+    questionType: 'yes_no',
+    weight: 4,
+    category: 'legal',
+    isRequired: true,
+    orderIndex: 9,
+    isActive: true,
+    options: [
+      { id: 'yes', label: 'Evet', score: 100 },
+      { id: 'no', label: 'Hayır', score: 0, isQualifying: true }
+    ]
+  },
+  {
+    id: 'otomotiv-b2c-10',
+    sectorSlug: 'otomotiv-b2c',
+    questionText: 'Banka kredisi kullanıyor musunuz?',
+    questionType: 'yes_no',
+    weight: 6,
+    category: 'financial',
+    isRequired: true,
+    orderIndex: 10,
+    isActive: true,
+    options: [
+      { id: 'yes', label: 'Evet, düzenli ödüyorum', score: 100 },
+      { id: 'no', label: 'Hayır', score: 70 }
+    ]
+  },
+
+  // ============================================
+  // 7. FMCG (Hızlı Tüketim Malları)
+  // ============================================
+  {
+    id: 'fmcg-1',
+    sectorSlug: 'fmcg',
+    questionText: 'FMCG sektöründe kaç yıldır faaliyet gösteriyorsunuz?',
+    questionType: 'single_choice',
+    weight: 7,
+    category: 'experience',
+    isRequired: true,
+    orderIndex: 1,
+    isActive: true,
+    options: [
+      { id: '1', label: '0-2 yıl', score: 40 },
+      { id: '2', label: '2-5 yıl', score: 70 },
+      { id: '3', label: '5-10 yıl', score: 90 },
+      { id: '4', label: '10+ yıl', score: 100 }
+    ]
+  },
+  {
+    id: 'fmcg-2',
+    sectorSlug: 'fmcg',
+    questionText: 'Yıllık cirosunuz?',
+    questionType: 'single_choice',
+    weight: 10,
+    category: 'financial',
+    isRequired: true,
+    orderIndex: 2,
+    isActive: true,
+    options: [
+      { id: '1', label: '0-5M TL', score: 30 },
+      { id: '2', label: '5-15M TL', score: 70 },
+      { id: '3', label: '15-30M TL', score: 90 },
+      { id: '4', label: '30M+ TL', score: 100 }
+    ]
+  },
+  {
+    id: 'fmcg-3',
+    sectorSlug: 'fmcg',
+    questionText: 'Aylık ortalama alacak tutarınız?',
+    questionType: 'single_choice',
+    weight: 9,
+    category: 'financial',
+    isRequired: true,
+    orderIndex: 3,
+    isActive: true,
+    options: [
+      { id: '1', label: '0-500K TL', score: 40 },
+      { id: '2', label: '500K-1.5M TL', score: 70 },
+      { id: '3', label: '1.5M-3M TL', score: 90 },
+      { id: '4', label: '3M+ TL', score: 100 }
+    ]
+  },
+  {
+    id: 'fmcg-4',
+    sectorSlug: 'fmcg',
+    questionText: 'Vadeli satış oranınız?',
+    questionType: 'single_choice',
+    weight: 8,
+    category: 'operational',
+    isRequired: true,
+    orderIndex: 4,
+    isActive: true,
+    options: [
+      { id: '1', label: '%0-20', score: 30 },
+      { id: '2', label: '%20-50', score: 70 },
+      { id: '3', label: '%50-70', score: 90 },
+      { id: '4', label: '%70+', score: 100 }
+    ]
+  },
+  {
+    id: 'fmcg-5',
+    sectorSlug: 'fmcg',
+    questionText: 'Ortalama vade süreniz (gün)?',
+    questionType: 'single_choice',
+    weight: 7,
+    category: 'operational',
+    isRequired: true,
+    orderIndex: 5,
+    isActive: true,
+    options: [
+      { id: '1', label: '0-30 gün', score: 70 },
+      { id: '2', label: '30-60 gün', score: 85 },
+      { id: '3', label: '60-90 gün', score: 95 },
+      { id: '4', label: '90+ gün', score: 100 }
+    ]
+  },
+  {
+    id: 'fmcg-6',
+    sectorSlug: 'fmcg',
+    questionText: 'Kaç distribütör/bayi ile çalışıyorsunuz?',
+    questionType: 'single_choice',
+    weight: 6,
+    category: 'operational',
+    isRequired: true,
+    orderIndex: 6,
+    isActive: true,
+    options: [
+      { id: '1', label: '1-10 bayi', score: 50 },
+      { id: '2', label: '10-50 bayi', score: 75 },
+      { id: '3', label: '50-100 bayi', score: 90 },
+      { id: '4', label: '100+ bayi', score: 100 }
+    ]
+  },
+  {
+    id: 'fmcg-7',
+    sectorSlug: 'fmcg',
+    questionText: 'Depo/lojistik altyapınız var mı?',
+    questionType: 'yes_no',
+    weight: 6,
+    category: 'operational',
+    isRequired: true,
+    orderIndex: 7,
+    isActive: true,
+    options: [
+      { id: 'yes', label: 'Evet, kendi depomuz var', score: 100 },
+      { id: 'no', label: 'Hayır, 3. parti kullanıyoruz', score: 70 }
+    ]
+  },
+  {
+    id: 'fmcg-8',
+    sectorSlug: 'fmcg',
+    questionText: 'Gıda Güvenlik Belgesi (ISO 22000) var mı?',
+    questionType: 'yes_no',
+    weight: 5,
+    category: 'legal',
+    isRequired: true,
+    orderIndex: 8,
+    isActive: true,
+    options: [
+      { id: 'yes', label: 'Evet', score: 100 },
+      { id: 'no', label: 'Hayır', score: 60 }
+    ]
+  },
+  {
+    id: 'fmcg-9',
+    sectorSlug: 'fmcg',
+    questionText: 'Vergi/SGK borcu var mı?',
+    questionType: 'yes_no',
+    weight: 5,
+    category: 'legal',
+    isRequired: true,
+    orderIndex: 9,
+    isActive: true,
+    options: [
+      { id: 'yes', label: 'Evet', score: 0, isQualifying: true },
+      { id: 'no', label: 'Hayır', score: 100 }
+    ]
+  },
+  {
+    id: 'fmcg-10',
+    sectorSlug: 'fmcg',
+    questionText: 'Ulusal zincir marketlere satış yapıyor musunuz?',
+    questionType: 'yes_no',
+    weight: 4,
+    category: 'operational',
+    isRequired: true,
+    orderIndex: 10,
+    isActive: true,
+    options: [
+      { id: 'yes', label: 'Evet', score: 100 },
+      { id: 'no', label: 'Hayır', score: 60 }
+    ]
+  },
+
+  // ============================================
+  // 8. İNŞAAT & YAPI MALZEMELERİ
+  // ============================================
+  {
+    id: 'insaat-1',
+    sectorSlug: 'insaat',
+    questionText: 'İnşaat sektöründe kaç yıldır faaliyet gösteriyorsunuz?',
+    questionType: 'single_choice',
+    weight: 8,
+    category: 'experience',
+    isRequired: true,
+    orderIndex: 1,
+    isActive: true,
+    options: [
+      { id: '1', label: '0-2 yıl', score: 30 },
+      { id: '2', label: '2-5 yıl', score: 70 },
+      { id: '3', label: '5-10 yıl', score: 90 },
+      { id: '4', label: '10+ yıl', score: 100 }
+    ]
+  },
+  {
+    id: 'insaat-2',
+    sectorSlug: 'insaat',
+    questionText: 'Yıllık cirosunuz?',
+    questionType: 'single_choice',
+    weight: 10,
+    category: 'financial',
+    isRequired: true,
+    orderIndex: 2,
+    isActive: true,
+    options: [
+      { id: '1', label: '0-10M TL', score: 30 },
+      { id: '2', label: '10-30M TL', score: 70 },
+      { id: '3', label: '30-75M TL', score: 90 },
+      { id: '4', label: '75M+ TL', score: 100 }
+    ]
+  },
+  {
+    id: 'insaat-3',
+    sectorSlug: 'insaat',
+    questionText: 'Aylık ortalama alacak tutarınız?',
+    questionType: 'single_choice',
+    weight: 9,
+    category: 'financial',
+    isRequired: true,
+    orderIndex: 3,
+    isActive: true,
+    options: [
+      { id: '1', label: '0-1M TL', score: 40 },
+      { id: '2', label: '1M-3M TL', score: 70 },
+      { id: '3', label: '3M-6M TL', score: 90 },
+      { id: '4', label: '6M+ TL', score: 100 }
+    ]
+  },
+  {
+    id: 'insaat-4',
+    sectorSlug: 'insaat',
+    questionText: 'Vadeli satış oranınız?',
+    questionType: 'single_choice',
+    weight: 8,
+    category: 'operational',
+    isRequired: true,
+    orderIndex: 4,
+    isActive: true,
+    options: [
+      { id: '1', label: '%0-30', score: 40 },
+      { id: '2', label: '%30-60', score: 75 },
+      { id: '3', label: '%60-80', score: 90 },
+      { id: '4', label: '%80+', score: 100 }
+    ]
+  },
+  {
+    id: 'insaat-5',
+    sectorSlug: 'insaat',
+    questionText: 'Ortalama vade süreniz (gün)?',
+    questionType: 'single_choice',
+    weight: 7,
+    category: 'operational',
+    isRequired: true,
+    orderIndex: 5,
+    isActive: true,
+    options: [
+      { id: '1', label: '0-60 gün', score: 70 },
+      { id: '2', label: '60-90 gün', score: 85 },
+      { id: '3', label: '90-120 gün', score: 95 },
+      { id: '4', label: '120+ gün', score: 100 }
+    ]
+  },
+  {
+    id: 'insaat-6',
+    sectorSlug: 'insaat',
+    questionText: 'Müteahhit firmalara satış yapıyor musunuz?',
+    questionType: 'yes_no',
+    weight: 7,
+    category: 'operational',
+    isRequired: true,
+    orderIndex: 6,
+    isActive: true,
+    options: [
+      { id: 'yes', label: 'Evet', score: 100 },
+      { id: 'no', label: 'Hayır', score: 60 }
+    ]
+  },
+  {
+    id: 'insaat-7',
+    sectorSlug: 'insaat',
+    questionText: 'Kaç satış noktanız var?',
+    questionType: 'single_choice',
+    weight: 6,
+    category: 'operational',
+    isRequired: true,
+    orderIndex: 7,
+    isActive: true,
+    options: [
+      { id: '1', label: '1 nokta', score: 60 },
+      { id: '2', label: '2-3 nokta', score: 80 },
+      { id: '3', label: '4-6 nokta', score: 90 },
+      { id: '4', label: '6+ nokta', score: 100 }
+    ]
+  },
+  {
+    id: 'insaat-8',
+    sectorSlug: 'insaat',
+    questionText: 'İMO/MMO üyeliğiniz var mı?',
+    questionType: 'yes_no',
+    weight: 5,
+    category: 'legal',
+    isRequired: true,
+    orderIndex: 8,
+    isActive: true,
+    options: [
+      { id: 'yes', label: 'Evet', score: 100 },
+      { id: 'no', label: 'Hayır', score: 70 }
+    ]
+  },
+  {
+    id: 'insaat-9',
+    sectorSlug: 'insaat',
+    questionText: 'Vergi/SGK borcu var mı?',
+    questionType: 'yes_no',
+    weight: 5,
+    category: 'legal',
+    isRequired: true,
+    orderIndex: 9,
+    isActive: true,
+    options: [
+      { id: 'yes', label: 'Evet', score: 0, isQualifying: true },
+      { id: 'no', label: 'Hayır', score: 100 }
+    ]
+  },
+  {
+    id: 'insaat-10',
+    sectorSlug: 'insaat',
+    questionText: 'Kamu ihalelerine katılıyor musunuz?',
+    questionType: 'yes_no',
+    weight: 4,
+    category: 'operational',
+    isRequired: true,
+    orderIndex: 10,
+    isActive: true,
+    options: [
+      { id: 'yes', label: 'Evet', score: 100 },
+      { id: 'no', label: 'Hayır', score: 70 }
+    ]
+  },
+
+  // ============================================
+  // 9. OTOMOTİV B2B (Yedek Parça, Lastik)
+  // ============================================
+  {
+    id: 'otomotiv-b2b-1',
+    sectorSlug: 'otomotiv-b2b',
+    questionText: 'Otomotiv yan sanayi sektöründe kaç yıldır faaliyet gösteriyorsunuz?',
+    questionType: 'single_choice',
+    weight: 8,
+    category: 'experience',
+    isRequired: true,
+    orderIndex: 1,
+    isActive: true,
+    options: [
+      { id: '1', label: '0-2 yıl', score: 30 },
+      { id: '2', label: '2-5 yıl', score: 70 },
+      { id: '3', label: '5-10 yıl', score: 90 },
+      { id: '4', label: '10+ yıl', score: 100 }
+    ]
+  },
+  {
+    id: 'otomotiv-b2b-2',
+    sectorSlug: 'otomotiv-b2b',
+    questionText: 'Yıllık cirosunuz?',
+    questionType: 'single_choice',
+    weight: 10,
+    category: 'financial',
+    isRequired: true,
+    orderIndex: 2,
+    isActive: true,
+    options: [
+      { id: '1', label: '0-5M TL', score: 30 },
+      { id: '2', label: '5-15M TL', score: 70 },
+      { id: '3', label: '15-40M TL', score: 90 },
+      { id: '4', label: '40M+ TL', score: 100 }
+    ]
+  },
+  {
+    id: 'otomotiv-b2b-3',
+    sectorSlug: 'otomotiv-b2b',
+    questionText: 'Aylık ortalama alacak tutarınız?',
+    questionType: 'single_choice',
+    weight: 9,
+    category: 'financial',
+    isRequired: true,
+    orderIndex: 3,
+    isActive: true,
+    options: [
+      { id: '1', label: '0-500K TL', score: 40 },
+      { id: '2', label: '500K-1.5M TL', score: 70 },
+      { id: '3', label: '1.5M-3M TL', score: 90 },
+      { id: '4', label: '3M+ TL', score: 100 }
+    ]
+  },
+  {
+    id: 'otomotiv-b2b-4',
+    sectorSlug: 'otomotiv-b2b',
+    questionText: 'Vadeli satış oranınız?',
+    questionType: 'single_choice',
+    weight: 8,
+    category: 'operational',
+    isRequired: true,
+    orderIndex: 4,
+    isActive: true,
+    options: [
+      { id: '1', label: '%0-30', score: 40 },
+      { id: '2', label: '%30-60', score: 75 },
+      { id: '3', label: '%60-80', score: 90 },
+      { id: '4', label: '%80+', score: 100 }
+    ]
+  },
+  {
+    id: 'otomotiv-b2b-5',
+    sectorSlug: 'otomotiv-b2b',
+    questionText: 'Ortalama vade süreniz (gün)?',
+    questionType: 'single_choice',
+    weight: 7,
+    category: 'operational',
+    isRequired: true,
+    orderIndex: 5,
+    isActive: true,
+    options: [
+      { id: '1', label: '0-30 gün', score: 70 },
+      { id: '2', label: '30-60 gün', score: 85 },
+      { id: '3', label: '60-90 gün', score: 95 },
+      { id: '4', label: '90+ gün', score: 100 }
+    ]
+  },
+  {
+    id: 'otomotiv-b2b-6',
+    sectorSlug: 'otomotiv-b2b',
+    questionText: 'Kaç bayi/servis ile çalışıyorsunuz?',
+    questionType: 'single_choice',
+    weight: 6,
+    category: 'operational',
+    isRequired: true,
+    orderIndex: 6,
+    isActive: true,
+    options: [
+      { id: '1', label: '1-20 bayi', score: 50 },
+      { id: '2', label: '20-50 bayi', score: 75 },
+      { id: '3', label: '50-100 bayi', score: 90 },
+      { id: '4', label: '100+ bayi', score: 100 }
+    ]
+  },
+  {
+    id: 'otomotiv-b2b-7',
+    sectorSlug: 'otomotiv-b2b',
+    questionText: 'Hangi tip ürünler satıyorsunuz?',
+    questionType: 'single_choice',
+    weight: 7,
+    category: 'operational',
+    isRequired: true,
+    orderIndex: 7,
+    isActive: true,
+    options: [
+      { id: '1', label: 'Sadece yan sanayi', score: 60 },
+      { id: '2', label: 'Orijinal + Yan sanayi', score: 80 },
+      { id: '3', label: 'Sadece orijinal', score: 100 },
+      { id: '4', label: 'Özel ithalat', score: 90 }
+    ]
+  },
+  {
+    id: 'otomotiv-b2b-8',
+    sectorSlug: 'otomotiv-b2b',
+    questionText: 'ISO 9001 belgeniz var mı?',
+    questionType: 'yes_no',
+    weight: 5,
+    category: 'legal',
+    isRequired: true,
+    orderIndex: 8,
+    isActive: true,
+    options: [
+      { id: 'yes', label: 'Evet', score: 100 },
+      { id: 'no', label: 'Hayır', score: 70 }
+    ]
+  },
+  {
+    id: 'otomotiv-b2b-9',
+    sectorSlug: 'otomotiv-b2b',
+    questionText: 'Vergi/SGK borcu var mı?',
+    questionType: 'yes_no',
+    weight: 5,
+    category: 'legal',
+    isRequired: true,
+    orderIndex: 9,
+    isActive: true,
+    options: [
+      { id: 'yes', label: 'Evet', score: 0, isQualifying: true },
+      { id: 'no', label: 'Hayır', score: 100 }
+    ]
+  },
+  {
+    id: 'otomotiv-b2b-10',
+    sectorSlug: 'otomotiv-b2b',
+    questionText: 'OEM (ana sanayi) firmalara tedarik yapıyor musunuz?',
+    questionType: 'yes_no',
+    weight: 4,
+    category: 'operational',
+    isRequired: true,
+    orderIndex: 10,
+    isActive: true,
+    options: [
+      { id: 'yes', label: 'Evet', score: 100 },
+      { id: 'no', label: 'Hayır', score: 60 }
+    ]
+  },
+
+  // ============================================
+  // 10. MAKİNE & EKİPMAN
+  // ============================================
+  {
+    id: 'makine-ekipman-1',
+    sectorSlug: 'makine-ekipman',
+    questionText: 'Makine/ekipman sektöründe kaç yıldır faaliyet gösteriyorsunuz?',
+    questionType: 'single_choice',
+    weight: 8,
+    category: 'experience',
+    isRequired: true,
+    orderIndex: 1,
+    isActive: true,
+    options: [
+      { id: '1', label: '0-2 yıl', score: 30 },
+      { id: '2', label: '2-5 yıl', score: 70 },
+      { id: '3', label: '5-10 yıl', score: 90 },
+      { id: '4', label: '10+ yıl', score: 100 }
+    ]
+  },
+  {
+    id: 'makine-ekipman-2',
+    sectorSlug: 'makine-ekipman',
+    questionText: 'Yıllık cirosunuz?',
+    questionType: 'single_choice',
+    weight: 10,
+    category: 'financial',
+    isRequired: true,
+    orderIndex: 2,
+    isActive: true,
+    options: [
+      { id: '1', label: '0-10M TL', score: 30 },
+      { id: '2', label: '10-30M TL', score: 70 },
+      { id: '3', label: '30-75M TL', score: 90 },
+      { id: '4', label: '75M+ TL', score: 100 }
+    ]
+  },
+  {
+    id: 'makine-ekipman-3',
+    sectorSlug: 'makine-ekipman',
+    questionText: 'Aylık ortalama alacak tutarınız?',
+    questionType: 'single_choice',
+    weight: 9,
+    category: 'financial',
+    isRequired: true,
+    orderIndex: 3,
+    isActive: true,
+    options: [
+      { id: '1', label: '0-1M TL', score: 40 },
+      { id: '2', label: '1M-3M TL', score: 70 },
+      { id: '3', label: '3M-6M TL', score: 90 },
+      { id: '4', label: '6M+ TL', score: 100 }
+    ]
+  },
+  {
+    id: 'makine-ekipman-4',
+    sectorSlug: 'makine-ekipman',
+    questionText: 'Vadeli satış oranınız?',
+    questionType: 'single_choice',
+    weight: 8,
+    category: 'operational',
+    isRequired: true,
+    orderIndex: 4,
+    isActive: true,
+    options: [
+      { id: '1', label: '%0-40', score: 50 },
+      { id: '2', label: '%40-60', score: 75 },
+      { id: '3', label: '%60-80', score: 90 },
+      { id: '4', label: '%80+', score: 100 }
+    ]
+  },
+  {
+    id: 'makine-ekipman-5',
+    sectorSlug: 'makine-ekipman',
+    questionText: 'Ortalama vade süreniz (gün)?',
+    questionType: 'single_choice',
+    weight: 7,
+    category: 'operational',
+    isRequired: true,
+    orderIndex: 5,
+    isActive: true,
+    options: [
+      { id: '1', label: '0-60 gün', score: 70 },
+      { id: '2', label: '60-120 gün', score: 85 },
+      { id: '3', label: '120-180 gün', score: 95 },
+      { id: '4', label: '180+ gün', score: 100 }
+    ]
+  },
+  {
+    id: 'makine-ekipman-6',
+    sectorSlug: 'makine-ekipman',
+    questionText: 'Yetkili servis hizmeti veriyor musunuz?',
+    questionType: 'yes_no',
+    weight: 7,
+    category: 'operational',
+    isRequired: true,
+    orderIndex: 6,
+    isActive: true,
+    options: [
+      { id: 'yes', label: 'Evet', score: 100 },
+      { id: 'no', label: 'Hayır', score: 60 }
+    ]
+  },
+  {
+    id: 'makine-ekipman-7',
+    sectorSlug: 'makine-ekipman',
+    questionText: 'Hangi tip ürünler satıyorsunuz?',
+    questionType: 'single_choice',
+    weight: 6,
+    category: 'operational',
+    isRequired: true,
+    orderIndex: 7,
+    isActive: true,
+    options: [
+      { id: '1', label: 'Sadece ithal', score: 80 },
+      { id: '2', label: 'Yerli üretim', score: 90 },
+      { id: '3', label: 'İthal + Yerli', score: 100 },
+      { id: '4', label: '2. el', score: 50 }
+    ]
+  },
+  {
+    id: 'makine-ekipman-8',
+    sectorSlug: 'makine-ekipman',
+    questionText: 'CE belgeleriniz var mı?',
+    questionType: 'yes_no',
+    weight: 5,
+    category: 'legal',
+    isRequired: true,
+    orderIndex: 8,
+    isActive: true,
+    options: [
+      { id: 'yes', label: 'Evet', score: 100 },
+      { id: 'no', label: 'Hayır', score: 60 }
+    ]
+  },
+  {
+    id: 'makine-ekipman-9',
+    sectorSlug: 'makine-ekipman',
+    questionText: 'Vergi/SGK borcu var mı?',
+    questionType: 'yes_no',
+    weight: 5,
+    category: 'legal',
+    isRequired: true,
+    orderIndex: 9,
+    isActive: true,
+    options: [
+      { id: 'yes', label: 'Evet', score: 0, isQualifying: true },
+      { id: 'no', label: 'Hayır', score: 100 }
+    ]
+  },
+  {
+    id: 'makine-ekipman-10',
+    sectorSlug: 'makine-ekipman',
+    questionText: 'Sanayi kuruluşlarına satış yapıyor musunuz?',
+    questionType: 'yes_no',
+    weight: 4,
+    category: 'operational',
+    isRequired: true,
+    orderIndex: 10,
+    isActive: true,
+    options: [
+      { id: 'yes', label: 'Evet', score: 100 },
+      { id: 'no', label: 'Hayır', score: 60 }
+    ]
+  }
 ]
 
 /**

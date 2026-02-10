@@ -154,6 +154,53 @@ export type Database = {
           },
         ]
       }
+      application_notifications: {
+        Row: {
+          application_id: string
+          body: string
+          created_at: string
+          error_message: string | null
+          id: string
+          recipient_email: string
+          sent_at: string | null
+          status: string
+          subject: string
+          type: string
+        }
+        Insert: {
+          application_id: string
+          body: string
+          created_at?: string
+          error_message?: string | null
+          id?: string
+          recipient_email: string
+          sent_at?: string | null
+          status?: string
+          subject: string
+          type: string
+        }
+        Update: {
+          application_id?: string
+          body?: string
+          created_at?: string
+          error_message?: string | null
+          id?: string
+          recipient_email?: string
+          sent_at?: string | null
+          status?: string
+          subject?: string
+          type?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "application_notifications_application_id_fkey"
+            columns: ["application_id"]
+            isOneToOne: false
+            referencedRelation: "compliance_applications"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       applications: {
         Row: {
           company_name: string
@@ -214,6 +261,177 @@ export type Database = {
           submitted_at?: string
           tax_number?: string
           updated_at?: string
+        }
+        Relationships: []
+      }
+      compliance_applications: {
+        Row: {
+          annual_revenue: number
+          average_basket_size: number
+          average_payment_term: number
+          city: string
+          company_address: string
+          company_name: string
+          company_type: string
+          compliance_score: number
+          contact_email: string
+          contact_name: string
+          contact_phone: string
+          contact_title: string
+          created_at: string
+          credit_sales_ratio: number
+          documents: Json | null
+          founding_year: number
+          id: string
+          is_passed: boolean
+          monthly_receivables: number
+          purpose: string
+          question_responses: Json
+          rejection_reason: string | null
+          requested_amount: number
+          requested_term: number
+          review_notes: string | null
+          reviewed_at: string | null
+          reviewed_by: string | null
+          scoring_details: Json
+          sector: string
+          source: string | null
+          status: string
+          tax_number: string
+          updated_at: string
+          utm_campaign: string | null
+          utm_medium: string | null
+          utm_source: string | null
+        }
+        Insert: {
+          annual_revenue: number
+          average_basket_size: number
+          average_payment_term: number
+          city: string
+          company_address: string
+          company_name: string
+          company_type: string
+          compliance_score?: number
+          contact_email: string
+          contact_name: string
+          contact_phone: string
+          contact_title: string
+          created_at?: string
+          credit_sales_ratio: number
+          documents?: Json | null
+          founding_year: number
+          id?: string
+          is_passed?: boolean
+          monthly_receivables: number
+          purpose: string
+          question_responses?: Json
+          rejection_reason?: string | null
+          requested_amount: number
+          requested_term: number
+          review_notes?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          scoring_details?: Json
+          sector: string
+          source?: string | null
+          status?: string
+          tax_number: string
+          updated_at?: string
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Update: {
+          annual_revenue?: number
+          average_basket_size?: number
+          average_payment_term?: number
+          city?: string
+          company_address?: string
+          company_name?: string
+          company_type?: string
+          compliance_score?: number
+          contact_email?: string
+          contact_name?: string
+          contact_phone?: string
+          contact_title?: string
+          created_at?: string
+          credit_sales_ratio?: number
+          documents?: Json | null
+          founding_year?: number
+          id?: string
+          is_passed?: boolean
+          monthly_receivables?: number
+          purpose?: string
+          question_responses?: Json
+          rejection_reason?: string | null
+          requested_amount?: number
+          requested_term?: number
+          review_notes?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          scoring_details?: Json
+          sector?: string
+          source?: string | null
+          status?: string
+          tax_number?: string
+          updated_at?: string
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Relationships: []
+      }
+      sector_questions: {
+        Row: {
+          category: string
+          created_at: string
+          help_text: string | null
+          id: string
+          is_active: boolean
+          is_required: boolean
+          options: Json | null
+          order_index: number
+          placeholder: string | null
+          question_text: string
+          question_type: string
+          sector_slug: string
+          updated_at: string
+          validation_rules: Json | null
+          weight: number
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          help_text?: string | null
+          id?: string
+          is_active?: boolean
+          is_required?: boolean
+          options?: Json | null
+          order_index?: number
+          placeholder?: string | null
+          question_text: string
+          question_type: string
+          sector_slug: string
+          updated_at?: string
+          validation_rules?: Json | null
+          weight?: number
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          help_text?: string | null
+          id?: string
+          is_active?: boolean
+          is_required?: boolean
+          options?: Json | null
+          order_index?: number
+          placeholder?: string | null
+          question_text?: string
+          question_type?: string
+          sector_slug?: string
+          updated_at?: string
+          validation_rules?: Json | null
+          weight?: number
         }
         Relationships: []
       }

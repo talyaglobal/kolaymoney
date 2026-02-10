@@ -81,8 +81,24 @@ export function AdminDashboard() {
                   className="p-6 bg-white border-4 border-black hover:translate-x-1 hover:translate-y-1 transition-transform"
                 >
                   <div className="text-3xl mb-3">📋</div>
-                  <div className="font-bold text-lg mb-2">Başvurular</div>
-                  <div className="text-sm text-gray-600">Tüm başvuruları görüntüle</div>
+                  <div className="font-bold text-lg mb-2">Başvurular (Eski)</div>
+                  <div className="text-sm text-gray-600">Klasik VDMK başvuruları</div>
+                </a>
+                <a
+                  href="/admin/compliance-applications"
+                  className="p-6 bg-green-50 border-4 border-green-600 hover:translate-x-1 hover:translate-y-1 transition-transform"
+                >
+                  <div className="text-3xl mb-3">✓</div>
+                  <div className="font-bold text-lg mb-2">Compliance Başvuruları</div>
+                  <div className="text-sm text-gray-600">Puanlı başvuru sistemi</div>
+                </a>
+                <a
+                  href="/admin/question-manager"
+                  className="p-6 bg-white border-4 border-black hover:translate-x-1 hover:translate-y-1 transition-transform"
+                >
+                  <div className="text-3xl mb-3">❓</div>
+                  <div className="font-bold text-lg mb-2">Soru Yönetimi</div>
+                  <div className="text-sm text-gray-600">Anket sorularını düzenle</div>
                 </a>
                 <a
                   href="/admin/financial-data"
@@ -99,6 +115,14 @@ export function AdminDashboard() {
                   <div className="text-3xl mb-3">🏢</div>
                   <div className="font-bold text-lg mb-2">Sektör Sayfaları</div>
                   <div className="text-sm text-gray-600">10 sektör, 30 use case</div>
+                </a>
+                <a
+                  href="/basvuru-yeni"
+                  className="p-6 bg-blue-50 border-4 border-blue-600 hover:translate-x-1 hover:translate-y-1 transition-transform"
+                >
+                  <div className="text-3xl mb-3">📝</div>
+                  <div className="font-bold text-lg mb-2">Yeni Başvuru</div>
+                  <div className="text-sm text-gray-600">Test için başvuru yap</div>
                 </a>
               </div>
             </div>

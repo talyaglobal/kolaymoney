@@ -5,22 +5,19 @@
 
 import { Link } from 'wouter'
 import { getSectorsByCategory } from '@/data/sectors'
-import { useEffect } from 'react'
+import { useSEO } from '@/hooks/useSEO'
 
 export function SectorsListPage() {
   const b2cSectors = getSectorsByCategory('B2C')
   const b2bSectors = getSectorsByCategory('B2B')
 
-  useEffect(() => {
-    document.title = 'Sektörel VDMK Finansman Çözümleri | KolayMoney'
-    
-    const metaDescription = document.querySelector('meta[name="description"]')
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 
-        '10 farklı sektör için özelleştirilmiş VDMK finansman çözümleri. Gerçek senaryolar, hesaplamalar ve ROI örnekleri.'
-      )
-    }
-  }, [])
+  // SEO optimization
+  useSEO({
+    title: 'Sektörler - VDMK Finansman Çözümleri | KolayMoney',
+    description: '10 farklı sektör için özel VDMK finansman çözümleri. Beyaz eşya, elektronik, mobilya, otomotiv, FMCG, inşaat ve daha fazlası.',
+    keywords: ['sektörel finansman', 'VDMK sektörler', 'işletme kredisi sektörler', 'beyaz eşya finansman', 'elektronik finansman'],
+    canonical: '/sektorler'
+  })
 
   return (
     <div className="min-h-screen bg-white">

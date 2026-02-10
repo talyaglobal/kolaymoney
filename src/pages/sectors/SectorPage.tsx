@@ -12,34 +12,49 @@ import { UseCaseGrid } from '@/components/sectors/UseCaseGrid'
 import { FinancingCalculator } from '@/components/sectors/FinancingCalculator'
 import { SectorBenefits } from '@/components/sectors/SectorBenefits'
 import { useEffect } from 'react'
+import { useAnalytics } from '@/contexts/AnalyticsContext'
+import { useSEO } from '@/hooks/useSEO'
+import { generateServiceSchema, generateBreadcrumbSchema, injectStructuredData } from '@/lib/seo/structuredData'
 
 export function SectorPage() {
   const params = useParams()
   const slug = params.slug as SectorSlug
+  const analytics = useAnalytics()
   
   const sectorData = getSectorData(slug)
 
-  // SEO: Update page title and meta
+  // SEO optimization
+  useSEO({
+    title: sectorData?.seoTitle || 'Sektör | KolayMoney',
+    description: sectorData?.seoDescription || '',
+    keywords: sectorData?.seoKeywords || [],
+    canonical: `/sektor/${slug}`
+  })
+
+  // Track sector view + Add structured data
   useEffect(() => {
     if (sectorData) {
-      document.title = sectorData.seoTitle
+      analytics.trackSectorView(slug)
       
-      // Update meta description
-      const metaDescription = document.querySelector('meta[name="description"]')
-      if (metaDescription) {
-        metaDescription.setAttribute('content', sectorData.seoDescription)
-      }
+      // Add service schema
+      injectStructuredData(generateServiceSchema({
+        name: sectorData.name,
+        slug: sectorData.slug,
+        description: sectorData.description,
+        minAmount: 500000,
+        maxAmount: 50000000,
+        minTerm: 3,
+        maxTerm: 24
+      }), 'service-schema')
       
-      // Update meta keywords
-      let metaKeywords = document.querySelector('meta[name="keywords"]')
-      if (!metaKeywords) {
-        metaKeywords = document.createElement('meta')
-        metaKeywords.setAttribute('name', 'keywords')
-        document.head.appendChild(metaKeywords)
-      }
-      metaKeywords.setAttribute('content', sectorData.seoKeywords.join(', '))
+      // Add breadcrumb schema
+      injectStructuredData(generateBreadcrumbSchema([
+        { name: 'Ana Sayfa', url: '/' },
+        { name: 'Sektörler', url: '/sektorler' },
+        { name: sectorData.name, url: `/sektor/${slug}` }
+      ]), 'breadcrumb-schema')
     }
-  }, [sectorData])
+  }, [sectorData, slug])
 
   // 404 handling
   if (!sectorData) {

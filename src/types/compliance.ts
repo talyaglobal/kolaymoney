@@ -73,10 +73,10 @@ export interface ComplianceScoring {
   totalScore: number // 0-100
   isPassed: boolean // >= 60
   categoryScores: {
-    financial: number
-    operational: number
-    legal: number
-    experience: number
+    financial: { earned: number; max: number }
+    operational: { earned: number; max: number }
+    legal: { earned: number; max: number }
+    experience: { earned: number; max: number }
   }
   failedCriteria: string[]
   recommendations: string[]
@@ -100,8 +100,35 @@ export type ApplicationStatus =
 export interface ComplianceApplication {
   id: string
   
-  // Form Data
-  formData: ComplianceFormData
+  // Company Info
+  companyName: string
+  taxNumber: string
+  companyType: string
+  sector: string
+  foundingYear: number
+  
+  // Contact Info
+  contactName: string
+  contactTitle: string
+  contactEmail: string
+  contactPhone: string
+  companyAddress: string
+  city: string
+  
+  // Financial Info
+  annualRevenue: number
+  creditSalesRatio: number
+  averagePaymentTerm: number
+  averageBasketSize: number
+  monthlyReceivables: number
+  
+  // VDMK Request
+  requestedAmount: number
+  requestedTerm: number
+  purpose: string
+  
+  // Questionnaire
+  questionResponses: Record<string, any>
   
   // Scoring
   complianceScore: number
@@ -114,6 +141,9 @@ export interface ComplianceApplication {
   reviewNotes?: string
   reviewedBy?: string
   reviewedAt?: string
+  
+  // Documents
+  documents?: any
   
   // Tracking
   source?: string

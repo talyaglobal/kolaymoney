@@ -1,9 +1,18 @@
 import { useState } from 'react'
 import { VDMKApplicationForm } from '@/components/forms/VDMKApplicationForm'
+import { useSEO } from '@/hooks/useSEO'
 
 export function ApplicationPage() {
   const [submitted, setSubmitted] = useState(false)
   const [applicationId, setApplicationId] = useState<string | null>(null)
+
+  // SEO optimization
+  useSEO({
+    title: 'VDMK Başvuru Formu (Klasik) | KolayMoney',
+    description: 'Klasik VDMK finansman başvuru formu. Hızlı değerlendirme ve rekabetçi oranlar.',
+    keywords: ['VDMK başvuru', 'finansman başvurusu', 'işletme kredisi'],
+    canonical: '/basvuru'
+  })
 
   const handleSuccess = (id: string) => {
     setApplicationId(id)
