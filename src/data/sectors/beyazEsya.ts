@@ -13,6 +13,7 @@ export const beyazEsyaData: SectorData = {
   category: 'B2C',
   paymentTerm: '6-12 ay',
   icon: '🔌',
+  image: '/img/sectors/white-goods.webp',
   
   summary: 'Türkiye\'de beyaz eşya sektörü, tüketicilerin %65\'inin taksitli alışveriş yaptığı bir pazar. Ortalama vade 6-12 ay, ortalama sepet değeri 8.000-25.000 TL.',
   

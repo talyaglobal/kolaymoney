@@ -13,6 +13,7 @@ export const tarimData: SectorData = {
   category: 'B2B',
   paymentTerm: '90-180 gün',
   icon: '🌾',
+  image: '/img/sectors/agriculture.webp',
   
   summary: 'Tarım sektöründe mevsimsel üretim döngüleri nedeniyle ödeme vadesi 90-180 gün. Tohum, gübre, ilaç alımları peşin, ürün satışları vadeli.',
   

@@ -73,5 +73,30 @@
     "prompt": "Successful Turkish business owner in retail store, confident smile, modern shop interior, professional portrait photography",
     "model": "imagen-4.0-standard",
     "date": "2026-02-10T08:20:44.431035"
+  },
+  "public/img/sectors/agriculture.webp": {
+    "prompt": "Modern agricultural field with farming equipment, tractor and crops, rural landscape, professional agricultural photography, golden hour lighting",
+    "model": "imagen-4.0-fast",
+    "date": "2026-02-10T08:32:11.883771"
+  },
+  "public/img/sectors/fmcg.webp": {
+    "prompt": "Modern supermarket interior, organized shelves with consumer products, shopping cart, clean retail environment, professional photography",
+    "model": "imagen-4.0-fast",
+    "date": "2026-02-10T08:32:12.105602"
+  },
+  "public/img/sectors/white-goods.webp": {
+    "prompt": "Modern home appliances showroom, refrigerators washing machines and dishwashers on display, clean retail environment, professional photography, bright lighting",
+    "model": "imagen-4.0-fast",
+    "date": "2026-02-10T08:32:12.207485"
+  },
+  "public/img/sectors/automotive-b2b.webp": {
+    "prompt": "Commercial vehicle fleet parking lot, multiple trucks and vans, professional automotive photography, business setting",
+    "model": "imagen-4.0-fast",
+    "date": "2026-02-10T08:36:17.263950"
+  },
+  "public/img/sectors/machinery.webp": {
+    "prompt": "Industrial machinery and equipment in factory setting, modern production machines, professional industrial photography",
+    "model": "imagen-4.0-fast",
+    "date": "2026-02-10T08:36:18.149641"
   }
 }

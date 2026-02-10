@@ -13,6 +13,7 @@ export const otomotivB2BData: SectorData = {
   category: 'B2B',
   paymentTerm: '60-180 gün',
   icon: '🚙',
+  image: '/img/sectors/automotive-b2b.webp',
   
   summary: 'Otomotiv B2B sektöründe filo satışları ve bayi ödemeleri ortalama 120 gün vadeli. Yüksek tutarlar, uzun vadeler, düşük marjlar.',
   

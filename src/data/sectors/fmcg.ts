@@ -13,6 +13,7 @@ export const fmcgData: SectorData = {
   category: 'B2B',
   paymentTerm: '30-90 gün',
   icon: '🛒',
+  image: '/img/sectors/fmcg.webp',
   
   summary: 'FMCG sektöründe market zincirleri ve bayilere satışlarda ortalama vade 60 gün. Yüksek ciro, düşük marj, hızlı stok devir hızı.',
   

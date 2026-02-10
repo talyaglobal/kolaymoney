@@ -13,6 +13,7 @@ export const makineEkipmanData: SectorData = {
   category: 'B2B',
   paymentTerm: '90-180 gün',
   icon: '⚙️',
+  image: '/img/sectors/machinery.webp',
   
   summary: 'Makine ve ekipman sektöründe sanayi müşterilerine satışlarda ortalama vade 120 gün. Yüksek tutarlar, uzun vadeler, proje bazlı satış.',
   

@@ -198,6 +198,36 @@ if __name__ == "__main__":
             "model_type": "fast",
             "ratio": "4:3"
         },
+        {
+            "path": "public/img/sectors/white-goods.jpg",
+            "prompt": "Modern home appliances showroom, refrigerators washing machines and dishwashers on display, clean retail environment, professional photography, bright lighting",
+            "model_type": "fast",
+            "ratio": "4:3"
+        },
+        {
+            "path": "public/img/sectors/fmcg.jpg",
+            "prompt": "Modern supermarket interior, organized shelves with consumer products, shopping cart, clean retail environment, professional photography",
+            "model_type": "fast",
+            "ratio": "4:3"
+        },
+        {
+            "path": "public/img/sectors/agriculture.jpg",
+            "prompt": "Modern agricultural field with farming equipment, tractor and crops, rural landscape, professional agricultural photography, golden hour lighting",
+            "model_type": "fast",
+            "ratio": "4:3"
+        },
+        {
+            "path": "public/img/sectors/automotive-b2b.jpg",
+            "prompt": "Commercial vehicle fleet parking lot, multiple trucks and vans, professional automotive photography, business setting",
+            "model_type": "fast",
+            "ratio": "4:3"
+        },
+        {
+            "path": "public/img/sectors/machinery.jpg",
+            "prompt": "Industrial machinery and equipment in factory setting, modern production machines, professional industrial photography",
+            "model_type": "fast",
+            "ratio": "4:3"
+        },
         
         # About/Contact Page
         {
