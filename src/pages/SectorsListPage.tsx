@@ -131,45 +131,43 @@ export function SectorsListPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {b2cSectors.map((sector) => (
-              <div 
-                key={sector.slug}
-                className="bg-white border-4 border-black hover:translate-x-2 hover:translate-y-2 transition-transform h-full"
-              >
-                <div className="bg-blue-600 text-white p-6 border-b-4 border-black">
-                  <div className="text-5xl mb-3">{sector.icon}</div>
-                  <h3 className="text-2xl font-black">{sector.name}</h3>
-                </div>
-                
-                <div className="p-6">
-                  <div className="mb-4">
-                    <div className="text-sm font-bold text-gray-600 mb-2">
-                      ORTALAMA VADE
-                    </div>
-                    <div className="text-xl font-bold">{sector.paymentTerm}</div>
+              <Link key={sector.slug} href={`/sektor/${sector.slug}`}>
+                <a className="block bg-white border-4 border-black hover:translate-x-2 hover:translate-y-2 transition-transform h-full group">
+                  <div className="bg-blue-600 text-white p-6 border-b-4 border-black">
+                    <div className="text-5xl mb-3">{sector.icon}</div>
+                    <h3 className="text-2xl font-black">{sector.name}</h3>
                   </div>
                   
-                  <div className="mb-4">
-                    <div className="text-sm font-bold text-gray-600 mb-2">
-                      USE CASE SAYISI
+                  <div className="p-6">
+                    <div className="mb-4">
+                      <div className="text-sm font-bold text-gray-600 mb-2">
+                        ORTALAMA VADE
+                      </div>
+                      <div className="text-xl font-bold">{sector.paymentTerm}</div>
                     </div>
-                    <div className="text-xl font-bold">{sector.useCases.length} Senaryo</div>
-                  </div>
-                  
-                  <div className="pt-4 border-t-2 border-gray-200 space-y-3">
-                    <a
-                      href={`/sektor/${sector.slug}/basvuru`}
-                      className="block w-full px-4 py-3 bg-[#0047FF] text-white text-center font-bold hover:bg-blue-700 transition-colors border-2 border-black mono-text"
-                    >
-                      {sector.icon} Başvuru Yap
-                    </a>
-                    <Link href={`/sektor/${sector.slug}`}>
-                      <a className="block w-full px-4 py-3 bg-white text-blue-600 text-center font-bold hover:bg-gray-50 transition-colors border-2 border-black mono-text">
+                    
+                    <div className="mb-6">
+                      <div className="text-sm font-bold text-gray-600 mb-2">
+                        USE CASE SAYISI
+                      </div>
+                      <div className="text-xl font-bold">{sector.useCases.length} Senaryo</div>
+                    </div>
+                    
+                    <div className="text-center py-4 border-t-2 border-gray-200">
+                      <span className="text-blue-600 font-black text-xl group-hover:text-blue-700">
                         Detayları Gör →
-                      </a>
-                    </Link>
+                      </span>
+                    </div>
                   </div>
-                </div>
-              </div>
+                  
+                  {/* Yellow Band at Bottom */}
+                  <div className="bg-yellow-400 border-t-4 border-black p-4 text-center">
+                    <span className="text-black font-black text-lg uppercase tracking-wide">
+                      {sector.icon} Başvuru Yap
+                    </span>
+                  </div>
+                </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -187,45 +185,43 @@ export function SectorsListPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {b2bSectors.map((sector) => (
-              <div 
-                key={sector.slug}
-                className="bg-white border-4 border-black hover:translate-x-2 hover:translate-y-2 transition-transform h-full"
-              >
-                <div className="bg-gray-900 text-white p-6 border-b-4 border-black">
-                  <div className="text-5xl mb-3">{sector.icon}</div>
-                  <h3 className="text-2xl font-black">{sector.name}</h3>
-                </div>
-                
-                <div className="p-6">
-                  <div className="mb-4">
-                    <div className="text-sm font-bold text-gray-600 mb-2">
-                      ORTALAMA VADE
-                    </div>
-                    <div className="text-xl font-bold">{sector.paymentTerm}</div>
+              <Link key={sector.slug} href={`/sektor/${sector.slug}`}>
+                <a className="block bg-white border-4 border-black hover:translate-x-2 hover:translate-y-2 transition-transform h-full group">
+                  <div className="bg-gray-900 text-white p-6 border-b-4 border-black">
+                    <div className="text-5xl mb-3">{sector.icon}</div>
+                    <h3 className="text-2xl font-black">{sector.name}</h3>
                   </div>
                   
-                  <div className="mb-4">
-                    <div className="text-sm font-bold text-gray-600 mb-2">
-                      USE CASE SAYISI
+                  <div className="p-6">
+                    <div className="mb-4">
+                      <div className="text-sm font-bold text-gray-600 mb-2">
+                        ORTALAMA VADE
+                      </div>
+                      <div className="text-xl font-bold">{sector.paymentTerm}</div>
                     </div>
-                    <div className="text-xl font-bold">{sector.useCases.length} Senaryo</div>
-                  </div>
-                  
-                  <div className="pt-4 border-t-2 border-gray-200 space-y-3">
-                    <a
-                      href={`/sektor/${sector.slug}/basvuru`}
-                      className="block w-full px-4 py-3 bg-[#0047FF] text-white text-center font-bold hover:bg-blue-700 transition-colors border-2 border-black mono-text"
-                    >
-                      {sector.icon} Başvuru Yap
-                    </a>
-                    <Link href={`/sektor/${sector.slug}`}>
-                      <a className="block w-full px-4 py-3 bg-white text-gray-900 text-center font-bold hover:bg-gray-50 transition-colors border-2 border-black mono-text">
+                    
+                    <div className="mb-6">
+                      <div className="text-sm font-bold text-gray-600 mb-2">
+                        USE CASE SAYISI
+                      </div>
+                      <div className="text-xl font-bold">{sector.useCases.length} Senaryo</div>
+                    </div>
+                    
+                    <div className="text-center py-4 border-t-2 border-gray-200">
+                      <span className="text-gray-900 font-black text-xl group-hover:text-gray-700">
                         Detayları Gör →
-                      </a>
-                    </Link>
+                      </span>
+                    </div>
                   </div>
-                </div>
-              </div>
+                  
+                  {/* Yellow Band at Bottom */}
+                  <div className="bg-yellow-400 border-t-4 border-black p-4 text-center">
+                    <span className="text-black font-black text-lg uppercase tracking-wide">
+                      {sector.icon} Başvuru Yap
+                    </span>
+                  </div>
+                </a>
+              </Link>
             ))}
           </div>
         </div>
