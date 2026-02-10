@@ -78,7 +78,7 @@ export const fmcgData: SectorData = {
       },
       
       financialImpact: (() => {
-        const calc = calculateFullFinancing(160_000_000, 60, 42, 120_000_000, 1.5)
+        const calc = calculateFullFinancing(160_000_000, 60, FINANCIAL_DATA.rates.interestRates.commercialLoan.value, 120_000_000, 1.5)
         
         return [
           {

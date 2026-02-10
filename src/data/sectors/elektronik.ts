@@ -78,7 +78,7 @@ export const elektronikData: SectorData = {
       },
       
       financialImpact: (() => {
-        const calc = calculateFullFinancing(126_000_000, 90, 42, 105_000_000, 2)
+        const calc = calculateFullFinancing(126_000_000, 90, FINANCIAL_DATA.rates.interestRates.commercialLoan.value, 105_000_000, 2)
         
         return [
           {

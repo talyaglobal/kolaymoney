@@ -78,7 +78,7 @@ export const otomotivB2CData: SectorData = {
       },
       
       financialImpact: (() => {
-        const calc = calculateFullFinancing(27_000_000, 90, 42, 22_000_000, 2.5)
+        const calc = calculateFullFinancing(27_000_000, 90, FINANCIAL_DATA.rates.interestRates.commercialLoan.value, 22_000_000, 2.5)
         
         return [
           {

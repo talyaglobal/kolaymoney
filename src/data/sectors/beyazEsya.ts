@@ -79,7 +79,7 @@ export const beyazEsyaData: SectorData = {
       },
       
       financialImpact: (() => {
-        const calc = calculateFullFinancing(18_000_000, 90, 42, 15_000_000, 5)
+        const calc = calculateFullFinancing(18_000_000, 90, FINANCIAL_DATA.rates.interestRates.commercialLoan.value, 15_000_000, 5)
         
         return [
           {

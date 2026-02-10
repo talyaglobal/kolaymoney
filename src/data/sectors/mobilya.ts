@@ -78,7 +78,7 @@ export const mobilyaData: SectorData = {
       },
       
       financialImpact: (() => {
-        const calc = calculateFullFinancing(36_000_000, 90, 42, 30_000_000, 3)
+        const calc = calculateFullFinancing(36_000_000, 90, FINANCIAL_DATA.rates.interestRates.commercialLoan.value, 30_000_000, 3)
         
         return [
           {
@@ -156,7 +156,7 @@ export const mobilyaData: SectorData = {
       },
       
       financialImpact: (() => {
-        const calc = calculateFullFinancing(20_000_000, 120, 42, 15_000_000, 4)
+        const calc = calculateFullFinancing(20_000_000, 120, FINANCIAL_DATA.rates.interestRates.commercialLoan.value, 15_000_000, 4)
         const projectRevenue = 25_000_000
         const grossMargin = 0.25
         const grossProfit = projectRevenue * grossMargin

@@ -78,7 +78,7 @@ export const makineEkipmanData: SectorData = {
       },
       
       financialImpact: (() => {
-        const calc = calculateFullFinancing(225_000_000, 120, 42, 180_000_000, 2)
+        const calc = calculateFullFinancing(225_000_000, 120, FINANCIAL_DATA.rates.interestRates.commercialLoan.value, 180_000_000, 2)
         
         return [
           {
@@ -162,7 +162,7 @@ export const makineEkipmanData: SectorData = {
       },
       
       financialImpact: (() => {
-        const calc = calculateFullFinancing(75_000_000, 90, 42, 70_000_000, 3)
+        const calc = calculateFullFinancing(75_000_000, 90, FINANCIAL_DATA.rates.interestRates.commercialLoan.value, 70_000_000, 3)
         const rentalRevenue = 8_000_000 * 18
         const operatingCost = rentalRevenue * 0.30
         const grossProfit = rentalRevenue - operatingCost

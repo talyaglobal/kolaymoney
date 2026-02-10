@@ -93,7 +93,7 @@ export const FINANCIAL_DATA: FinancialDataConfig = {
     // VDMK Oranları (10 Şubat 2026)
     vdmk: {
       discountRate: {
-        value: 35.00,
+        value: 46.00,
         date: '2026-02-10',
         source: 'KolayMoney',
         note: 'VDMK yıllık iskonto oranı'
@@ -133,7 +133,7 @@ export const FINANCIAL_DATA: FinancialDataConfig = {
     // Faktoring Oranları (10 Şubat 2026)
     factoring: {
       discountRate: {
-        value: 36.00,
+        value: 50.00,
         date: '2026-02-10',
         source: 'Piyasa Ortalaması',
         note: 'Faktoring yıllık iskonto'

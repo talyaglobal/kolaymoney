@@ -78,7 +78,7 @@ export const tarimData: SectorData = {
       },
       
       financialImpact: (() => {
-        const calc = calculateFullFinancing(75_000_000, 120, 42, 60_000_000, 2)
+        const calc = calculateFullFinancing(75_000_000, 120, FINANCIAL_DATA.rates.interestRates.commercialLoan.value, 60_000_000, 2)
         
         return [
           {

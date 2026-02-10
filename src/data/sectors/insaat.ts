@@ -78,7 +78,7 @@ export const insaatData: SectorData = {
       },
       
       financialImpact: (() => {
-        const calc = calculateFullFinancing(120_000_000, 90, 42, 90_000_000, 2.5)
+        const calc = calculateFullFinancing(120_000_000, 90, FINANCIAL_DATA.rates.interestRates.commercialLoan.value, 90_000_000, 2.5)
         
         return [
           {
@@ -162,7 +162,7 @@ export const insaatData: SectorData = {
       },
       
       financialImpact: (() => {
-        const calc = calculateFullFinancing(60_000_000, 120, 42, 55_000_000, 3)
+        const calc = calculateFullFinancing(60_000_000, 120, FINANCIAL_DATA.rates.interestRates.commercialLoan.value, 55_000_000, 3)
         const projectRevenue = 80_000_000
         const grossMargin = 0.18
         const grossProfit = projectRevenue * grossMargin

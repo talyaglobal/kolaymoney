@@ -78,7 +78,7 @@ export const lojistikData: SectorData = {
       },
       
       financialImpact: (() => {
-        const calc = calculateFullFinancing(50_000_000, 60, 42, 12_000_000, 2)
+        const calc = calculateFullFinancing(50_000_000, 60, FINANCIAL_DATA.rates.interestRates.commercialLoan.value, 12_000_000, 2)
         
         return [
           {
@@ -162,7 +162,7 @@ export const lojistikData: SectorData = {
       },
       
       financialImpact: (() => {
-        const calc = calculateFullFinancing(40_000_000, 90, 42, 35_000_000, 3)
+        const calc = calculateFullFinancing(40_000_000, 90, FINANCIAL_DATA.rates.interestRates.commercialLoan.value, 35_000_000, 3)
         const newRevenue = 8_000_000 * 12 // Yıllık ek ciro
         const netMargin = 0.12
         const annualProfit = newRevenue * netMargin
