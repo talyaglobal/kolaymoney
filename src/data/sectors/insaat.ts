@@ -13,6 +13,7 @@ export const insaatData: SectorData = {
   category: 'B2B',
   paymentTerm: '60-180 gün',
   icon: '🏗️',
+  image: '/img/sectors/construction.webp',
   
   summary: 'İnşaat sektöründe müteahhit ödemeleri ortalama 120 gün vadeli. Proje bazlı satış, yüksek tutarlar, uzun vadeler.',
   

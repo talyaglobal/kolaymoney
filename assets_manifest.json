@@ -1,0 +1,77 @@
+{
+  "public/img/blog/business-growth.webp": {
+    "prompt": "Growing business chart with upward arrow, modern office background, financial success concept, blue and green colors, professional corporate photography",
+    "model": "imagen-4.0-standard",
+    "date": "2026-02-10T08:04:09.494634"
+  },
+  "public/img/blog/vdmk-guide.webp": {
+    "prompt": "Professional business handshake, financial documents on modern desk, Turkish businesspeople, corporate office setting, natural lighting, professional photography",
+    "model": "imagen-4.0-standard",
+    "date": "2026-02-10T08:04:10.725357"
+  },
+  "public/img/hero-background.webp": {
+    "prompt": "Modern financial technology concept, abstract geometric shapes in blue and black, professional corporate style, clean minimalist design, Turkish business atmosphere, high contrast, brutalist aesthetic",
+    "model": "imagen-4.0-ultra",
+    "date": "2026-02-10T08:04:12.471561"
+  },
+  "public/img/blog/sector-solutions.webp": {
+    "prompt": "Multiple industry sectors represented, manufacturing, retail, logistics icons, modern infographic style, professional business illustration",
+    "model": "imagen-4.0-standard",
+    "date": "2026-02-10T08:08:19.663114"
+  },
+  "public/img/blog/receivables-financing.webp": {
+    "prompt": "Invoice and payment documents, calculator and financial charts, cash flow concept, professional desk setup, business photography",
+    "model": "imagen-4.0-standard",
+    "date": "2026-02-10T08:08:20.349966"
+  },
+  "public/img/blog/sme-financing.webp": {
+    "prompt": "Small business owner in modern office, laptop with financial dashboard, confident entrepreneur, Turkish business setting, natural light",
+    "model": "imagen-4.0-standard",
+    "date": "2026-02-10T08:08:23.367083"
+  },
+  "public/img/sectors/electronics.webp": {
+    "prompt": "Modern electronics store interior, smartphones and gadgets display, clean retail environment, professional photography, blue lighting",
+    "model": "imagen-4.0-fast",
+    "date": "2026-02-10T08:12:27.214354"
+  },
+  "public/img/blog/cash-flow.webp": {
+    "prompt": "Money flow visualization, financial graphs and charts, cash management concept, blue and green colors, modern business illustration",
+    "model": "imagen-4.0-standard",
+    "date": "2026-02-10T08:12:28.600543"
+  },
+  "public/img/sectors/furniture.webp": {
+    "prompt": "Modern furniture showroom, elegant sofas and tables, clean minimalist design, professional interior photography, warm lighting",
+    "model": "imagen-4.0-fast",
+    "date": "2026-02-10T08:12:29.416121"
+  },
+  "public/img/sectors/automotive.webp": {
+    "prompt": "Modern car dealership showroom, luxury vehicles on display, clean professional environment, automotive photography",
+    "model": "imagen-4.0-fast",
+    "date": "2026-02-10T08:16:32.513820"
+  },
+  "public/img/sectors/construction.webp": {
+    "prompt": "Modern construction site, crane and building structure, professional construction photography, blue sky background",
+    "model": "imagen-4.0-fast",
+    "date": "2026-02-10T08:16:34.346355"
+  },
+  "public/img/sectors/logistics.webp": {
+    "prompt": "Modern logistics warehouse, organized storage system, delivery trucks, professional industrial photography",
+    "model": "imagen-4.0-fast",
+    "date": "2026-02-10T08:16:35.295407"
+  },
+  "public/img/team-office.webp": {
+    "prompt": "Modern Turkish financial advisory office, professional team working together, glass office interior, natural lighting, corporate photography",
+    "model": "imagen-4.0-standard",
+    "date": "2026-02-10T08:20:43.096590"
+  },
+  "public/img/success-story-2.webp": {
+    "prompt": "Manufacturing facility interior, modern production line, Turkish industrial setting, professional photography",
+    "model": "imagen-4.0-standard",
+    "date": "2026-02-10T08:20:43.361642"
+  },
+  "public/img/success-story-1.webp": {
+    "prompt": "Successful Turkish business owner in retail store, confident smile, modern shop interior, professional portrait photography",
+    "model": "imagen-4.0-standard",
+    "date": "2026-02-10T08:20:44.431035"
+  }
+}

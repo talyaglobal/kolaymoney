@@ -47,6 +47,7 @@ export interface SectorData {
   summary: string
   description: string
   icon: string // Emoji
+  image?: string // Sektör görseli
   stats: SectorStats
   useCases: SectorUseCase[]
   benefits: string[]

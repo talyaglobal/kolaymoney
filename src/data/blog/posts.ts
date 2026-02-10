@@ -83,7 +83,7 @@ VDMK, modern işletme finansmanında önemli bir araçtır. Doğru kullanıldı�
     `,
     author: 'KolayMoney Ekibi',
     publishDate: '2026-02-01',
-    image: 'https://files.manuscdn.com/user_upload_by_module/session_file/310419663029191411/MDfUKPpKMOgtIrVO.png',
+    image: '/img/blog/vdmk-guide.webp',
     tags: ['VDMK', 'Finansman', 'Alternatif Finansman', 'İşletme Kredisi'],
     readTime: 8
   },
@@ -164,7 +164,7 @@ VDMK, işletme finansmanında yeni bir dönemin kapısını açıyor. Doğru str
     `,
     author: 'Ahmet Yılmaz',
     publishDate: '2026-01-28',
-    image: 'https://files.manuscdn.com/user_upload_by_module/session_file/310419663029191411/dcxVlwUMFiXFwtvo.png',
+    image: '/img/blog/business-growth.webp',
     tags: ['İşletme Finansmanı', 'VDMK', 'Büyüme Stratejileri', 'Başarı Hikayeleri'],
     readTime: 10
   },
@@ -306,7 +306,7 @@ Her sektörün kendine özgü finansman ihtiyaçları vardır. VDMK, bu ihtiyaç
     `,
     author: 'Zeynep Kaya',
     publishDate: '2026-01-25',
-    image: 'https://files.manuscdn.com/user_upload_by_module/session_file/310419663029191411/MDfUKPpKMOgtIrVO.png',
+    image: '/img/blog/sector-solutions.webp',
     tags: ['Sektörel Finansman', 'VDMK', 'İşletme Kredisi', 'Sektör Analizi'],
     readTime: 12
   },
@@ -479,7 +479,7 @@ Alacak finansmanı, modern işletme yönetiminin vazgeçilmez bir aracıdır. Do
     `,
     author: 'Mehmet Demir',
     publishDate: '2026-02-05',
-    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800',
+    image: '/img/blog/receivables-financing.webp',
     tags: ['Alacak Finansmanı', 'VDMK', 'Nakit Akışı', 'İşletme Sermayesi'],
     readTime: 10
   },
@@ -728,7 +728,7 @@ Türkiye ekonomisinin can damarı olan KOBİ'ler, büyüme ve gelişme için fin
     `,
     author: 'Ayşe Yılmaz',
     publishDate: '2026-02-08',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800',
+    image: '/img/blog/sme-financing.webp',
     tags: ['KOBİ Finansmanı', 'Alternatif Finansman', 'VDMK', '2026 Trendleri'],
     readTime: 15
   },
@@ -1016,7 +1016,7 @@ Nakit akışı yönetimi, işletme başarısının temelidir. Etkili yönetim i�
     `,
     author: 'Can Öztürk',
     publishDate: '2026-02-07',
-    image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800',
+    image: '/img/blog/cash-flow.webp',
     tags: ['Nakit Akışı', 'İşletme Yönetimi', 'Finansal Planlama', 'VDMK'],
     readTime: 12
   }

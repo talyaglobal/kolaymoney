@@ -13,6 +13,7 @@ export const mobilyaData: SectorData = {
   category: 'B2C',
   paymentTerm: '6-18 ay',
   icon: '🛋️',
+  image: '/img/sectors/furniture.webp',
   
   summary: 'Mobilya sektöründe tüketicilerin %70\'i taksitle alışveriş yapıyor. Yatak odası, salon takımı gibi ürünlerde ortalama vade 12 ay, sepet değeri 20.000-80.000 TL.',
   

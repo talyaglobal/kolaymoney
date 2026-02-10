@@ -75,7 +75,7 @@ export default function Home() {
       <section 
         className="relative min-h-[600px] flex items-center border-b-2 border-black"
         style={{
-          backgroundImage: `url('https://files.manuscdn.com/user_upload_by_module/session_file/310419663029191411/dcxVlwUMFiXFwtvo.png')`,
+          backgroundImage: `url('/img/hero-background.webp')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}

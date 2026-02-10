@@ -13,6 +13,7 @@ export const otomotivB2CData: SectorData = {
   category: 'B2C',
   paymentTerm: '3-9 ay',
   icon: '🚗',
+  image: '/img/sectors/automotive.webp',
   
   summary: 'Otomotiv yan sanayi sektöründe tüketicilerin %60\'ı taksitle alışveriş yapıyor. Lastik, akü, yedek parça gibi ürünlerde ortalama vade 6 ay, sepet değeri 3.000-15.000 TL.',
   

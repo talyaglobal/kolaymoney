@@ -13,6 +13,7 @@ export const elektronikData: SectorData = {
   category: 'B2C',
   paymentTerm: '6-18 ay',
   icon: '📱',
+  image: '/img/sectors/electronics.webp',
   
   summary: 'Elektronik sektöründe tüketicilerin %70\'i taksitle alışveriş yapıyor. Akıllı telefon, laptop, tablet gibi ürünlerde ortalama vade 12 ay, sepet değeri 15.000-50.000 TL.',
   

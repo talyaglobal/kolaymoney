@@ -13,6 +13,7 @@ export const lojistikData: SectorData = {
   category: 'B2B',
   paymentTerm: '30-90 gün',
   icon: '🚛',
+  image: '/img/sectors/logistics.webp',
   
   summary: 'Lojistik sektöründe fatura vadesi ortalama 60 gün. Araç yakıtı, personel maaşı ve bakım giderleri peşin ödenirken, müşteri ödemeleri gecikmeli.',
   
