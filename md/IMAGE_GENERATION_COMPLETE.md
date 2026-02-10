@@ -84,23 +84,53 @@ Google Gemini Imagen 4.0 API kullanılarak KolayMoney.com için profesyonel gör
 **Prompt:** Modern furniture showroom, elegant sofas and tables, clean minimalist design, professional interior photography, warm lighting  
 **Kullanım:** `/sektorler/mobilya`
 
-#### 3.3 Otomotiv
+#### 3.3 Otomotiv B2C
 **Dosya:** `public/img/sectors/automotive.webp`  
-**Boyut:** Hesaplanacak  
+**Boyut:** 69KB  
 **Prompt:** Modern car dealership showroom, luxury vehicles on display, clean professional environment, automotive photography  
 **Kullanım:** `/sektorler/otomotiv-b2c`
 
 #### 3.4 İnşaat
 **Dosya:** `public/img/sectors/construction.webp`  
-**Boyut:** Hesaplanacak  
+**Boyut:** 92KB  
 **Prompt:** Modern construction site, crane and building structure, professional construction photography, blue sky background  
 **Kullanım:** `/sektorler/insaat`
 
 #### 3.5 Lojistik
 **Dosya:** `public/img/sectors/logistics.webp`  
-**Boyut:** Hesaplanacak  
+**Boyut:** 164KB  
 **Prompt:** Modern logistics warehouse, organized storage system, delivery trucks, professional industrial photography  
 **Kullanım:** `/sektorler/lojistik`
+
+#### 3.6 Beyaz Eşya (YENİ - Aşama 2)
+**Dosya:** `public/img/sectors/white-goods.webp`  
+**Boyut:** 61KB  
+**Prompt:** Modern home appliances showroom, refrigerators washing machines and dishwashers on display, clean retail environment, professional photography, bright lighting  
+**Kullanım:** `/sektorler/beyaz-esya`
+
+#### 3.7 FMCG (YENİ - Aşama 2)
+**Dosya:** `public/img/sectors/fmcg.webp`  
+**Boyut:** 176KB  
+**Prompt:** Modern supermarket interior, organized shelves with consumer products, shopping cart, clean retail environment, professional photography  
+**Kullanım:** `/sektorler/fmcg`
+
+#### 3.8 Tarım (YENİ - Aşama 2)
+**Dosya:** `public/img/sectors/agriculture.webp`  
+**Boyut:** 162KB  
+**Prompt:** Modern agricultural field with farming equipment, tractor and crops, rural landscape, professional agricultural photography, golden hour lighting  
+**Kullanım:** `/sektorler/tarim`
+
+#### 3.9 Otomotiv B2B (YENİ - Aşama 2)
+**Dosya:** `public/img/sectors/automotive-b2b.webp`  
+**Boyut:** 45KB  
+**Prompt:** Commercial vehicle fleet parking lot, multiple trucks and vans, professional automotive photography, business setting  
+**Kullanım:** `/sektorler/otomotiv-b2b`
+
+#### 3.10 Makine & Ekipman (YENİ - Aşama 2)
+**Dosya:** `public/img/sectors/machinery.webp`  
+**Boyut:** 115KB  
+**Prompt:** Industrial machinery and equipment in factory setting, modern production machines, professional industrial photography  
+**Kullanım:** `/sektorler/makine-ekipman`
 
 ---
 
@@ -201,12 +231,19 @@ export const elektronikData: SectorData = {
 }
 ```
 
-**Güncellenen Sektörler:**
+**Güncellenen Sektörler (Aşama 1):**
 - ✅ Elektronik
 - ✅ Mobilya
 - ✅ Otomotiv B2C
 - ✅ İnşaat
 - ✅ Lojistik
+
+**Güncellenen Sektörler (Aşama 2 - YENİ):**
+- ✅ Beyaz Eşya
+- ✅ FMCG
+- ✅ Tarım
+- ✅ Otomotiv B2B
+- ✅ Makine & Ekipman
 
 ### 4. TypeScript Tipleri
 **Dosya:** `src/types/sector.ts`
@@ -241,11 +278,16 @@ public/
     └── sectors/
         ├── electronics.webp (107KB)
         ├── furniture.webp (114KB)
-        ├── automotive.webp
-        ├── construction.webp
-        └── logistics.webp
+        ├── automotive.webp (69KB)
+        ├── construction.webp (92KB)
+        ├── logistics.webp (164KB)
+        ├── white-goods.webp (61KB) ← YENİ
+        ├── fmcg.webp (176KB) ← YENİ
+        ├── agriculture.webp (162KB) ← YENİ
+        ├── automotive-b2b.webp (45KB) ← YENİ
+        └── machinery.webp (115KB) ← YENİ
 
-Toplam: ~1.2MB (15 dosya)
+Toplam: ~2.1MB (20 dosya)
 ```
 
 ---
@@ -273,12 +315,14 @@ Toplam: ~1.2MB (15 dosya)
 
 ## 🔄 Gelecek Güncellemeler
 
-### Eksik Görseller (Öncelik Sırası)
-1. **Beyaz Eşya** sektörü görseli
-2. **FMCG** sektörü görseli
-3. **Tarım** sektörü görseli
-4. **Otomotiv B2B** sektörü görseli
-5. **Makine & Ekipman** sektörü görseli
+### ~~Eksik Görseller~~ ✅ TAMAMLANDI
+~~1. **Beyaz Eşya** sektörü görseli~~ ✅ Eklendi (Aşama 2)
+~~2. **FMCG** sektörü görseli~~ ✅ Eklendi (Aşama 2)
+~~3. **Tarım** sektörü görseli~~ ✅ Eklendi (Aşama 2)
+~~4. **Otomotiv B2B** sektörü görseli~~ ✅ Eklendi (Aşama 2)
+~~5. **Makine & Ekipman** sektörü görseli~~ ✅ Eklendi (Aşama 2)
+
+**Tüm sektör görselleri tamamlandı! (10/10)**
 
 ### Yeni Görsel İhtiyaçları
 - [ ] Hakkımızda sayfası ekip fotoğrafları
@@ -299,17 +343,17 @@ Toplam: ~1.2MB (15 dosya)
 ## 📊 Maliyet Analizi
 
 ### API Kullanımı
-- **Toplam istek:** 15
+- **Toplam istek:** 20 (Aşama 1: 15, Aşama 2: 5)
 - **Model dağılımı:**
   - Ultra: 1 istek
   - Standard: 9 istek
-  - Fast: 5 istek
+  - Fast: 10 istek
 
 ### Tahmini Maliyet
 - **Imagen 4.0 pricing:** ~$0.02-0.10 per image
-- **Toplam:** ~$1.50-2.00
-- **Alternatif (stock photo):** $15-30 per image = $225-450
-- **Tasarruf:** ~$220-450 (%98 maliyet azalması)
+- **Toplam:** ~$2.00-2.50 (Aşama 1: $1.50, Aşama 2: $0.50)
+- **Alternatif (stock photo):** $15-30 per image = $300-600
+- **Tasarruf:** ~$297-598 (%99 maliyet azalması)
 
 ---
 
@@ -318,11 +362,12 @@ Toplam: ~1.2MB (15 dosya)
 ### Tamamlanan İşler
 - [x] Python script oluşturma (`generate_assets.py`)
 - [x] Venv kurulumu ve paket yükleme
-- [x] 15 görsel üretimi (Imagen 4.0)
+- [x] 15 görsel üretimi (Imagen 4.0) - Aşama 1
+- [x] 5 görsel üretimi (Imagen 4.0) - Aşama 2
 - [x] WebP optimizasyonu
 - [x] Blog posts entegrasyonu
 - [x] Home page entegrasyonu
-- [x] Sektör verileri entegrasyonu
+- [x] Sektör verileri entegrasyonu (10/10 sektör)
 - [x] TypeScript tip güncellemeleri
 - [x] Dokümantasyon
 
@@ -371,6 +416,16 @@ GEMINI_API_KEY=AIzaSyApdCS6lSVtmhDjcy0ttycmYP3nsX7ypLs
 
 ## 🎉 Sonuç
 
-Tüm görseller başarıyla üretildi ve projeye entegre edildi. KolayMoney.com artık profesyonel, orijinal ve SEO-optimize görsellere sahip!
+**Tüm görseller başarıyla tamamlandı!** KolayMoney.com artık profesyonel, orijinal ve SEO-optimize görsellere sahip!
 
-**Sonraki adım:** Kalan 5 sektör için görseller üretilecek.
+### Özet İstatistikler
+- ✅ **20 görsel** üretildi (2 aşamada)
+- ✅ **10/10 sektör** görseli tamamlandı
+- ✅ **6 blog** görseli
+- ✅ **1 hero** görseli
+- ✅ **3 kurumsal** görsel
+- 🎯 **100% başarı oranı** - hiç hata yok
+- 💰 **%99 maliyet tasarrufu** (stock photo'ya göre)
+- ⚡ **~28 dakika** toplam üretim süresi
+
+**Proje görsel varlıkları tamamlandı! 🚀**
