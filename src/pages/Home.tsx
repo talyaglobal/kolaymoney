@@ -87,8 +87,7 @@ export default function Home() {
                 autoPlay
                 playsInline
               >
-                <source src="/videos/kolaymoney-intro.mp4" type="video/mp4" />
-                <source src="/videos/kolaymoney-intro.webm" type="video/webm" />
+                <source src="/videos/Varlığa_Dayalı_Finansman.mp4" type="video/mp4" />
                 Tarayıcınız video oynatmayı desteklemiyor.
               </video>
             </div>
