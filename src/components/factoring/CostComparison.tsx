@@ -4,7 +4,7 @@
  */
 
 import { FINANCIAL_DATA } from '@/lib/config/financialData'
-import { calculateFullFinancing, formatCurrency } from '@/utils/financialCalculations'
+import { formatCurrency } from '@/utils/financialCalculations'
 
 export function CostComparison() {
   // Example calculation: 10M TL for 90 days
@@ -115,7 +115,12 @@ export function CostComparison() {
                 text: 'text-red-600',
                 badge: 'bg-red-600'
               }
-            }[option.color]
+            }[option.color] || {
+              bg: 'bg-gray-50',
+              border: 'border-gray-600',
+              text: 'text-gray-600',
+              badge: 'bg-gray-600'
+            }
 
             return (
               <div
