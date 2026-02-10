@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { FAQSection } from "@/components/seo/FAQSection";
 import { Navigation } from "@/components/layout/Navigation";
+import { BankLimitProblem } from "@/components/factoring/BankLimitProblem";
 import { ArrowRight, Building2, ShoppingCart, Factory, Wheat, Package } from "lucide-react";
 import { useAnalytics } from "@/contexts/AnalyticsContext";
 import { useSEO } from "@/hooks/useSEO";
@@ -311,8 +312,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Bank Limit Problem - NEW */}
+      <BankLimitProblem />
+
       {/* Nasıl Çalışır - 3 Adım */}
-      <section className="py-20 bg-gray-50 border-b-2 border-black">
+      <section id="how-it-works" className="py-20 bg-gray-50 border-b-2 border-black">
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="heading-2 mb-4">Nasıl Çalışır?</h2>

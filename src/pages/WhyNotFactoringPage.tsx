@@ -8,6 +8,7 @@ import { Navigation } from '@/components/layout/Navigation'
 import { FactoringHero } from '@/components/factoring/FactoringHero'
 import { FactoringExplained } from '@/components/factoring/FactoringExplained'
 import { VDMKModelExplained } from '@/components/factoring/VDMKModelExplained'
+import { BankLimitProblem } from '@/components/factoring/BankLimitProblem'
 import { CostComparison } from '@/components/factoring/CostComparison'
 import { ComparisonTable } from '@/components/factoring/ComparisonTable'
 import { ThreeProblemsSection } from '@/components/factoring/ThreeProblemsSection'
@@ -108,7 +109,10 @@ export function WhyNotFactoringPage() {
       {/* VDMK Model Explained */}
       <VDMKModelExplained />
 
-      {/* Cost Comparison - NEW */}
+      {/* Bank Limit Problem - NEW */}
+      <BankLimitProblem />
+
+      {/* Cost Comparison */}
       <CostComparison />
 
       {/* Comparison Table */}
