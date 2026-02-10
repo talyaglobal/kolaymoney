@@ -12,6 +12,7 @@ import { CompleteComplianceFormData, completeComplianceFormSchema } from '@/lib/
 import { ComplianceScoring } from '@/types/compliance'
 import { calculateComplianceScore } from '@/lib/compliance/scoringEngine'
 import { getQuestionsBySector } from '@/lib/supabase/compliance'
+import { SectorSlug } from '@/types/sector'
 
 // Step components
 import { CompanyInfoStep } from './steps/CompanyInfoStep'
@@ -30,7 +31,11 @@ const STEPS = [
   { id: 6, title: 'Özet', icon: '✓' }
 ]
 
-export function ComplianceApplicationForm() {
+interface ComplianceApplicationFormProps {
+  prefilledSector?: SectorSlug
+}
+
+export function ComplianceApplicationForm({ prefilledSector }: ComplianceApplicationFormProps) {
   const [, navigate] = useLocation()
   const analytics = useAnalytics()
   const [currentStep, setCurrentStep] = useState(1)
@@ -51,10 +56,12 @@ export function ComplianceApplicationForm() {
     handleSubmit,
     watch,
     formState: { errors },
-    trigger
+    trigger,
+    setValue
   } = useForm<CompleteComplianceFormData>({
     resolver: zodResolver(completeComplianceFormSchema),
-    mode: 'onChange'
+    mode: 'onChange',
+    defaultValues: prefilledSector ? { sector: prefilledSector } : {}
   })
 
   const formData = watch()
@@ -87,6 +94,13 @@ export function ComplianceApplicationForm() {
     localStorage.setItem('compliance_form_draft', JSON.stringify(dataToSave))
   }, [formData, questionResponses, currentStep])
 
+  // Set prefilled sector on mount
+  useEffect(() => {
+    if (prefilledSector) {
+      setValue('sector', prefilledSector)
+    }
+  }, [prefilledSector, setValue])
+
   // Load from localStorage on mount
   useEffect(() => {
     const saved = localStorage.getItem('compliance_form_draft')
@@ -95,6 +109,10 @@ export function ComplianceApplicationForm() {
         const parsed = JSON.parse(saved)
         if (parsed.currentStep) setCurrentStep(parsed.currentStep)
         if (parsed.questionResponses) setQuestionResponses(parsed.questionResponses)
+        // Don't override prefilled sector
+        if (!prefilledSector && parsed.sector) {
+          setValue('sector', parsed.sector)
+        }
       } catch (e) {
         console.error('Failed to load draft:', e)
       }
@@ -220,7 +238,7 @@ export function ComplianceApplicationForm() {
   const renderStep = () => {
     switch (currentStep) {
       case 1:
-        return <CompanyInfoStep register={register} errors={errors} />
+        return <CompanyInfoStep register={register} errors={errors} prefilledSector={prefilledSector} />
       case 2:
         return <ContactInfoStep register={register} errors={errors} />
       case 3:

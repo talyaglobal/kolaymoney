@@ -21,6 +21,7 @@ import { AdminLayout } from './components/admin/AdminLayout'
 import Home from './pages/Home'
 import { SectorsListPage } from './pages/SectorsListPage'
 import { SectorPage } from './pages/sectors/SectorPage'
+import { SectorApplicationPage } from './pages/sectors/SectorApplicationPage'
 import { BlogListPage } from './pages/blog/BlogListPage'
 import { BlogPostPage } from './pages/blog/BlogPostPage'
 
@@ -49,10 +50,15 @@ function AppRoutes() {
       {/* Public Routes */}
       <Route path="/" component={Home} />
       <Route path="/basvuru" component={ApplicationPage} />
-      <Route path="/basvuru-yeni" component={ComplianceApplicationForm} />
+      <Route path="/basvuru-yeni">
+        {() => <ComplianceApplicationForm />}
+      </Route>
       
       {/* Sector Routes */}
       <Route path="/sektorler" component={SectorsListPage} />
+      <Route path="/sektor/:slug/basvuru">
+        {() => <SectorApplicationPage />}
+      </Route>
       <Route path="/sektor/:slug">
         {() => <SectorPage />}
       </Route>

@@ -83,6 +83,7 @@ export function SectorPage() {
         summary={sectorData.summary}
         category={sectorData.category}
         paymentTerm={sectorData.paymentTerm}
+        slug={slug}
       />
 
       {/* Stats */}
@@ -113,27 +114,26 @@ export function SectorPage() {
       />
 
       {/* Final CTA */}
-      <section className="py-16 bg-blue-600 text-white border-t-4 border-black">
+      <section className="py-16 bg-[#0047FF] text-white border-t-4 border-black">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-black mb-6">
-            {sectorData.name} İçin VDMK Finansmanı
+          <h2 className="heading-1 text-white mb-6">
+            {sectorData.name} için VDMK Finansmanı
           </h2>
-          <p className="text-xl mb-8 max-w-3xl mx-auto">
-            7 gün içinde likidite sağlayın, nakit döngünüzü hızlandırın, 
-            büyüme fırsatlarını kaçırmayın.
+          <p className="text-xl text-white mb-8 max-w-3xl mx-auto mono-text">
+            Hemen başvurun, 3-5 gün içinde finansman alın
           </p>
-          <div className="flex gap-4 justify-center">
-            <a 
-              href="/#references"
-              className="px-12 py-5 bg-white text-blue-600 font-bold text-xl hover:bg-gray-100 transition-colors border-4 border-black"
+          <div className="flex gap-4 justify-center flex-wrap">
+            <a
+              href={`/sektor/${slug}/basvuru`}
+              className="px-8 py-4 bg-white text-[#0047FF] border-2 border-black hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all mono-text font-bold"
             >
-              📞 Sizi Arayalım
+              {sectorData.icon} Başvuru Yap
             </a>
-            <a 
-              href="/sektorler"
-              className="px-12 py-5 bg-transparent text-white font-bold text-xl hover:bg-blue-700 transition-colors border-4 border-white"
+            <a
+              href="tel:+905558681634"
+              className="px-8 py-4 bg-transparent text-white border-2 border-white hover:bg-white hover:text-[#0047FF] transition-all mono-text font-bold"
             >
-              Diğer Sektörler
+              📞 Hemen Ara
             </a>
           </div>
         </div>

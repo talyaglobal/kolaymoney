@@ -68,6 +68,14 @@ function generateSitemapURLs() {
       lastmod: now,
       changefreq: 'weekly',
       priority: 0.8
+    })),
+    
+    // Sector-specific application pages
+    ...SECTORS.map(sector => ({
+      loc: `${BASE_URL}/sektor/${sector}/basvuru`,
+      lastmod: now,
+      changefreq: 'monthly',
+      priority: 0.85
     }))
   ]
   

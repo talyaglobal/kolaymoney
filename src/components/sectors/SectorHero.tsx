@@ -11,9 +11,10 @@ interface SectorHeroProps {
   summary: string
   category: 'B2C' | 'B2B'
   paymentTerm: string
+  slug: string
 }
 
-export function SectorHero({ name, icon, summary, category, paymentTerm }: SectorHeroProps) {
+export function SectorHero({ name, icon, summary, category, paymentTerm, slug }: SectorHeroProps) {
   return (
     <>
       {/* Navigation */}
@@ -71,10 +72,16 @@ export function SectorHero({ name, icon, summary, category, paymentTerm }: Secto
             
             <p className="text-xl leading-relaxed mb-8">{summary}</p>
             
-            <div className="flex gap-4">
+            <div className="flex gap-4 flex-wrap">
+              <a 
+                href={`/sektor/${slug}/basvuru`}
+                className="px-8 py-4 bg-[#0047FF] text-white font-bold text-lg hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all border-2 border-black mono-text"
+              >
+                {icon} Başvuru Yap
+              </a>
               <a 
                 href="#use-cases" 
-                className="px-8 py-4 bg-blue-600 text-white font-bold text-lg hover:bg-blue-700 transition-colors border-2 border-black"
+                className="px-8 py-4 bg-white text-black font-bold text-lg hover:bg-gray-100 transition-colors border-2 border-black"
               >
                 Senaryoları İncele
               </a>

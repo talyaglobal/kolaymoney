@@ -4,10 +4,12 @@
 
 import { UseFormRegister, FieldErrors } from 'react-hook-form'
 import { CompleteComplianceFormData } from '@/lib/validations/compliance'
+import { SectorSlug } from '@/types/sector'
 
 interface CompanyInfoStepProps {
   register: UseFormRegister<CompleteComplianceFormData>
   errors: FieldErrors<CompleteComplianceFormData>
+  prefilledSector?: SectorSlug
 }
 
 const SECTORS = [
@@ -23,7 +25,7 @@ const SECTORS = [
   { value: 'tarim', label: 'Tarım & Gıda' }
 ]
 
-export function CompanyInfoStep({ register, errors }: CompanyInfoStepProps) {
+export function CompanyInfoStep({ register, errors, prefilledSector }: CompanyInfoStepProps) {
   return (
     <div className="space-y-6">
       <div className="brutalist-card p-6 bg-blue-50">
@@ -92,7 +94,12 @@ export function CompanyInfoStep({ register, errors }: CompanyInfoStepProps) {
           </label>
           <select
             {...register('sector')}
-            className="w-full p-4 border-4 border-black font-mono text-lg focus:outline-none focus:border-blue-600"
+            disabled={!!prefilledSector}
+            className={`w-full p-4 border-4 border-black font-mono text-lg focus:outline-none ${
+              prefilledSector 
+                ? 'bg-gray-100 cursor-not-allowed text-gray-700' 
+                : 'focus:border-blue-600'
+            }`}
           >
             <option value="">Seçiniz...</option>
             {SECTORS.map(sector => (
@@ -101,6 +108,11 @@ export function CompanyInfoStep({ register, errors }: CompanyInfoStepProps) {
               </option>
             ))}
           </select>
+          {prefilledSector && (
+            <p className="text-xs mono-text text-gray-600 mt-2">
+              ℹ️ Sektör önceden seçilmiş. Değiştirmek için <a href="/basvuru-yeni" className="underline hover:text-blue-600">ana başvuru formunu</a> kullanın.
+            </p>
+          )}
           {errors.sector && (
             <p className="mt-2 text-red-600 font-bold">⚠️ {errors.sector.message}</p>
           )}
