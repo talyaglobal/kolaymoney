@@ -14,7 +14,7 @@ interface FinancingCalculatorProps {
 export function FinancingCalculator({ sectorName }: FinancingCalculatorProps) {
   const [principal, setPrincipal] = useState(10_000_000)
   const [days, setDays] = useState(90)
-  const [bankRate, setBankRate] = useState(FINANCIAL_DATA.rates.interestRates.commercialLoan.value)
+  const [bankRate, setBankRate] = useState(FINANCIAL_DATA.rates.factoring.discountRate.value)
   const [supplierInvoice, setSupplierInvoice] = useState(8_000_000)
   const [supplierDiscount, setSupplierDiscount] = useState(3)
 
@@ -85,10 +85,10 @@ export function FinancingCalculator({ sectorName }: FinancingCalculatorProps) {
                   </div>
                 </div>
 
-                {/* Bank Rate */}
+                {/* Factoring Rate */}
                 <div>
                   <label className="block font-bold mb-2">
-                    Alternatif Banka Faizi (%)
+                    Alternatif Faktoring Oranı (%)
                   </label>
                   <input
                     type="number"
@@ -98,7 +98,7 @@ export function FinancingCalculator({ sectorName }: FinancingCalculatorProps) {
                     step={0.5}
                   />
                   <div className="text-sm text-gray-600 mt-1">
-                    Piyasa ortalaması: %{FINANCIAL_DATA.rates.interestRates.commercialLoan.value}
+                    Piyasa ortalaması: %{FINANCIAL_DATA.rates.factoring.discountRate.value}
                   </div>
                 </div>
 
@@ -167,16 +167,16 @@ export function FinancingCalculator({ sectorName }: FinancingCalculatorProps) {
                   </div>
                 </div>
 
-                {/* Bank Cost */}
+                {/* Factoring Cost */}
                 <div className="bg-white text-black p-4 border-2 border-black">
                   <div className="text-sm font-bold text-gray-600 mb-1">
-                    BANKA KREDİSİ MALİYETİ
+                    FAKTORİNG MALİYETİ
                   </div>
                   <div className="text-2xl font-black">
                     {formatCurrency(result.bankCost)}
                   </div>
                   <div className="text-xs text-gray-600 mt-1">
-                    %{bankRate} yıllık faiz
+                    %{bankRate} yıllık faktoring
                   </div>
                 </div>
 

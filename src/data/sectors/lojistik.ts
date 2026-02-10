@@ -78,7 +78,7 @@ export const lojistikData: SectorData = {
       },
       
       financialImpact: (() => {
-        const calc = calculateFullFinancing(50_000_000, 60, FINANCIAL_DATA.rates.interestRates.commercialLoan.value, 12_000_000, 2)
+        const calc = calculateFullFinancing(50_000_000, 60, FINANCIAL_DATA.rates.factoring.discountRate.value, 12_000_000, 2)
         
         return [
           {
@@ -88,9 +88,9 @@ export const lojistikData: SectorData = {
             highlight: false
           },
           {
-            label: 'Alternatif Banka Kredisi',
+            label: 'Alternatif Faktoring',
             value: formatCurrency(calc.bankCost),
-            detail: `%${FINANCIAL_DATA.rates.interestRates.commercialLoan.value} yıllık faiz`,
+            detail: `%${FINANCIAL_DATA.rates.interestRates.commercialLoan.value} yıllık faktoring`,
             highlight: false
           },
           {
@@ -102,7 +102,7 @@ export const lojistikData: SectorData = {
           {
             label: 'Net Tasarruf',
             value: formatCurrency(calc.netSavings),
-            detail: 'VDMK vs Banka + Yakıt İskontosu',
+            detail: 'VDMK vs Faktoring + Yakıt İskontosu',
             savingsVsBank: formatCurrency(calc.bankCost - calc.vdmkCost),
             highlight: true
           },
@@ -162,7 +162,7 @@ export const lojistikData: SectorData = {
       },
       
       financialImpact: (() => {
-        const calc = calculateFullFinancing(40_000_000, 90, FINANCIAL_DATA.rates.interestRates.commercialLoan.value, 35_000_000, 3)
+        const calc = calculateFullFinancing(40_000_000, 90, FINANCIAL_DATA.rates.factoring.discountRate.value, 35_000_000, 3)
         const newRevenue = 8_000_000 * 12 // Yıllık ek ciro
         const netMargin = 0.12
         const annualProfit = newRevenue * netMargin
@@ -199,13 +199,13 @@ export const lojistikData: SectorData = {
             highlight: true
           },
           {
-            label: 'Alternatif Banka Kredisi',
+            label: 'Alternatif Faktoring',
             value: formatCurrency(calc.bankCost),
             detail: `%${FINANCIAL_DATA.rates.interestRates.commercialLoan.value} faiz`,
             highlight: false
           },
           {
-            label: 'Tasarruf (VDMK vs Banka)',
+            label: 'Tasarruf (VDMK vs Faktoring)',
             value: formatCurrency(calc.bankCost - calc.vdmkCost),
             detail: 'Dönemlik tasarruf',
             highlight: true
@@ -302,7 +302,7 @@ export const lojistikData: SectorData = {
             highlight: false
           },
           {
-            label: 'Tasarruf (VDMK vs Banka)',
+            label: 'Tasarruf (VDMK vs Faktoring)',
             value: formatCurrency(calc.bankCost - calc.vdmkCost),
             detail: 'Aylık maliyet avantajı',
             highlight: true

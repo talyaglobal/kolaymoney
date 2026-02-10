@@ -78,7 +78,7 @@ export const tarimData: SectorData = {
       },
       
       financialImpact: (() => {
-        const calc = calculateFullFinancing(75_000_000, 120, FINANCIAL_DATA.rates.interestRates.commercialLoan.value, 60_000_000, 2)
+        const calc = calculateFullFinancing(75_000_000, 120, FINANCIAL_DATA.rates.factoring.discountRate.value, 60_000_000, 2)
         
         return [
           {
@@ -88,9 +88,9 @@ export const tarimData: SectorData = {
             highlight: false
           },
           {
-            label: 'Alternatif Banka Kredisi',
+            label: 'Alternatif Faktoring',
             value: formatCurrency(calc.bankCost),
-            detail: `%${FINANCIAL_DATA.rates.interestRates.commercialLoan.value} yıllık faiz`,
+            detail: `%${FINANCIAL_DATA.rates.interestRates.commercialLoan.value} yıllık faktoring`,
             highlight: false
           },
           {
@@ -102,7 +102,7 @@ export const tarimData: SectorData = {
           {
             label: 'Net Tasarruf',
             value: formatCurrency(calc.netSavings),
-            detail: 'VDMK vs Banka + Üretici İskontosu',
+            detail: 'VDMK vs Faktoring + Üretici İskontosu',
             savingsVsBank: formatCurrency(calc.bankCost - calc.vdmkCost),
             highlight: true
           },
@@ -206,7 +206,7 @@ export const tarimData: SectorData = {
             highlight: false
           },
           {
-            label: 'Tasarruf (VDMK vs Banka)',
+            label: 'Tasarruf (VDMK vs Faktoring)',
             value: formatCurrency(calc.bankCost - calc.vdmkCost),
             detail: 'Düşük maliyet avantajı',
             highlight: true
@@ -297,7 +297,7 @@ export const tarimData: SectorData = {
             highlight: false
           },
           {
-            label: 'Tasarruf (VDMK vs Banka)',
+            label: 'Tasarruf (VDMK vs Faktoring)',
             value: formatCurrency(calc.bankCost - calc.vdmkCost),
             detail: '3 aylık maliyet avantajı',
             highlight: true

@@ -78,7 +78,7 @@ export const makineEkipmanData: SectorData = {
       },
       
       financialImpact: (() => {
-        const calc = calculateFullFinancing(225_000_000, 120, FINANCIAL_DATA.rates.interestRates.commercialLoan.value, 180_000_000, 2)
+        const calc = calculateFullFinancing(225_000_000, 120, FINANCIAL_DATA.rates.factoring.discountRate.value, 180_000_000, 2)
         
         return [
           {
@@ -88,9 +88,9 @@ export const makineEkipmanData: SectorData = {
             highlight: false
           },
           {
-            label: 'Alternatif Banka Kredisi',
+            label: 'Alternatif Faktoring',
             value: formatCurrency(calc.bankCost),
-            detail: `%${FINANCIAL_DATA.rates.interestRates.commercialLoan.value} yıllık faiz`,
+            detail: `%${FINANCIAL_DATA.rates.interestRates.commercialLoan.value} yıllık faktoring`,
             highlight: false
           },
           {
@@ -102,7 +102,7 @@ export const makineEkipmanData: SectorData = {
           {
             label: 'Net Tasarruf',
             value: formatCurrency(calc.netSavings),
-            detail: 'VDMK vs Banka + İthalatçı İskontosu',
+            detail: 'VDMK vs Faktoring + İthalatçı İskontosu',
             savingsVsBank: formatCurrency(calc.bankCost - calc.vdmkCost),
             highlight: true
           },
@@ -162,7 +162,7 @@ export const makineEkipmanData: SectorData = {
       },
       
       financialImpact: (() => {
-        const calc = calculateFullFinancing(75_000_000, 90, FINANCIAL_DATA.rates.interestRates.commercialLoan.value, 70_000_000, 3)
+        const calc = calculateFullFinancing(75_000_000, 90, FINANCIAL_DATA.rates.factoring.discountRate.value, 70_000_000, 3)
         const rentalRevenue = 8_000_000 * 18
         const operatingCost = rentalRevenue * 0.30
         const grossProfit = rentalRevenue - operatingCost
@@ -200,13 +200,13 @@ export const makineEkipmanData: SectorData = {
             highlight: true
           },
           {
-            label: 'Alternatif Banka Kredisi (6 Dönem)',
+            label: 'Alternatif Faktoring (6 Dönem)',
             value: formatCurrency(calc.bankCost * 6),
             detail: `%${FINANCIAL_DATA.rates.interestRates.commercialLoan.value} faiz`,
             highlight: false
           },
           {
-            label: 'Tasarruf (VDMK vs Banka)',
+            label: 'Tasarruf (VDMK vs Faktoring)',
             value: formatCurrency((calc.bankCost - calc.vdmkCost) * 6),
             detail: '18 aylık toplam tasarruf',
             highlight: true
@@ -303,7 +303,7 @@ export const makineEkipmanData: SectorData = {
             highlight: false
           },
           {
-            label: 'Tasarruf (VDMK vs Banka)',
+            label: 'Tasarruf (VDMK vs Faktoring)',
             value: formatCurrency(calc.bankCost - calc.vdmkCost),
             detail: '3 aylık maliyet avantajı',
             highlight: true

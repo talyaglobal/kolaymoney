@@ -78,7 +78,7 @@ export const fmcgData: SectorData = {
       },
       
       financialImpact: (() => {
-        const calc = calculateFullFinancing(160_000_000, 60, FINANCIAL_DATA.rates.interestRates.commercialLoan.value, 120_000_000, 1.5)
+        const calc = calculateFullFinancing(160_000_000, 60, FINANCIAL_DATA.rates.factoring.discountRate.value, 120_000_000, 1.5)
         
         return [
           {
@@ -88,9 +88,9 @@ export const fmcgData: SectorData = {
             highlight: false
           },
           {
-            label: 'Alternatif Banka Kredisi',
+            label: 'Alternatif Faktoring',
             value: formatCurrency(calc.bankCost),
-            detail: `%${FINANCIAL_DATA.rates.interestRates.commercialLoan.value} yıllık faiz`,
+            detail: `%${FINANCIAL_DATA.rates.interestRates.commercialLoan.value} yıllık faktoring`,
             highlight: false
           },
           {
@@ -102,7 +102,7 @@ export const fmcgData: SectorData = {
           {
             label: 'Net Tasarruf',
             value: formatCurrency(calc.netSavings),
-            detail: 'VDMK vs Banka + Üretici İskontosu',
+            detail: 'VDMK vs Faktoring + Üretici İskontosu',
             savingsVsBank: formatCurrency(calc.bankCost - calc.vdmkCost),
             highlight: true
           },
@@ -206,7 +206,7 @@ export const fmcgData: SectorData = {
             highlight: false
           },
           {
-            label: 'Tasarruf (VDMK vs Banka)',
+            label: 'Tasarruf (VDMK vs Faktoring)',
             value: formatCurrency(calc.bankCost - calc.vdmkCost),
             detail: 'Düşük maliyet avantajı',
             highlight: true

@@ -78,7 +78,7 @@ export const otomotivB2CData: SectorData = {
       },
       
       financialImpact: (() => {
-        const calc = calculateFullFinancing(27_000_000, 90, FINANCIAL_DATA.rates.interestRates.commercialLoan.value, 22_000_000, 2.5)
+        const calc = calculateFullFinancing(27_000_000, 90, FINANCIAL_DATA.rates.factoring.discountRate.value, 22_000_000, 2.5)
         
         return [
           {
@@ -88,9 +88,9 @@ export const otomotivB2CData: SectorData = {
             highlight: false
           },
           {
-            label: 'Alternatif Banka Kredisi',
+            label: 'Alternatif Faktoring',
             value: formatCurrency(calc.bankCost),
-            detail: `%${FINANCIAL_DATA.rates.interestRates.commercialLoan.value} yıllık faiz`,
+            detail: `%${FINANCIAL_DATA.rates.interestRates.commercialLoan.value} yıllık faktoring`,
             highlight: false
           },
           {
@@ -102,7 +102,7 @@ export const otomotivB2CData: SectorData = {
           {
             label: 'Net Tasarruf',
             value: formatCurrency(calc.netSavings),
-            detail: 'VDMK vs Banka + Tedarikçi İskontosu',
+            detail: 'VDMK vs Faktoring + Tedarikçi İskontosu',
             savingsVsBank: formatCurrency(calc.bankCost - calc.vdmkCost),
             highlight: true
           },
@@ -200,7 +200,7 @@ export const otomotivB2CData: SectorData = {
             highlight: false
           },
           {
-            label: 'Tasarruf (VDMK vs Banka)',
+            label: 'Tasarruf (VDMK vs Faktoring)',
             value: formatCurrency(calc.bankCost - calc.vdmkCost),
             detail: 'Düşük maliyet avantajı',
             highlight: true
