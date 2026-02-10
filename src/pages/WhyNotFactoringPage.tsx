@@ -11,6 +11,7 @@ import { VDMKModelExplained } from '@/components/factoring/VDMKModelExplained'
 import { ComparisonTable } from '@/components/factoring/ComparisonTable'
 import { ThreeProblemsSection } from '@/components/factoring/ThreeProblemsSection'
 import { WhoIsItForSection } from '@/components/factoring/WhoIsItForSection'
+import { TransitionCTA } from '@/components/factoring/TransitionCTA'
 import { FinalCTA } from '@/components/factoring/FinalCTA'
 import { useSEO } from '@/hooks/useSEO'
 import { useAnalytics } from '@/contexts/AnalyticsContext'
@@ -114,6 +115,9 @@ export function WhyNotFactoringPage() {
 
       {/* Who Is It For */}
       <WhoIsItForSection />
+
+      {/* Transition CTA - Yellow Button */}
+      <TransitionCTA />
 
       {/* Final CTA */}
       <FinalCTA />
