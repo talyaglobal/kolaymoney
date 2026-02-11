@@ -7,6 +7,7 @@ import { Link } from 'wouter'
 import { getSectorsByCategory } from '@/data/sectors'
 import { useSEO } from '@/hooks/useSEO'
 import { Navigation } from '@/components/layout/Navigation'
+import { Footer } from '@/components/layout/Footer'
 
 export function SectorsListPage() {
   const b2cSectors = getSectorsByCategory('B2C')
@@ -406,6 +407,9 @@ export function SectorsListPage() {
           </p>
         </div>
       </section>
+
+      {/* Footer */}
+      <Footer />
     </div>
   )
 }

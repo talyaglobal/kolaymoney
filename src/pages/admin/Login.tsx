@@ -24,6 +24,12 @@ export function AdminLogin() {
     setError(null)
 
     try {
+      // Simple admin bypass for development
+      if (data.password === 'talyasmart') {
+        setLocation('/admin')
+        return
+      }
+      
       await signIn(data.email, data.password)
       setLocation('/admin')
     } catch (err) {

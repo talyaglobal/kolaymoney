@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { FAQSection } from "@/components/seo/FAQSection";
 import { Navigation } from "@/components/layout/Navigation";
+import { Footer } from "@/components/layout/Footer";
 import { BankLimitProblem } from "@/components/factoring/BankLimitProblem";
 import { ArrowRight, Building2, ShoppingCart, Factory, Wheat, Package } from "lucide-react";
 import { useAnalytics } from "@/contexts/AnalyticsContext";
@@ -430,13 +431,7 @@ export default function Home() {
       <FAQSection />
 
       {/* Footer */}
-      <footer className="py-8 bg-black text-white">
-        <div className="container text-center">
-          <p className="mono-text text-sm">
-            © 2026 KolayMoney.com - Tüm hakları saklıdır. | OMG Capital Advisors Stratejik Ortaklığı
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
