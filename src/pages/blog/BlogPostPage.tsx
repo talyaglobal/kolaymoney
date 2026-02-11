@@ -1,12 +1,12 @@
 /**
  * Blog Post Page
- * Individual blog post view
+ * Individual blog post view from Supabase
  */
 
 import { useParams, Link } from 'wouter'
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { BlogLayout } from './BlogLayout'
-import { getBlogPostBySlug } from '@/data/blog/posts'
+import { getBlogPostBySlug, BlogPost } from '@/lib/supabase/blog'
 import { useSEO } from '@/hooks/useSEO'
 import { useAnalytics } from '@/contexts/AnalyticsContext'
 import { generateArticleSchema, injectStructuredData } from '@/lib/seo/structuredData'
@@ -17,7 +17,29 @@ export function BlogPostPage() {
   const slug = params.slug as string
   const analytics = useAnalytics()
   
-  const post = getBlogPostBySlug(slug)
+  const [post, setPost] = useState<BlogPost | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    loadPost()
+  }, [slug])
+
+  const loadPost = async () => {
+    try {
+      setLoading(true)
+      const data = await getBlogPostBySlug(slug)
+      setPost(data)
+      if (!data) {
+        setError('Blog yazısı bulunamadı')
+      }
+    } catch (err) {
+      console.error('Error loading blog post:', err)
+      setError('Blog yazısı yüklenemedi')
+    } finally {
+      setLoading(false)
+    }
+  }
 
   // SEO optimization
   useSEO({
@@ -40,21 +62,34 @@ export function BlogPostPage() {
         excerpt: post.excerpt,
         content: post.content,
         author: post.author,
-        publishDate: post.publishDate,
-        modifiedDate: post.modifiedDate,
-        image: post.image,
+        publishDate: post.publish_date,
+        modifiedDate: post.modified_date,
+        image: post.featured_image || undefined,
         tags: post.tags
       }), 'article-schema')
     }
   }, [post])
 
-  if (!post) {
+  // Loading state
+  if (loading) {
+    return (
+      <BlogLayout>
+        <div className="container mx-auto px-4 py-20 text-center">
+          <div className="inline-block w-12 h-12 border-4 border-black border-t-transparent animate-spin"></div>
+          <p className="mt-4 text-gray-600">Blog yazısı yükleniyor...</p>
+        </div>
+      </BlogLayout>
+    )
+  }
+
+  // Error or not found state
+  if (error || !post) {
     return (
       <BlogLayout>
         <div className="container mx-auto px-4 py-20 text-center">
           <h1 className="heading-1 mb-4">Blog Yazısı Bulunamadı</h1>
           <p className="text-xl text-gray-600 mb-8">
-            Aradığınız blog yazısı mevcut değil.
+            {error || 'Aradığınız blog yazısı mevcut değil.'}
           </p>
           <Link href="/blog">
             <a className="inline-block px-8 py-4 bg-primary text-white border-2 border-black hover:bg-black transition-colors font-bold">
@@ -75,7 +110,7 @@ export function BlogPostPage() {
           <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-6">
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4" />
-              {new Date(post.publishDate).toLocaleDateString('tr-TR', {
+              {new Date(post.publish_date).toLocaleDateString('tr-TR', {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric'
@@ -83,7 +118,7 @@ export function BlogPostPage() {
             </div>
             <div className="flex items-center gap-2">
               <Clock className="w-4 h-4" />
-              {post.readTime} dakika okuma
+              {post.read_time} dakika okuma
             </div>
             <div className="flex items-center gap-2">
               <User className="w-4 h-4" />
@@ -114,10 +149,10 @@ export function BlogPostPage() {
         </header>
 
         {/* Featured Image */}
-        {post.image && (
+        {post.featured_image && (
           <div className="mb-12 border-4 border-black">
             <img 
-              src={post.image} 
+              src={post.featured_image} 
               alt={post.title}
               className="w-full h-auto"
             />
