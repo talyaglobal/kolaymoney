@@ -1,11 +1,12 @@
 /**
  * Reusable Navigation Component
  * Finansal Brutalizm design system
+ * Hizmetler: mega menu (hover + click, mouse üzerindeyken kapanmaz)
  */
 
 import { Link } from 'wouter'
-import { useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import { useState, useRef, useCallback } from 'react'
+import { Menu, X, ChevronDown, FileCheck, Share2, BarChart3 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 interface NavigationProps {
@@ -24,6 +25,7 @@ interface NavItem {
     label: string
     href: string
     description: string
+    icon?: 'file' | 'share' | 'chart'
   }[]
 }
 
@@ -38,17 +40,20 @@ const navItems: NavItem[] = [
       {
         label: 'Ön Başvuru & Değerlendirme',
         href: '/hizmetler/on-basvuru-degerlendirme',
-        description: 'Danışmanlar için kaynak sağlayıcı değerlendirme'
+        description: 'Danışmanlar için kaynak sağlayıcı değerlendirme',
+        icon: 'file'
       },
       {
         label: 'Fonlara Referral',
         href: '/hizmetler/fonlara-referral',
-        description: 'VDMK fonları için nitelikli deal flow'
+        description: 'VDMK fonları için nitelikli deal flow',
+        icon: 'share'
       },
       {
         label: 'Originator Scoring',
         href: '/hizmetler/originator-scoring',
-        description: 'Objektif kaynak sağlayıcı kredi skoru'
+        description: 'Objektif kaynak sağlayıcı kredi skoru',
+        icon: 'chart'
       }
     ]
   },
@@ -63,9 +68,32 @@ const navItems: NavItem[] = [
   { href: '#contact', label: 'İletişim', scrollTo: true }
 ]
 
+const MEGA_MENU_HOVER_DELAY_MS = 200
+
 export function Navigation({ variant = 'default', onContactClick, onVideoClick }: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
+  const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const openServices = useCallback(() => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current)
+      hoverTimeoutRef.current = null
+    }
+    setServicesOpen(true)
+  }, [])
+
+  const closeServicesDelayed = useCallback(() => {
+    if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current)
+    hoverTimeoutRef.current = setTimeout(() => setServicesOpen(false), MEGA_MENU_HOVER_DELAY_MS)
+  }, [])
+
+  const cancelCloseServices = useCallback(() => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current)
+      hoverTimeoutRef.current = null
+    }
+  }, [])
 
   const handleNavClick = (item: NavItem) => {
     if (item.scrollTo && item.href.startsWith('#')) {
@@ -105,32 +133,54 @@ export function Navigation({ variant = 'default', onContactClick, onVideoClick }
             {navItems.map((item, index) => (
               <div key={index} className="relative">
                 {item.dropdown ? (
-                  // Dropdown menu for Hizmetler
+                  // Mega menu for Hizmetler: click açar/kapatır, hover ile açılır, menü üzerindeyken kapanmaz
                   <div
-                    className="relative"
-                    onMouseEnter={() => setServicesOpen(true)}
-                    onMouseLeave={() => setServicesOpen(false)}
+                    className="relative pt-2 -mt-2 pb-0"
+                    onMouseEnter={openServices}
+                    onMouseLeave={closeServicesDelayed}
                   >
                     <button
-                      className="font-semibold hover:text-blue-600 transition-colors flex items-center gap-1"
+                      type="button"
+                      onClick={() => setServicesOpen((v) => !v)}
+                      className="font-semibold hover:text-blue-600 transition-colors flex items-center gap-1 py-1"
+                      aria-expanded={servicesOpen}
+                      aria-haspopup="true"
                     >
                       {item.label}
-                      <span className="text-xs">▼</span>
+                      <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
                     </button>
                     
                     {servicesOpen && (
-                      <div className="absolute top-full left-0 mt-2 w-80 bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] z-50">
-                        {item.dropdown.map((dropItem, dropIndex) => (
-                          <Link key={dropIndex} href={dropItem.href}>
-                            <a 
-                              className="block px-6 py-4 hover:bg-blue-600 hover:text-white transition-colors border-b-2 border-black last:border-b-0"
-                              onClick={() => setServicesOpen(false)}
-                            >
-                              <div className="font-black text-base mb-1">{dropItem.label}</div>
-                              <div className="text-sm opacity-80">{dropItem.description}</div>
-                            </a>
-                          </Link>
-                        ))}
+                      <div
+                        className="absolute left-1/2 -translate-x-1/2 top-full pt-1 z-50 min-w-[320px] sm:min-w-[480px]"
+                        onMouseEnter={cancelCloseServices}
+                        onMouseLeave={closeServicesDelayed}
+                      >
+                        <div className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+                          <div className="grid sm:grid-cols-3 divide-x-2 divide-black">
+                            {item.dropdown.map((dropItem, dropIndex) => {
+                              const Icon = dropItem.icon === 'share' ? Share2 : dropItem.icon === 'chart' ? BarChart3 : FileCheck
+                              return (
+                                <Link key={dropIndex} href={dropItem.href}>
+                                  <a
+                                    className="group block px-5 py-5 hover:bg-blue-600 hover:text-white transition-colors duration-150 border-b-0"
+                                    onClick={() => setServicesOpen(false)}
+                                  >
+                                    <div className="flex items-start gap-3">
+                                      <div className="shrink-0 w-10 h-10 border-2 border-black flex items-center justify-center bg-white group-hover:bg-blue-100 group-hover:border-blue-600 transition-colors">
+                                        <Icon className="w-5 h-5" />
+                                      </div>
+                                      <div>
+                                        <div className="font-black text-sm mb-1">{dropItem.label}</div>
+                                        <div className="text-xs opacity-90 leading-snug">{dropItem.description}</div>
+                                      </div>
+                                    </div>
+                                  </a>
+                                </Link>
+                              )
+                            })}
+                          </div>
+                        </div>
                       </div>
                     )}
                   </div>
