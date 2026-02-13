@@ -152,7 +152,7 @@ export function Navigation({ variant = 'default', onContactClick, onVideoClick }
                     
                     {servicesOpen && (
                       <div
-                        className="absolute left-1/2 -translate-x-1/2 top-full pt-1 z-50 min-w-[320px] sm:min-w-[480px]"
+                        className="absolute left-1/2 -translate-x-1/2 top-full pt-1 z-50 w-[320px] sm:w-[600px]"
                         onMouseEnter={cancelCloseServices}
                         onMouseLeave={closeServicesDelayed}
                       >
@@ -163,17 +163,17 @@ export function Navigation({ variant = 'default', onContactClick, onVideoClick }
                               return (
                                 <Link key={dropIndex} href={dropItem.href}>
                                   <a
-                                    className="group block px-5 py-5 hover:bg-blue-600 hover:text-white transition-colors duration-150 border-b-0"
+                                    className="group block px-5 py-6 hover:bg-blue-600 hover:text-white transition-colors duration-150 border-b-0"
                                     onClick={() => setServicesOpen(false)}
                                   >
-                                    <div className="flex items-start gap-3">
-                                      <div className="shrink-0 w-10 h-10 border-2 border-black flex items-center justify-center bg-white group-hover:bg-blue-100 group-hover:border-blue-600 transition-colors">
+                                    <div className="flex flex-col gap-3">
+                                      <div className="shrink-0 w-11 h-11 border-2 border-black flex items-center justify-center bg-white group-hover:bg-blue-100 group-hover:border-blue-600 transition-colors">
                                         <Icon className="w-5 h-5" />
                                       </div>
-                                      <div>
-                                        <div className="font-black text-sm mb-1">{dropItem.label}</div>
-                                        <div className="text-xs opacity-90 leading-snug">{dropItem.description}</div>
-                                      </div>
+                                      <div className="font-black text-sm leading-tight">{dropItem.label}</div>
+                                      <p className="text-sm text-gray-600 group-hover:text-blue-100 leading-relaxed min-h-[2.5rem]">
+                                        {dropItem.description}
+                                      </p>
                                     </div>
                                   </a>
                                 </Link>
