@@ -4,7 +4,7 @@
  */
 
 import { SectorData } from '@/types/sector'
-import { calculateFullFinancing, formatCurrency, formatPercent } from '@/utils/financialCalculations'
+import { compareVDMKvsFactoring, calculateBankLoanCost, formatCurrency, formatPercent } from '@/utils/financialCalculations'
 import { FINANCIAL_DATA } from '@/lib/config/financialData'
 
 export const otomotivB2BData: SectorData = {
@@ -78,52 +78,17 @@ export const otomotivB2BData: SectorData = {
       },
       
       financialImpact: (() => {
-        const calc = calculateFullFinancing(192_000_000, 120, FINANCIAL_DATA.rates.factoring.discountRate.value, 160_000_000, 1.5)
-        
+        const principal = 192_000_000
+        const term = 120
+        const comparison = compareVDMKvsFactoring(principal, term, 46, 50)
         return [
-          {
-            label: 'VDMK Finansman Maliyeti',
-            value: formatCurrency(calc.vdmkCost),
-            detail: `120 gün, %${FINANCIAL_DATA.rates.vdmk.discountRate.value} yıllık`,
-            highlight: false
-          },
-          {
-            label: 'Alternatif Faktoring',
-            value: formatCurrency(calc.bankCost),
-            detail: `%${FINANCIAL_DATA.rates.factoring.discountRate.value} yıllık faktoring`,
-            highlight: false
-          },
-          {
-            label: 'Üretici Erken Ödeme Kazancı',
-            value: formatCurrency(calc.supplierDiscount),
-            detail: '%1.5 iskonto, 30 gün erken',
-            highlight: false
-          },
-          {
-            label: 'Net Tasarruf',
-            value: formatCurrency(calc.netSavings),
-            detail: 'VDMK vs Faktoring + Üretici İskontosu',
-            savingsVsBank: formatCurrency(calc.bankCost - calc.vdmkCost),
-            highlight: true
-          },
-          {
-            label: 'ROI (Yatırım Getirisi)',
-            value: formatPercent(calc.roi, 2),
-            detail: '120 günlük dönem için',
-            highlight: true
-          },
-          {
-            label: 'Nakit Döngüsü İyileşmesi',
-            value: '90 gün',
-            detail: '150 gün → 60 gün',
-            highlight: true
-          },
-          {
-            label: 'Aylık Satış Kapasitesi Artışı',
-            value: '+%35',
-            detail: 'Likidite ile kapasite artışı',
-            highlight: false
-          }
+          { label: 'VDMK: Şirkete Giren Nakit (İlk Gün)', value: formatCurrency(comparison.vdmk.upfrontCash), detail: '%100 nakit girişi', highlight: true, icon: '✅' },
+          { label: 'VDMK: Toplam Maliyet (Vade Sonunda)', value: formatCurrency(comparison.vdmk.totalCost), detail: `%46 + %0.5, ${term} gün`, highlight: true },
+          { label: 'Faktoring: Şirkete Giren Nakit', value: formatCurrency(comparison.factoring.netCashReceived), detail: `${formatPercent(comparison.factoring.cashUtilizationRate, 1)} (peşin kesinti)`, isAlternative: true, icon: '❌' },
+          { label: 'AVANTAJ: Daha Fazla Nakit (İlk Gün)', value: formatCurrency(comparison.cashDifference), detail: `VDMK ile ${formatPercent(comparison.utilizationDifference, 1)} daha fazla nakit`, highlight: true, icon: '💰' },
+          { label: 'AVANTAJ: Daha Düşük Maliyet', value: formatCurrency(comparison.costDifference), detail: `%${comparison.costSavingsPercent.toFixed(1)} tasarruf`, highlight: true, icon: '📉' },
+          { label: 'ROI (Yatırım Getirisi)', value: formatPercent((comparison.cashDifference / principal) * 100, 2), detail: `${term} günlük dönem için` },
+          { label: 'Nakit Döngüsü İyileşmesi', value: '90 gün', detail: '150 gün → 60 gün', highlight: true }
         ]
       })()
     },
@@ -162,55 +127,20 @@ export const otomotivB2BData: SectorData = {
       },
       
       financialImpact: (() => {
-        const calc = calculateFullFinancing(85_000_000, 90, 43, 80_000_000, 2)
+        const principal = 85_000_000
+        const term = 90
+        const comparison = compareVDMKvsFactoring(principal, term, 46, 50)
         const salesRevenue = 100 * 1_400_000 * 0.70
-        const grossMargin = 0.08
-        const grossProfit = salesRevenue * grossMargin
-        const netProfit = grossProfit - calc.vdmkCost + calc.supplierDiscount
-        
+        const grossProfit = salesRevenue * 0.08
+        const netProfit = grossProfit - comparison.vdmk.totalCost
         return [
-          {
-            label: 'Lansman Satış Hedefi',
-            value: formatCurrency(salesRevenue),
-            detail: '70 araç × 1.4M TL',
-            highlight: false
-          },
-          {
-            label: 'Brüt Kar (%8 marj)',
-            value: formatCurrency(grossProfit),
-            detail: 'Otomotiv tipik marjı',
-            highlight: false
-          },
-          {
-            label: 'VDMK Finansman Maliyeti',
-            value: formatCurrency(calc.vdmkCost),
-            detail: `90 gün, %${FINANCIAL_DATA.rates.vdmk.discountRate.value} yıllık`,
-            highlight: false
-          },
-          {
-            label: 'Üretici Peşin Ödeme İskontosu',
-            value: formatCurrency(calc.supplierDiscount),
-            detail: '%2 iskonto',
-            highlight: false
-          },
-          {
-            label: 'Net Lansman Karı',
-            value: formatCurrency(netProfit),
-            detail: 'Brüt kar - Finansman + İskonto',
-            highlight: true
-          },
-          {
-            label: 'Alternatif Banka Stok Kredisi',
-            value: formatCurrency(calc.bankCost),
-            detail: `%${FINANCIAL_DATA.rates.interestRates.stockFinancing.value} faiz`,
-            highlight: false
-          },
-          {
-            label: 'Tasarruf (VDMK vs Faktoring)',
-            value: formatCurrency(calc.bankCost - calc.vdmkCost),
-            detail: 'Düşük maliyet avantajı',
-            highlight: true
-          }
+          { label: 'Lansman Satış Hedefi', value: formatCurrency(salesRevenue), detail: '70 araç × 1.4M TL', highlight: false },
+          { label: 'VDMK: Şirkete Giren Nakit (İlk Gün)', value: formatCurrency(comparison.vdmk.upfrontCash), detail: '%100 nakit girişi', highlight: true, icon: '✅' },
+          { label: 'VDMK: Toplam Maliyet (Vade Sonunda)', value: formatCurrency(comparison.vdmk.totalCost), detail: `%46 + %0.5, ${term} gün`, highlight: true },
+          { label: 'Faktoring: Şirkete Giren Nakit', value: formatCurrency(comparison.factoring.netCashReceived), detail: `${formatPercent(comparison.factoring.cashUtilizationRate, 1)} (peşin kesinti)`, isAlternative: true, icon: '❌' },
+          { label: 'AVANTAJ: Daha Fazla Nakit (İlk Gün)', value: formatCurrency(comparison.cashDifference), detail: `VDMK ile ${formatPercent(comparison.utilizationDifference, 1)} daha fazla nakit`, highlight: true, icon: '💰' },
+          { label: 'Net Lansman Karı', value: formatCurrency(netProfit), detail: 'Brüt kar - VDMK maliyeti', highlight: true },
+          { label: 'ROI (Yatırım Getirisi)', value: formatPercent((comparison.cashDifference / principal) * 100, 2), detail: `${term} günlük dönem için` }
         ]
       })()
     },
@@ -249,58 +179,17 @@ export const otomotivB2BData: SectorData = {
       },
       
       financialImpact: (() => {
-        const calc = calculateFullFinancing(60_000_000, 75, 44, 0, 0)
-        const turnoverImprovement = 42_000_000 * 0.40 * 12
-        
+        const principal = 60_000_000
+        const term = 75
+        const comparison = compareVDMKvsFactoring(principal, term, 46, 50)
         return [
-          {
-            label: 'Nakit Döngüsü İyileşmesi',
-            value: '68 gün',
-            detail: '75 gün → 7 gün',
-            highlight: true
-          },
-          {
-            label: 'VDMK Maliyeti (2.5 Aylık)',
-            value: formatCurrency(calc.vdmkCost),
-            detail: `75 gün, %${FINANCIAL_DATA.rates.vdmk.discountRate.value} yıllık`,
-            highlight: false
-          },
-          {
-            label: 'Net Finansman',
-            value: formatCurrency(calc.netFinancing),
-            detail: 'Elde edilen nakit',
-            highlight: false
-          },
-          {
-            label: 'Stok Devir Hızı Artışı',
-            value: '%65',
-            detail: 'Likidite ile hızlanma',
-            highlight: true
-          },
-          {
-            label: 'Yıllık Ek Ciro Potansiyeli',
-            value: formatCurrency(turnoverImprovement),
-            detail: '%40 devir hızı artışı',
-            highlight: true
-          },
-          {
-            label: 'Aylık Araç Kapasitesi',
-            value: '120 → 180',
-            detail: '%50 kapasite artışı',
-            highlight: true
-          },
-          {
-            label: 'Alternatif Nakit Kredi Maliyeti',
-            value: formatCurrency(calc.bankCost),
-            detail: `%${FINANCIAL_DATA.rates.interestRates.cashCredit.value} faiz`,
-            highlight: false
-          },
-          {
-            label: 'Tasarruf (VDMK vs Faktoring)',
-            value: formatCurrency(calc.bankCost - calc.vdmkCost),
-            detail: '2.5 aylık maliyet avantajı',
-            highlight: true
-          }
+          { label: 'VDMK: Şirkete Giren Nakit (İlk Gün)', value: formatCurrency(comparison.vdmk.upfrontCash), detail: '%100 nakit girişi', highlight: true, icon: '✅' },
+          { label: 'VDMK: Toplam Maliyet (Vade Sonunda)', value: formatCurrency(comparison.vdmk.totalCost), detail: `%46 + %0.5, ${term} gün`, highlight: true },
+          { label: 'Faktoring: Şirkete Giren Nakit', value: formatCurrency(comparison.factoring.netCashReceived), detail: `${formatPercent(comparison.factoring.cashUtilizationRate, 1)} (peşin kesinti)`, isAlternative: true, icon: '❌' },
+          { label: 'AVANTAJ: Daha Fazla Nakit (İlk Gün)', value: formatCurrency(comparison.cashDifference), detail: `VDMK ile ${formatPercent(comparison.utilizationDifference, 1)} daha fazla nakit`, highlight: true, icon: '💰' },
+          { label: 'AVANTAJ: Daha Düşük Maliyet', value: formatCurrency(comparison.costDifference), detail: `%${comparison.costSavingsPercent.toFixed(1)} tasarruf`, highlight: true, icon: '📉' },
+          { label: 'Nakit Döngüsü İyileşmesi', value: '68 gün', detail: '75 gün → 7 gün', highlight: true },
+          { label: 'ROI (Yatırım Getirisi)', value: formatPercent((comparison.cashDifference / principal) * 100, 2), detail: `${term} günlük dönem için` }
         ]
       })()
     }

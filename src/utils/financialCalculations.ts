@@ -179,6 +179,131 @@ export function calculateFullFinancing(
 }
 
 /**
+ * Faktoring - Net Nakit Hesaplama
+ * Faktoring'de iskonto ve komisyon peşin kesilir
+ */
+export function calculateFactoringNetCash(
+  principal: number,
+  annualRate: number = 50,
+  days: number,
+  commission: number = 1.5
+): {
+  grossAmount: number
+  discountDeduction: number
+  commissionDeduction: number
+  totalDeduction: number
+  netCashReceived: number
+  cashUtilizationRate: number
+  effectiveRate: number
+} {
+  const dailyRate = annualRate / 365
+  const discountDeduction = principal * (dailyRate / 100) * days
+  const commissionDeduction = principal * (commission / 100)
+  const totalDeduction = discountDeduction + commissionDeduction
+  const netCashReceived = principal - totalDeduction
+  const cashUtilizationRate = (netCashReceived / principal) * 100
+  const effectiveRate = (totalDeduction / netCashReceived) * (365 / days) * 100
+  return {
+    grossAmount: principal,
+    discountDeduction,
+    commissionDeduction,
+    totalDeduction,
+    netCashReceived,
+    cashUtilizationRate,
+    effectiveRate
+  }
+}
+
+/**
+ * VDMK - Net Nakit Hesaplama
+ * VDMK'de alacağın %100'ü şirkete girer, maliyet vade sonunda ödenir
+ */
+export function calculateVDMKNetCash(
+  principal: number,
+  annualRate: number = 46,
+  days: number,
+  commission: number = 0.5
+): {
+  grossAmount: number
+  upfrontCash: number
+  discountCost: number
+  commissionCost: number
+  totalCost: number
+  dueAtMaturity: number
+  netAfterMaturity: number
+  cashUtilizationRate: number
+  effectiveRate: number
+} {
+  const dailyRate = annualRate / 365
+  const discountCost = principal * (dailyRate / 100) * days
+  const commissionCost = principal * (commission / 100)
+  const totalCost = discountCost + commissionCost
+  const dueAtMaturity = principal + totalCost
+  const netAfterMaturity = principal - totalCost
+  return {
+    grossAmount: principal,
+    upfrontCash: principal,
+    discountCost,
+    commissionCost,
+    totalCost,
+    dueAtMaturity,
+    netAfterMaturity,
+    cashUtilizationRate: 100,
+    effectiveRate: (totalCost / principal) * (365 / days) * 100
+  }
+}
+
+/**
+ * VDMK vs Faktoring Detaylı Karşılaştırma
+ */
+export function compareVDMKvsFactoring(
+  principal: number,
+  days: number,
+  vdmkRate: number = 46,
+  factoringRate: number = 50
+): {
+  factoring: ReturnType<typeof calculateFactoringNetCash>
+  vdmk: ReturnType<typeof calculateVDMKNetCash>
+  cashDifference: number
+  cashDifferencePercent: number
+  costDifference: number
+  costSavingsPercent: number
+  utilizationDifference: number
+  summary: {
+    title: string
+    description: string
+    highlights: string[]
+  }
+} {
+  const factoring = calculateFactoringNetCash(principal, factoringRate, days, 1.5)
+  const vdmk = calculateVDMKNetCash(principal, vdmkRate, days, 0.5)
+  const cashDifference = vdmk.upfrontCash - factoring.netCashReceived
+  const cashDifferencePercent = (cashDifference / factoring.netCashReceived) * 100
+  const costDifference = factoring.totalDeduction - vdmk.totalCost
+  const costSavingsPercent = (costDifference / factoring.totalDeduction) * 100
+  const utilizationDifference = vdmk.cashUtilizationRate - factoring.cashUtilizationRate
+  return {
+    factoring,
+    vdmk,
+    cashDifference,
+    cashDifferencePercent,
+    costDifference,
+    costSavingsPercent,
+    utilizationDifference,
+    summary: {
+      title: 'VDMK ile Çift Avantaj',
+      description: `${formatCurrency(cashDifference)} daha fazla nakit + ${formatCurrency(costDifference)} daha düşük maliyet`,
+      highlights: [
+        `İlk gün ${formatCurrency(cashDifference)} daha fazla nakit`,
+        `Toplam ${formatCurrency(costDifference)} tasarruf (%${costSavingsPercent.toFixed(1)})`,
+        'Bilanço dışı finansman',
+        'Ölçeklenebilir yapı'
+      ]
+    }
+  }
+}
+
+/**
  * Para Formatı
  */
 export function formatCurrency(amount: number): string {

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { FAQSection } from "@/components/seo/FAQSection";
@@ -137,6 +138,15 @@ export default function Home() {
                 >
                   Daha Fazla Bilgi
                 </Button>
+                <Link href="/hesaplayici">
+                  <Button 
+                    size="lg"
+                    variant="outline"
+                    className="bg-white text-black border-2 border-black hover:bg-black hover:text-white font-bold text-lg px-8 py-6"
+                  >
+                    Farkı Hesapla
+                  </Button>
+                </Link>
               </div>
             </div>
 

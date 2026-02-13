@@ -17,7 +17,7 @@ export function FactoringHero() {
 
           {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl font-black mb-8 leading-none">
-            Factoring mi,<br />
+            Faktoring mi,<br />
             Sermaye Piyasası<br />
             Finansmanı mı?
           </h1>
@@ -28,31 +28,40 @@ export function FactoringHero() {
           </div>
 
           {/* Hero Description */}
-          <div className="text-xl md:text-2xl text-gray-300 leading-relaxed space-y-4">
+          <div className="text-xl md:text-2xl text-gray-300 leading-relaxed space-y-4 mb-12">
             <p>
               Şirketlerin nakit akışı problemi aynı, çözümler ise çok farklı.
             </p>
             <p>
-              <span className="text-white font-bold">Factoring</span> kısa vadeli bir kredi yaklaşımı sunarken, 
-              <span className="text-blue-600 font-bold"> Kolaymoney VDMK modeli</span>, ticari alacakları 
-              <span className="text-white font-bold"> bilanço dışı, ölçeklenebilir ve yatırımcı tabanlı</span> bir 
-              finansman aracına dönüştürür.
+              <span className="text-white font-bold">Faktoring</span> yüksek maliyetli
+              (%50 iskonto + %1.5 komisyon) ve peşin kesintili bir kredi yaklaşımıdır.
+            </p>
+            <p>
+              <span className="text-blue-600 font-bold">Kolaymoney VDMK modeli</span>
+              (%46 iskonto + %0.5 komisyon), alacağınızın{' '}
+              <span className="text-white font-bold">%100&apos;ünü nakit olarak verir</span>,
+              maliyet vade sonunda ödenir,{' '}
+              <span className="text-white font-bold">bilanço dışı kalır</span> ve{' '}
+              <span className="text-white font-bold">ölçeklenebilir</span>dir.
             </p>
           </div>
 
           {/* Quick Stats */}
-          <div className="grid grid-cols-3 gap-4 mt-12">
-            <div className="border-2 border-blue-600 p-4 bg-black hover:bg-blue-600 hover:text-black transition-colors">
-              <div className="text-blue-600 font-mono text-3xl font-black mb-2 group-hover:text-black">0</div>
+          <div className="grid grid-cols-3 gap-4">
+            <div className="border-2 border-blue-600 p-4">
+              <div className="text-blue-600 font-mono text-3xl font-black mb-2">%100</div>
+              <div className="text-sm uppercase tracking-wider">Nakit Girişi</div>
+              <div className="text-xs text-gray-400 mt-1">Kesinti yok</div>
+            </div>
+            <div className="border-2 border-white p-4">
+              <div className="text-white font-mono text-3xl font-black mb-2">%14</div>
+              <div className="text-sm uppercase tracking-wider">Daha Ucuz</div>
+              <div className="text-xs text-gray-400 mt-1">Faktoring&apos;e göre</div>
+            </div>
+            <div className="border-2 border-blue-600 p-4">
+              <div className="text-blue-600 font-mono text-3xl font-black mb-2">0</div>
               <div className="text-sm uppercase tracking-wider">Bilanço Borcu</div>
-            </div>
-            <div className="border-2 border-white p-4 bg-black hover:bg-white hover:text-black transition-colors">
-              <div className="text-white font-mono text-3xl font-black mb-2">∞</div>
-              <div className="text-sm uppercase tracking-wider">Ölçeklenebilirlik</div>
-            </div>
-            <div className="border-2 border-blue-600 p-4 bg-black hover:bg-blue-600 hover:text-black transition-colors">
-              <div className="text-blue-600 font-mono text-3xl font-black mb-2">SPK</div>
-              <div className="text-sm uppercase tracking-wider">Düzenleme</div>
+              <div className="text-xs text-gray-400 mt-1">Dışarıda kalır</div>
             </div>
           </div>
         </div>

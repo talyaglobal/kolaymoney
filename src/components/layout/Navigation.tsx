@@ -57,6 +57,7 @@ const navItems: NavItem[] = [
       }
     ]
   },
+  { href: '/hesaplayici', label: 'Hesaplayıcı', badge: 'YENİ', highlight: true },
   { 
     href: '/neden-factoring-degil', 
     label: 'Neden Factoring Değil?',

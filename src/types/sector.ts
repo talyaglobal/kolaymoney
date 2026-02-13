@@ -8,6 +8,8 @@ export interface FinancialImpact {
   detail?: string
   savingsVsBank?: string
   highlight?: boolean // Önemli metrikleri vurgula
+  icon?: string // Emoji (✅, ❌, 💰, 📉, 📊)
+  isAlternative?: boolean // Faktoring/banka satırları için
 }
 
 export interface CalculationDetails {

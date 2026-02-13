@@ -27,6 +27,9 @@ import { BlogListPage } from './pages/blog/BlogListPage'
 import { BlogPostPage } from './pages/blog/BlogPostPage'
 import { WhyNotFactoringPage } from './pages/WhyNotFactoringPage'
 import { FactoringTransitionGuidePage } from './pages/FactoringTransitionGuidePage'
+import { VDMKFactoringCalculator } from './components/calculators/VDMKFactoringCalculator'
+import { Navigation } from './components/layout/Navigation'
+import { Footer } from './components/layout/Footer'
 import { PreApplicationService } from './pages/services/PreApplicationService'
 import { FundReferralService } from './pages/services/FundReferralService'
 import { OriginatorScoringService } from './pages/services/OriginatorScoringService'
@@ -76,6 +79,21 @@ function AppRoutes() {
       <Route path="/blog" component={BlogListPage} />
       <Route path="/blog/:slug">
         {() => <BlogPostPage />}
+      </Route>
+      
+      {/* Calculator */}
+      <Route path="/hesaplayici">
+        {() => (
+          <div className="min-h-screen flex flex-col bg-white">
+            <Navigation variant="default" />
+            <main className="flex-1 py-20 bg-gray-50">
+              <div className="container max-w-6xl mx-auto">
+                <VDMKFactoringCalculator />
+              </div>
+            </main>
+            <Footer />
+          </div>
+        )}
       </Route>
       
       {/* Factoring Comparison */}

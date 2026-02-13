@@ -1,23 +1,46 @@
 /**
  * Comparison Table Section
  * Factoring vs VDMK side-by-side comparison
+ * 10M TL / 90 gün sayıları hesaplanmış
  */
 
 import { FINANCIAL_DATA } from '@/lib/config/financialData'
+import { compareVDMKvsFactoring, formatCurrency } from '@/utils/financialCalculations'
+
+const COMPARISON_10M_90 = compareVDMKvsFactoring(10_000_000, 90, 46, 50)
 
 export function ComparisonTable() {
   const comparisons = [
     {
-      criterion: 'Yıllık Maliyet',
-      factoring: `%${FINANCIAL_DATA.rates.factoring.discountRate.value} + %${FINANCIAL_DATA.rates.factoring.commission.value} komisyon`,
-      vdmk: `%${FINANCIAL_DATA.rates.vdmk.discountRate.value} + %${FINANCIAL_DATA.rates.vdmk.commission.value} komisyon`,
+      criterion: 'İskonto/Faiz Oranı',
+      factoring: '%50 yıllık',
+      vdmk: '%46 yıllık',
+      winner: 'vdmk'
+    },
+    {
+      criterion: 'Komisyon Oranı',
+      factoring: '%1.5 (tek seferlik)',
+      vdmk: '%0.5 (tek seferlik)',
+      winner: 'vdmk'
+    },
+    {
+      criterion: 'Nakit Girişi (10M TL alacak)',
+      factoring: `${formatCurrency(COMPARISON_10M_90.factoring.netCashReceived)} (%${COMPARISON_10M_90.factoring.cashUtilizationRate.toFixed(0)})`,
+      vdmk: `${formatCurrency(COMPARISON_10M_90.vdmk.upfrontCash)} (%100)`,
       winner: 'vdmk',
       highlight: true
     },
     {
-      criterion: 'Hukuki Yapı',
-      factoring: 'Kredi / alacak temliki',
-      vdmk: 'Menkul kıymetleştirme',
+      criterion: 'Kesinti Zamanlaması',
+      factoring: 'Peşin kesilir',
+      vdmk: 'Vade sonunda ödenir',
+      winner: 'vdmk',
+      highlight: true
+    },
+    {
+      criterion: 'Toplam Maliyet (10M TL, 90 gün)',
+      factoring: formatCurrency(COMPARISON_10M_90.factoring.totalDeduction),
+      vdmk: formatCurrency(COMPARISON_10M_90.vdmk.totalCost),
       winner: 'vdmk'
     },
     {
@@ -34,14 +57,8 @@ export function ComparisonTable() {
     },
     {
       criterion: 'Ölçeklenebilirlik',
-      factoring: 'Sınırlı',
-      vdmk: 'Yüksek',
-      winner: 'vdmk'
-    },
-    {
-      criterion: 'Maliyet Yapısı',
-      factoring: 'Faiz + komisyon',
-      vdmk: 'İskonto bazlı',
+      factoring: 'Sınırlı (firma limitleri)',
+      vdmk: 'Yüksek (piyasa derinliği)',
       winner: 'vdmk'
     },
     {
@@ -51,7 +68,7 @@ export function ComparisonTable() {
       winner: 'vdmk'
     },
     {
-      criterion: 'Şeffaflık',
+      criterion: 'Şeffaflık & Denetim',
       factoring: 'Sözleşme bazlı',
       vdmk: 'SPK + bağımsız denetim',
       winner: 'vdmk'
@@ -71,6 +88,9 @@ export function ComparisonTable() {
           <h2 className="text-4xl md:text-5xl font-black mb-4">
             Factoring vs VDMK
           </h2>
+          <p className="text-xl text-gray-600">
+            Her kriterde farkı görün
+          </p>
         </div>
 
         {/* Desktop Table */}
@@ -103,9 +123,7 @@ export function ComparisonTable() {
                     ${row.highlight ? 'bg-yellow-50' : ''}
                   `}>
                     {row.criterion}
-                    {row.highlight && (
-                      <span className="ml-2 text-yellow-600">💰</span>
-                    )}
+                    {row.highlight && <span className="ml-2">⭐</span>}
                   </td>
                   <td className={`
                     border-2 border-black p-4 text-center
@@ -121,7 +139,7 @@ export function ComparisonTable() {
                   `}>
                     {row.vdmk}
                     {row.winner === 'vdmk' && (
-                      <span className="ml-2 text-blue-600">✓</span>
+                      <span className={`ml-2 text-xl ${row.highlight ? 'text-white' : 'text-blue-600'}`}>✓</span>
                     )}
                   </td>
                 </tr>
@@ -142,7 +160,7 @@ export function ComparisonTable() {
             >
               <h3 className="font-black text-lg mb-4">
                 {row.criterion}
-                {row.highlight && <span className="ml-2 text-yellow-600">💰</span>}
+                {row.highlight && <span className="ml-2">⭐</span>}
               </h3>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
@@ -165,6 +183,19 @@ export function ComparisonTable() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Summary Box */}
+        <div className="mt-12 bg-black text-white p-8 border-2 border-black">
+          <div className="text-center">
+            <div className="text-2xl font-black mb-4">Özet:</div>
+            <div className="text-lg space-y-2">
+              <div>✓ <span className="text-blue-400">%{COMPARISON_10M_90.cashDifferencePercent.toFixed(1)}</span> daha fazla nakit (ilk gün)</div>
+              <div>✓ <span className="text-blue-400">%{COMPARISON_10M_90.costSavingsPercent.toFixed(1)}</span> daha düşük maliyet</div>
+              <div>✓ <span className="text-blue-400">Bilanço dışı</span> finansman</div>
+              <div>✓ <span className="text-blue-400">Ölçeklenebilir</span> yapı</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

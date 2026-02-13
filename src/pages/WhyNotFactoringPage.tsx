@@ -11,6 +11,8 @@ import { VDMKModelExplained } from '@/components/factoring/VDMKModelExplained'
 import { BankLimitProblem } from '@/components/factoring/BankLimitProblem'
 import { CostComparison } from '@/components/factoring/CostComparison'
 import { ComparisonTable } from '@/components/factoring/ComparisonTable'
+import { NetCashVisualComparison } from '@/components/comparisons/NetCashVisualComparison'
+import { VDMKFactoringCalculator } from '@/components/calculators/VDMKFactoringCalculator'
 import { ThreeProblemsSection } from '@/components/factoring/ThreeProblemsSection'
 import { WhoIsItForSection } from '@/components/factoring/WhoIsItForSection'
 import { TransitionCTA } from '@/components/factoring/TransitionCTA'
@@ -103,17 +105,27 @@ export function WhyNotFactoringPage() {
       {/* Hero Section */}
       <FactoringHero />
 
+      {/* Net Nakit Karşılaştırması */}
+      <NetCashVisualComparison />
+
       {/* Factoring Explained */}
       <FactoringExplained />
 
       {/* VDMK Model Explained */}
       <VDMKModelExplained />
 
-      {/* Bank Limit Problem - NEW */}
+      {/* Bank Limit Problem */}
       <BankLimitProblem />
 
       {/* Cost Comparison */}
       <CostComparison />
+
+      {/* İnteraktif Hesaplayıcı */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <VDMKFactoringCalculator />
+        </div>
+      </section>
 
       {/* Comparison Table */}
       <ComparisonTable />
