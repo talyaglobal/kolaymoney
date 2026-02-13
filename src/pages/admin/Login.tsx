@@ -26,6 +26,7 @@ export function AdminLogin() {
     try {
       // Simple admin bypass for development
       if (data.password === 'talyasmart') {
+        sessionStorage.setItem('admin_logged_in', 'true')
         setLocation('/admin')
         return
       }
