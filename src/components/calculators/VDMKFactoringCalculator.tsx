@@ -11,12 +11,28 @@ import {
   formatPercent
 } from '@/utils/financialCalculations'
 
+const DEFAULT_VDMK_RATE = 46
+const DEFAULT_VDMK_COMMISSION = 0.5
+const DEFAULT_FACTORING_RATE = 50
+const DEFAULT_FACTORING_COMMISSION = 1.5
+
 export function VDMKFactoringCalculator() {
   const [principal, setPrincipal] = useState(10_000_000)
   const [days, setDays] = useState(90)
   const [showDetails, setShowDetails] = useState(false)
+  const [vdmkRate, setVdmkRate] = useState(DEFAULT_VDMK_RATE)
+  const [vdmkCommission, setVdmkCommission] = useState(DEFAULT_VDMK_COMMISSION)
+  const [factoringRate, setFactoringRate] = useState(DEFAULT_FACTORING_RATE)
+  const [factoringCommission, setFactoringCommission] = useState(DEFAULT_FACTORING_COMMISSION)
 
-  const comparison = compareVDMKvsFactoring(principal, days, 46, 50)
+  const comparison = compareVDMKvsFactoring(
+    principal,
+    days,
+    vdmkRate,
+    factoringRate,
+    vdmkCommission,
+    factoringCommission
+  )
 
   return (
     <div className="bg-white border-4 border-black p-8 md:p-12">
@@ -33,6 +49,18 @@ export function VDMKFactoringCalculator() {
         <p className="text-gray-600 text-lg">
           Kendi rakamlarınızla farkı görün
         </p>
+        <button
+          type="button"
+          onClick={() => {
+            setVdmkRate(DEFAULT_VDMK_RATE)
+            setVdmkCommission(DEFAULT_VDMK_COMMISSION)
+            setFactoringRate(DEFAULT_FACTORING_RATE)
+            setFactoringCommission(DEFAULT_FACTORING_COMMISSION)
+          }}
+          className="mt-2 text-sm text-gray-500 underline hover:text-blue-600"
+        >
+          Varsayılan oranlara dön (VDMK %46 / %0.5 · Faktoring %50 / %1.5)
+        </button>
       </div>
 
       {/* Inputs */}
@@ -103,11 +131,37 @@ export function VDMKFactoringCalculator() {
       <div className="grid md:grid-cols-2 gap-6 mb-8">
         {/* Faktoring */}
         <div className="bg-gray-50 border-2 border-black p-6">
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex items-center gap-3 mb-4">
             <div className="text-4xl">🏦</div>
             <div>
               <div className="text-2xl font-black">Faktoring</div>
               <div className="text-xs text-gray-600">Peşin kesinti yapılır</div>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-3 mb-4">
+            <div>
+              <label className="block text-xs font-bold text-gray-600 mb-1">İskonto % (yıllık)</label>
+              <input
+                type="number"
+                value={factoringRate}
+                onChange={(e) => setFactoringRate(Number(e.target.value) || 0)}
+                className="w-full bg-white border-2 border-black text-black font-mono text-sm p-2 focus:outline-none focus:border-blue-600"
+                min={0}
+                max={100}
+                step={0.5}
+              />
+            </div>
+            <div>
+              <label className="block text-xs font-bold text-gray-600 mb-1">Komisyon %</label>
+              <input
+                type="number"
+                value={factoringCommission}
+                onChange={(e) => setFactoringCommission(Number(e.target.value) || 0)}
+                className="w-full bg-white border-2 border-black text-black font-mono text-sm p-2 focus:outline-none focus:border-blue-600"
+                min={0}
+                max={20}
+                step={0.1}
+              />
             </div>
           </div>
           <div className="space-y-3 font-mono text-sm mb-6">
@@ -116,11 +170,11 @@ export function VDMKFactoringCalculator() {
               <span className="font-black">{formatCurrency(comparison.factoring.grossAmount)}</span>
             </div>
             <div className="flex justify-between items-center py-2 text-red-600">
-              <span>- İskonto (%50)</span>
+              <span>- İskonto (%{factoringRate})</span>
               <span className="font-black">-{formatCurrency(comparison.factoring.discountDeduction)}</span>
             </div>
             <div className="flex justify-between items-center py-2 text-red-600">
-              <span>- Komisyon (%1.5)</span>
+              <span>- Komisyon (%{factoringCommission})</span>
               <span className="font-black">-{formatCurrency(comparison.factoring.commissionDeduction)}</span>
             </div>
             <div className="flex justify-between items-center py-3 border-t-2 border-black bg-white px-3 -mx-3">
@@ -146,11 +200,37 @@ export function VDMKFactoringCalculator() {
 
         {/* VDMK */}
         <div className="bg-blue-600 border-2 border-black p-6 text-white">
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex items-center gap-3 mb-4">
             <div className="text-4xl">✅</div>
             <div>
               <div className="text-2xl font-black">VDMK</div>
               <div className="text-xs opacity-90">Maliyet vade sonunda</div>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-3 mb-4">
+            <div>
+              <label className="block text-xs font-bold text-white/90 mb-1">İskonto % (yıllık)</label>
+              <input
+                type="number"
+                value={vdmkRate}
+                onChange={(e) => setVdmkRate(Number(e.target.value) || 0)}
+                className="w-full bg-white text-black border-2 border-black font-mono text-sm p-2 focus:outline-none focus:border-black"
+                min={0}
+                max={100}
+                step={0.5}
+              />
+            </div>
+            <div>
+              <label className="block text-xs font-bold text-white/90 mb-1">Komisyon %</label>
+              <input
+                type="number"
+                value={vdmkCommission}
+                onChange={(e) => setVdmkCommission(Number(e.target.value) || 0)}
+                className="w-full bg-white text-black border-2 border-black font-mono text-sm p-2 focus:outline-none focus:border-black"
+                min={0}
+                max={20}
+                step={0.1}
+              />
             </div>
           </div>
           <div className="space-y-3 font-mono text-sm mb-6">
@@ -262,11 +342,11 @@ export function VDMKFactoringCalculator() {
             <div>
               <div className="font-bold mb-3 text-sm">FAKTORİNG DETAYLARI:</div>
               <div className="space-y-2 text-sm font-mono">
-                <div>İskonto Oranı: %50 yıllık</div>
-                <div>Günlük Oran: {formatPercent(50 / 365, 4)}</div>
+                <div>İskonto Oranı: %{factoringRate} yıllık</div>
+                <div>Günlük Oran: {formatPercent(factoringRate / 365, 4)}</div>
                 <div>Vade: {days} gün</div>
                 <div>İskonto Tutarı: {formatCurrency(comparison.factoring.discountDeduction)}</div>
-                <div>Komisyon: %1.5 = {formatCurrency(comparison.factoring.commissionDeduction)}</div>
+                <div>Komisyon: %{factoringCommission} = {formatCurrency(comparison.factoring.commissionDeduction)}</div>
                 <div className="pt-2 border-t">
                   Toplam Kesinti: {formatCurrency(comparison.factoring.totalDeduction)}
                 </div>
@@ -278,11 +358,11 @@ export function VDMKFactoringCalculator() {
             <div>
               <div className="font-bold mb-3 text-sm">VDMK DETAYLARI:</div>
               <div className="space-y-2 text-sm font-mono">
-                <div>İskonto Oranı: %46 yıllık</div>
-                <div>Günlük Oran: {formatPercent(46 / 365, 4)}</div>
+                <div>İskonto Oranı: %{vdmkRate} yıllık</div>
+                <div>Günlük Oran: {formatPercent(vdmkRate / 365, 4)}</div>
                 <div>Vade: {days} gün</div>
                 <div>İskonto Maliyeti: {formatCurrency(comparison.vdmk.discountCost)}</div>
-                <div>Komisyon: %0.5 = {formatCurrency(comparison.vdmk.commissionCost)}</div>
+                <div>Komisyon: %{vdmkCommission} = {formatCurrency(comparison.vdmk.commissionCost)}</div>
                 <div className="pt-2 border-t">
                   Toplam Maliyet: {formatCurrency(comparison.vdmk.totalCost)}
                 </div>

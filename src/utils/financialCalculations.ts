@@ -260,7 +260,9 @@ export function compareVDMKvsFactoring(
   principal: number,
   days: number,
   vdmkRate: number = 46,
-  factoringRate: number = 50
+  factoringRate: number = 50,
+  vdmkCommission: number = 0.5,
+  factoringCommission: number = 1.5
 ): {
   factoring: ReturnType<typeof calculateFactoringNetCash>
   vdmk: ReturnType<typeof calculateVDMKNetCash>
@@ -275,12 +277,16 @@ export function compareVDMKvsFactoring(
     highlights: string[]
   }
 } {
-  const factoring = calculateFactoringNetCash(principal, factoringRate, days, 1.5)
-  const vdmk = calculateVDMKNetCash(principal, vdmkRate, days, 0.5)
+  const factoring = calculateFactoringNetCash(principal, factoringRate, days, factoringCommission)
+  const vdmk = calculateVDMKNetCash(principal, vdmkRate, days, vdmkCommission)
   const cashDifference = vdmk.upfrontCash - factoring.netCashReceived
-  const cashDifferencePercent = (cashDifference / factoring.netCashReceived) * 100
+  const cashDifferencePercent = factoring.netCashReceived > 0
+    ? (cashDifference / factoring.netCashReceived) * 100
+    : 0
   const costDifference = factoring.totalDeduction - vdmk.totalCost
-  const costSavingsPercent = (costDifference / factoring.totalDeduction) * 100
+  const costSavingsPercent = factoring.totalDeduction > 0
+    ? (costDifference / factoring.totalDeduction) * 100
+    : 0
   const utilizationDifference = vdmk.cashUtilizationRate - factoring.cashUtilizationRate
   return {
     factoring,
