@@ -4,7 +4,7 @@
  */
 
 import { SectorData } from '@/types/sector'
-import { compareVDMKvsFactoring, calculateBankLoanCost, formatCurrency, formatPercent } from '@/utils/financialCalculations'
+import { compareVDMKvsFactoring, formatCurrency, formatPercent } from '@/utils/financialCalculations'
 import { FINANCIAL_DATA } from '@/lib/config/financialData'
 
 export const otomotivB2BData: SectorData = {

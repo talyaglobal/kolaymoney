@@ -4,7 +4,6 @@
  * 10M TL / 90 gün sayıları hesaplanmış
  */
 
-import { FINANCIAL_DATA } from '@/lib/config/financialData'
 import { compareVDMKvsFactoring, formatCurrency } from '@/utils/financialCalculations'
 
 const COMPARISON_10M_90 = compareVDMKvsFactoring(10_000_000, 90, 46, 50)
